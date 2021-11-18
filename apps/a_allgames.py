@@ -10,5 +10,6 @@ def app():
         AG = AG[(AG['AFTeam']==team)|(AG['AUTeam']==team)]
     st.dataframe(AG)
     
+    
      
     
