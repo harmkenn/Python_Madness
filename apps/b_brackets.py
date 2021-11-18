@@ -56,5 +56,6 @@ def app():
         #])
         
         #st.plotly_chart(fig)
-        st.dataframe(df)
+        st.dataframe(df,height=5000,width=5000)
+        
         
