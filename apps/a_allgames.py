@@ -8,7 +8,7 @@ def app():
     AG = pd.read_csv('data/B1_FavGames.csv')
     if team != "":
         AG = AG[(AG['AFTeam']==team)|(AG['AUTeam']==team)]
-    st.dataframe(AG)
+    st.dataframe(AG,height= 4000)
     
     
      
