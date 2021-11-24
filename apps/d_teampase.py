@@ -34,14 +34,13 @@ def app():
     pase['PASE']=pase.mean(axis=1)
     pase = pase.iloc[:,-1:]
     
+    pase.to_csv('data/d3_PASE.csv')   
+    
     team = st.text_input("Team: ",'')
     if team != "":
         pase = pase[pase.index.str.contains(team)]
     
-    pase = pase.style.set_properties(**{
-                    'background-color': 'midnightblue',
-                    'font-size': '12pt', 'width': '12px'
-                    })
+
              
     st.dataframe(pase)
 

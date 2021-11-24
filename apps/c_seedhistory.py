@@ -22,9 +22,6 @@ def app():
     nos = df.max().max()
     df['Exp Wins'] = (df.sum(axis=1)-nos)/nos
     df.to_csv('data/c3_SeedHistory.csv',index=False)    
-    df = df.style.set_properties(**{
-                    'background-color': 'midnightblue',
-                    'font-size': '12pt', 'width': '12px'
-                    })
+
              
     st.dataframe(df,height=5000,width=5000)

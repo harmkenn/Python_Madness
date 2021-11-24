@@ -16,11 +16,7 @@ def app():
     if team != "":
         cw = cw[cw.index.str.contains(team)]
     
-    cw = cw.style.set_properties(**{
-                    'background-color': 'midnightblue',
-                    'font-size': '8pt', 'width': '12px'
-                    })
-             
+            
     st.dataframe(cw)
 
     

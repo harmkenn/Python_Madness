@@ -56,10 +56,6 @@ def app():
             winner = Champ['AUTeam']
         df.loc[0,'Champ'] = winner
         
-        df = df.style.set_properties(**{
-                    'background-color': 'midnightblue',
-                    'font-size': '8pt', 'width': '10px'
-                    })
                
         st.dataframe(df,height=5000,width=5000)
         
