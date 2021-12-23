@@ -485,7 +485,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 1992,2,NE,43,3,Massachusetts,77,6,Syracuse,71,43,41
 1992,2,NE,44,2,Kentucky,106,10,Iowa St.,98,47,46
 1992,2,SE,45,1,UCLA,85,8,Louisville,69,49,51
-1992,2,SE,46,12,New Mexico St.,81,13,Lafayette,73,54,#N/A
+1992,2,SE,46,12,New Mexico St.,81,13,Lafayette,73,54,65
 1992,2,SE,47,3,Florida St.,78,6,Georgetown,68,59,57
 1992,2,SE,48,2,Indiana,89,7,LSU,79,63,61
 1992,3,NW,49,4,Cincinnati,69,9,UTEP,67,7,4
@@ -1007,7 +1007,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2000,5,F4,61,1,Michigan St.,53,8,Wisconsin,41,17,3
 2000,5,F4,62,5,Florida,71,8,North Carolina,59,37,51
 2000,6,Champ,63,1,Michigan St.,89,5,Florida,76,17,37
-2001,PI,PI,-1,16,Northwestern St.,71,16,Winthrop,67,2,#N/A
+2001,PI,PI,-1,16,Northwestern St.,71,16,Winthrop,67,2,65
 2001,1,NW,1,1,Illinois,96,16,Northwestern St.,54,1,2
 2001,1,NW,2,8,Tennessee,63,9,Charlotte,70,3,4
 2001,1,NW,3,5,Syracuse,79,12,Hawaii,69,5,6
@@ -1071,7 +1071,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2001,5,F4,61,1,Michigan St.,61,2,Arizona,80,17,15
 2001,5,F4,62,1,Duke,95,3,Maryland,84,33,59
 2001,6,Champ,63,1,Duke,82,2,Arizona,72,33,15
-2002,PI,PI,-1,16,Siena,81,16,Alcorn St.,77,34,#N/A
+2002,PI,PI,-1,16,Siena,81,16,Alcorn St.,77,34,65
 2002,1,NW,1,1,Duke,84,16,Winthrop,37,1,2
 2002,1,NW,2,8,Notre Dame,82,9,Charlotte,63,3,4
 2002,1,NW,3,5,Indiana,75,12,Utah,56,5,6
@@ -1135,7 +1135,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2002,5,F4,61,2,Oklahoma,64,5,Indiana,73,31,5
 2002,5,F4,62,1,Maryland,97,1,Kansas,88,33,49
 2002,6,Champ,63,1,Maryland,64,5,Indiana,52,33,5
-2003,PI,PI,-1,16,UNC Asheville,92,16,Texas Southern,84,34,#N/A
+2003,PI,PI,-1,16,UNC Asheville,92,16,Texas Southern,84,34,65
 2003,1,NW,1,1,Kentucky,95,16,IUPUI,64,1,2
 2003,1,NW,2,8,Oregon,58,9,Utah,60,3,4
 2003,1,NW,3,5,Wisconsin,81,12,Weber St.,74,5,6
@@ -1199,7 +1199,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2003,5,F4,61,2,Kansas,94,3,Marquette,61,31,11
 2003,5,F4,62,1,Texas,84,3,Syracuse,95,33,59
 2003,6,Champ,63,2,Kansas,78,3,Syracuse,81,31,59
-2004,PI,PI,-1,16,Florida A&M,72,16,Lehigh,57,2,#N/A
+2004,PI,PI,-1,16,Florida A&M,72,16,Lehigh,57,2,65
 2004,1,NW,1,1,Kentucky,96,16,Florida A&M,76,1,2
 2004,1,NW,2,8,Washington,100,9,UAB,102,3,4
 2004,1,NW,3,5,Providence,58,12,Pacific,66,5,6
@@ -1263,7 +1263,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2004,5,F4,61,2,Oklahoma St.,65,3,Georgia Tech,67,31,11
 2004,5,F4,62,1,Duke,78,2,Connecticut,79,33,63
 2004,6,Champ,63,2,Connecticut,82,3,Georgia Tech,73,63,11
-2005,PI,PI,-1,16,Oakland,79,16,Alabama A&M,69,34,#N/A
+2005,PI,PI,-1,16,Oakland,79,16,Alabama A&M,69,34,65
 2005,1,NW,1,1,Illinois,67,16,Fairleigh Dickinson,55,1,2
 2005,1,NW,2,8,Texas,57,9,Nevada,61,3,4
 2005,1,NW,3,5,Alabama,73,12,Milwaukee,83,5,6
@@ -1327,7 +1327,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2005,5,F4,61,1,Illinois,72,4,Louisville,57,1,23
 2005,5,F4,62,1,North Carolina,87,5,Michigan St.,71,33,53
 2005,6,Champ,63,1,North Carolina,75,1,Illinois,70,33,1
-2006,PI,PI,-1,16,Monmouth,71,16,Hampton,49,50,#N/A
+2006,PI,PI,-1,16,Monmouth,71,16,Hampton,49,50,65
 2006,1,NW,1,1,Duke,70,16,Southern,54,1,2
 2006,1,NW,2,8,George Washington,88,9,UNC Wilmington,85,3,4
 2006,1,NW,3,5,Syracuse,58,12,Texas A&M,66,5,6
@@ -1391,7 +1391,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2006,5,F4,61,2,UCLA,59,4,LSU,45,31,7
 2006,5,F4,62,3,Florida,73,11,George Mason,58,59,42
 2006,6,Champ,63,2,UCLA,57,3,Florida,73,31,59
-2007,PI,PI,-1,16,Niagara,77,16,Florida A&M,69,18,#N/A
+2007,PI,PI,-1,16,Niagara,77,16,Florida A&M,69,18,65
 2007,1,NW,1,1,Florida,112,16,Jackson St.,69,1,2
 2007,1,NW,2,8,Arizona,63,9,Purdue,72,3,4
 2007,1,NW,3,5,Butler,57,12,Old Dominion,46,5,6
@@ -1455,7 +1455,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2007,5,F4,61,1,Florida,76,2,UCLA,66,1,31
 2007,5,F4,62,1,Ohio St.,67,2,Georgetown,60,49,47
 2007,6,Champ,63,1,Florida,84,1,Ohio St.,75,1,49
-2008,PI,PI,-1,16,Mount St. Mary's,69,16,Coppin St.,60,2,#N/A
+2008,PI,PI,-1,16,Mount St. Mary's,69,16,Coppin St.,60,2,65
 2008,1,NW,1,1,North Carolina,113,16,Mount St. Mary's,74,1,2
 2008,1,NW,2,8,Indiana,72,9,Arkansas,86,3,4
 2008,1,NW,3,5,Notre Dame,68,12,George Mason,50,5,6
@@ -1519,7 +1519,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2008,5,F4,61,1,Kansas,84,1,North Carolina,66,17,1
 2008,5,F4,62,1,Memphis,78,1,UCLA,63,33,49
 2008,6,Champ,63,1,Kansas,75,1,Memphis,68,17,33
-2009,PI,PI,-1,16,Morehead St.,58,16,Alabama St.,43,2,#N/A
+2009,PI,PI,-1,16,Morehead St.,58,16,Alabama St.,43,2,65
 2009,1,NW,1,1,Louisville,74,16,Morehead St.,54,1,2
 2009,1,NW,2,8,Ohio St.,72,9,Siena,74,3,4
 2009,1,NW,3,5,Utah,71,12,Arizona,84,5,6
@@ -1583,7 +1583,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2009,5,F4,61,1,Connecticut,73,2,Michigan St.,82,17,15
 2009,5,F4,62,1,North Carolina,83,3,Villanova,69,49,43
 2009,6,Champ,63,1,North Carolina,89,2,Michigan St.,72,49,15
-2010,PI,PI,-1,16,Arkansas Pine Bluff,61,16,Winthrop,44,50,#N/A
+2010,PI,PI,-1,16,Arkansas Pine Bluff,61,16,Winthrop,44,50,65
 2010,1,NW,1,1,Kansas,90,16,Lehigh,74,1,2
 2010,1,NW,2,8,UNLV,66,9,Northern Iowa,69,3,4
 2010,1,NW,3,5,Michigan St.,70,12,New Mexico St.,67,5,6
@@ -1647,10 +1647,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2010,5,F4,61,5,Butler,52,5,Michigan St.,50,21,5
 2010,5,F4,62,1,Duke,78,2,West Virginia,57,49,47
 2010,6,Champ,63,1,Duke,61,5,Butler,59,49,21
-2011,PI,PI,-4,16,UTSA,70,16,Alabama St.,61,2,#N/A
-2011,PI,PI,-3,12,Clemson,70,12,UAB,52,6,#N/A
-2011,PI,PI,-2,11,VCU,59,11,USC,46,42,#N/A
-2011,PI,PI,-1,16,UNC Asheville,81,16,Little Rock,77,50,#N/A
+2011,PI,PI,-4,16,UTSA,70,16,Alabama St.,61,2,65
+2011,PI,PI,-3,12,Clemson,70,12,UAB,52,6,65
+2011,PI,PI,-2,11,VCU,59,11,USC,46,42,65
+2011,PI,PI,-1,16,UNC Asheville,81,16,Little Rock,77,50,65
 2011,1,NW,1,1,Ohio St.,75,16,UTSA,46,1,2
 2011,1,NW,2,8,George Mason,61,9,Villanova,57,3,4
 2011,1,NW,3,5,West Virginia,84,12,Clemson,76,5,6
@@ -1714,10 +1714,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2011,5,F4,61,3,Connecticut,56,4,Kentucky,55,27,7
 2011,5,F4,62,8,Butler,70,11,VCU,62,51,42
 2011,6,Champ,63,3,Connecticut,53,8,Butler,41,27,51
-2012,PI,PI,-4,16,Western Kentucky,59,16,Mississippi Valley St.,58,2,#N/A
-2012,PI,PI,-3,14,BYU,78,14,Iona,72,28,#N/A
-2012,PI,PI,-2,16,Vermont,71,16,Lamar,59,50,#N/A
-2012,PI,PI,-1,12,South Florida,65,12,California,54,54,#N/A
+2012,PI,PI,-4,16,Western Kentucky,59,16,Mississippi Valley St.,58,2,65
+2012,PI,PI,-3,14,BYU,78,14,Iona,72,28,65
+2012,PI,PI,-2,16,Vermont,71,16,Lamar,59,50,65
+2012,PI,PI,-1,12,South Florida,65,12,California,54,54,65
 2012,1,NW,1,1,Kentucky,81,16,Western Kentucky,66,1,2
 2012,1,NW,2,8,Iowa St.,77,9,Connecticut,64,3,4
 2012,1,NW,3,5,Wichita St.,59,12,VCU,62,5,6
@@ -1781,10 +1781,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2012,5,F4,61,1,Kentucky,69,4,Louisville,61,1,23
 2012,5,F4,62,2,Kansas,64,2,Ohio St.,62,63,47
 2012,6,Champ,63,1,Kentucky,67,2,Kansas,59,1,63
-2013,PI,PI,-4,16,North Carolina A&T,73,16,Liberty,72,2,#N/A
-2013,PI,PI,-3,11,Saint Mary's,67,11,Middle Tennessee,54,10,#N/A
-2013,PI,PI,-2,16,James Madison,68,16,LIU,55,50,#N/A
-2013,PI,PI,-1,13,La Salle,80,13,Boise St.,71,24,#N/A
+2013,PI,PI,-4,16,North Carolina A&T,73,16,Liberty,72,2,65
+2013,PI,PI,-3,11,Saint Mary's,67,11,Middle Tennessee,54,10,65
+2013,PI,PI,-2,16,James Madison,68,16,LIU,55,50,65
+2013,PI,PI,-1,13,La Salle,80,13,Boise St.,71,24,65
 2013,1,NW,1,1,Louisville,79,16,North Carolina A&T,48,1,2
 2013,1,NW,2,8,Colorado St.,84,9,Missouri,72,3,4
 2013,1,NW,3,5,Oklahoma St.,55,12,Oregon,68,5,6
@@ -1848,10 +1848,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2013,5,F4,61,1,Louisville,72,9,Wichita St.,68,1,20
 2013,5,F4,62,4,Michigan,61,4,Syracuse,56,39,55
 2013,6,Champ,63,1,Louisville,82,4,Michigan,76,1,39
-2014,PI,PI,-4,16,Albany,71,16,Mount St. Mary's,64,2,#N/A
-2014,PI,PI,-3,12,North Carolina St.,74,12,Xavier,59,54,#N/A
-2014,PI,PI,-2,16,Cal Poly,81,16,Texas Southern,69,50,#N/A
-2014,PI,PI,-1,11,Tennessee,78,11,Iowa,65,58,#N/A
+2014,PI,PI,-4,16,Albany,71,16,Mount St. Mary's,64,2,65
+2014,PI,PI,-3,12,North Carolina St.,74,12,Xavier,59,54,65
+2014,PI,PI,-2,16,Cal Poly,81,16,Texas Southern,69,50,65
+2014,PI,PI,-1,11,Tennessee,78,11,Iowa,65,58,65
 2014,1,NW,1,1,Florida,67,16,Albany,55,1,2
 2014,1,NW,2,8,Colorado,48,9,Pittsburgh,77,3,4
 2014,1,NW,3,5,VCU,75,12,Stephen F. Austin,77,5,6
@@ -1915,10 +1915,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2014,5,F4,61,1,Florida,53,7,Connecticut,63,1,29
 2014,5,F4,62,2,Wisconsin,73,8,Kentucky,74,47,51
 2014,6,Champ,63,7,Connecticut,60,8,Kentucky,54,29,51
-2015,PI,PI,-4,16,Hampton,74,16,Manhattan,64,2,#N/A
-2015,PI,PI,-3,11,Mississippi,94,11,BYU,90,26,#N/A
-2015,PI,PI,-2,11,Dayton,56,11,Boise St.,55,42,#N/A
-2015,PI,PI,-1,16,Robert Morris,81,16,North Florida,77,50,#N/A
+2015,PI,PI,-4,16,Hampton,74,16,Manhattan,64,2,65
+2015,PI,PI,-3,11,Mississippi,94,11,BYU,90,26,65
+2015,PI,PI,-2,11,Dayton,56,11,Boise St.,55,42,65
+2015,PI,PI,-1,16,Robert Morris,81,16,North Florida,77,50,65
 2015,1,NW,1,1,Kentucky,79,16,Hampton,56,1,2
 2015,1,NW,2,8,Cincinnati,66,9,Purdue,65,3,4
 2015,1,NW,3,5,West Virginia,68,12,Buffalo,62,5,6
@@ -1982,10 +1982,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2015,5,F4,61,1,Wisconsin,71,1,Kentucky,64,17,1
 2015,5,F4,62,1,Duke,81,7,Michigan St.,61,49,45
 2015,6,Champ,63,1,Duke,68,1,Wisconsin,63,49,17
-2016,PI,PI,-4,11,Wichita St.,70,11,Vanderbilt,50,10,#N/A
-2016,PI,PI,-3,16,Holy Cross,59,16,Southern,55,18,#N/A
-2016,PI,PI,-2,16,Florida Gulf Coast,96,16,Fairleigh Dickinson,65,34,#N/A
-2016,PI,PI,-1,11,Michigan,67,11,Tulsa,62,42,#N/A
+2016,PI,PI,-4,11,Wichita St.,70,11,Vanderbilt,50,10,65
+2016,PI,PI,-3,16,Holy Cross,59,16,Southern,55,18,65
+2016,PI,PI,-2,16,Florida Gulf Coast,96,16,Fairleigh Dickinson,65,34,65
+2016,PI,PI,-1,11,Michigan,67,11,Tulsa,62,42,65
 2016,1,NW,1,1,Kansas,105,16,Austin Peay,79,1,2
 2016,1,NW,2,8,Colorado,67,9,Connecticut,74,3,4
 2016,1,NW,3,5,Maryland,79,12,South Dakota St.,74,5,6
@@ -2049,10 +2049,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2016,5,F4,61,2,Villanova,95,2,Oklahoma,51,15,31
 2016,5,F4,62,1,North Carolina,83,10,Syracuse,66,33,62
 2016,6,Champ,63,1,North Carolina,74,2,Villanova,77,33,15
-2017,PI,PI,-4,16,Mount St. Mary's,67,16,New Orleans,66,2,#N/A
-2017,PI,PI,-3,11,USC,75,11,Providence,71,10,#N/A
-2017,PI,PI,-2,16,UC Davis,67,16,North Carolina Central,63,34,#N/A
-2017,PI,PI,-1,11,Kansas St.,95,11,Wake Forest,88,58,#N/A
+2017,PI,PI,-4,16,Mount St. Mary's,67,16,New Orleans,66,2,65
+2017,PI,PI,-3,11,USC,75,11,Providence,71,10,65
+2017,PI,PI,-2,16,UC Davis,67,16,North Carolina Central,63,34,65
+2017,PI,PI,-1,11,Kansas St.,95,11,Wake Forest,88,58,65
 2017,1,NW,1,1,Villanova,76,16,Mount St. Mary's,56,1,2
 2017,1,NW,2,8,Wisconsin,84,9,Virginia Tech,74,3,4
 2017,1,NW,3,5,Virginia,76,12,UNC Wilmington,71,5,6
@@ -2116,11 +2116,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2017,5,F4,61,1,Gonzaga,77,7,South Carolina,73,17,13
 2017,5,F4,62,1,North Carolina,77,3,Oregon,76,49,43
 2017,6,Champ,63,1,North Carolina,71,1,Gonzaga,65,49,17
-2018,PI,PI,-4,16,Radford,71,16,LIU,61,34,#N/A
-2018,PI,PI,-3,11,St. Bonaventure,65,11,UCLA,58,42,#N/A
-2018,PI,PI,-2,16,Texas Southern,64,16,North Carolina Central,46,20,#N/A
-2018,PI,PI,-1,11,Syracuse,60,11,Arizona St.,56,58,#N/A
-2018,1,NW,1,5,Ohio St.,81,12,South Dakota St.,73,2,3
+2018,PI,PI,-4,16,Radford,71,16,LIU,61,34,65
+2018,PI,PI,-3,11,St. Bonaventure,65,11,UCLA,58,42,65
+2018,PI,PI,-2,16,Texas Southern,64,16,North Carolina Central,46,20,65
+2018,PI,PI,-1,11,Syracuse,60,11,Arizona St.,56,58,65
 2018,1,NW,1,1,Virginia,54,16,UMBC,74,1,4
 2018,1,NW,2,8,Creighton,59,9,Kansas St.,69,5,6
 2018,1,NW,3,5,Kentucky,78,12,Davidson,73,7,8
@@ -2131,6 +2130,7 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2018,1,SW,8,2,Cincinnati,68,15,Georgia St.,53,17,18
 2018,1,SW,9,1,Xavier,102,16,Texas Southern,83,19,20
 2018,1,SW,10,8,Missouri,54,9,Florida St.,67,21,22
+2018,1,NW,11,5,Ohio St.,81,12,South Dakota St.,73,2,3
 2018,1,SW,12,4,Gonzaga,68,13,UNC Greensboro,64,23,24
 2018,1,SW,13,6,Houston,67,11,San Diego St.,65,25,26
 2018,1,SW,14,3,Michigan,61,14,Montana,47,27,28
@@ -2183,10 +2183,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2018,5,F4,61,3,Michigan,69,11,Loyola Chicago,57,27,12
 2018,5,F4,62,1,Villanova,95,1,Kansas,79,33,49
 2018,6,Champ,63,1,Villanova,79,3,Michigan,62,33,27
-2019,PI,PI,-4,16,North Dakota St.,82,16,North Carolina Central,76,2,#N/A
-2019,PI,PI,-3,11,Belmont,81,11,Temple,70,10,#N/A
-2019,PI,PI,-2,16,Fairleigh Dickinson,82,16,Prairie View A&M,76,18,#N/A
-2019,PI,PI,-1,11,Arizona St.,74,11,St. John's,65,26,#N/A
+2019,PI,PI,-4,16,North Dakota St.,82,16,North Carolina Central,76,2,65
+2019,PI,PI,-3,11,Belmont,81,11,Temple,70,10,65
+2019,PI,PI,-2,16,Fairleigh Dickinson,82,16,Prairie View A&M,76,18,65
+2019,PI,PI,-1,11,Arizona St.,74,11,St. John's,65,26,65
 2019,1,NW,1,1,Duke,85,16,North Dakota St.,62,1,2
 2019,1,NW,2,8,VCU,58,9,UCF,73,3,4
 2019,1,NW,3,5,Mississippi St.,76,12,Liberty,80,5,6
@@ -2250,10 +2250,10 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2019,5,F4,61,2,Michigan St.,51,3,Texas Tech,61,15,27
 2019,5,F4,62,1,Virginia,63,5,Auburn,62,33,53
 2019,6,Champ,63,1,Virginia,85,3,Texas Tech,77,33,27
-2021,PI,PI,-4,16,Texas Southern,60,16,Mount St. Mary's,52,18,#N/A
-2021,PI,PI,-3,11,Drake,53,11,Wichita St.,52,10,#N/A
-2021,PI,PI,-2,16,Norfolk St.,54,16,Appalachian St.,53,2,#N/A
-2021,PI,PI,-1,11,UCLA,86,11,Michigan St.,80,26,#N/A
+2021,PI,PI,-4,16,Texas Southern,60,16,Mount St. Mary's,52,18,65
+2021,PI,PI,-3,11,Drake,53,11,Wichita St.,52,10,65
+2021,PI,PI,-2,16,Norfolk St.,54,16,Appalachian St.,53,2,65
+2021,PI,PI,-1,11,UCLA,86,11,Michigan St.,80,26,65
 2021,1,NW,1,1,Gonzaga,98,16,Norfolk St.,55,1,2
 2021,1,NW,2,8,Oklahoma,72,9,Missouri,68,3,4
 2021,1,NW,3,5,Creighton,63,12,UC Santa Barbara,62,5,6
