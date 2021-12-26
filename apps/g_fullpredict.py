@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import ElasticNet
 import numpy as np
 
 def app():
@@ -8,12 +9,15 @@ def app():
     st.markdown('Use Linear Regression to do a Full Bracket Prediction')
     
     fup = pd.read_csv("data/B3_AllFandU.csv").fillna(0)
+    fup = fup[fup['Year']<=2021][fup['Game']>=1]
+    fup['Round'] = fup['Round'].astype('int32')
     fup['PFSeed']=fup['AFSeed']
     fup['PFTeam']=fup['AFTeam']
     fup['PFScore']=fup['AFScore']
     fup['PUSeed']=fup['AUSeed']
     fup['PUTeam']=fup['AUTeam']
     fup['PUScore']=fup['AUScore']
+    
         
     py = st.slider('Year: ', 2008,2021)
     if py == 2020:
@@ -147,6 +151,7 @@ def app():
             BB.loc[x,'PWSeed'] = np.where(BB.loc[x,'PFScore']>=BB.loc[x,'PUScore'],BB.loc[x,'PFSeed'],BB.loc[x,'PUSeed'])
             BB.loc[x,'PWTeam'] = str(np.where(BB.loc[x,'PFScore']>=BB.loc[x,'PUScore'],BB.loc[x,'PFTeam'],BB.loc[x,'PUTeam']))
             BB.loc[x,'ESPN'] = np.where(BB.loc[x,'AWTeam']==BB.loc[x,'PWTeam'],320,0)
-        st.dataframe(BB,height=500)
         st.write(BB['ESPN'].sum(skipna=True))
+        st.dataframe(BB,height=500)
+        
         

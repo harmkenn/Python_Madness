@@ -5,6 +5,7 @@ def app():
     # title of the app
     st.markdown('Seed Success History Since 1985')
     AG = pd.read_csv('data/B1_FavGames.csv')
+    AG = AG[AG['Year']<=2021]
     LG = AG[AG['Round']=='6']
     CS = pd.DataFrame({'Round','Seed'})
     for x in range(0,36):

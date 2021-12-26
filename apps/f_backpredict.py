@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 def app():
     # title of the app
@@ -7,7 +8,8 @@ def app():
     #https://www.youtube.com/watch?v=xxgOkAt8nMU
 
     FUP = pd.read_csv("data/B3_AllFandU.csv").fillna(0)
-    
+    FUP = FUP[FUP['Year']<=2021][FUP['Game']>=1]
+    FUP['Round'] = FUP['Round'].astype('int32')
     p_year = st.slider('Year: ', 2008,2021)
     if p_year == 2020:
         st.markdown("No Bracket in 2020")
@@ -41,7 +43,13 @@ def app():
         FUT = FUT.iloc[:,0:10]
         FUT['PFScore'] = y_pred_F
         FUT['PUScore'] = y_pred_U
-        FUT['ESPN'] = (((FUT['AFScore'])>=(FUT['AUScore']))==((FUT['PFScore'])>=(FUT['PUScore']))).astype('uint8')*10*2**(FUT['Round']-1)
+        FUT.index = FUT.Game
+
+        for x in range(1,64):
+            FUT.loc[x,'AWTeam']=str(np.where(FUT.loc[x,'AFScore']>=FUT.loc[x,'AUScore'],FUT.loc[x,'AFTeam'],FUT.loc[x,'AUTeam']))
+            FUT.loc[x,'PWTeam']=str(np.where(FUT.loc[x,'PFScore']>=FUT.loc[x,'PUScore'],FUT.loc[x,'AFTeam'],FUT.loc[x,'AUTeam']))
+            FUT.loc[x,'ESPN'] = np.where(FUT.loc[x,'AWTeam']==FUT.loc[x,'PWTeam'],10*2**(FUT.loc[x,'Round']-1),0)
+            #FUT['ESPN'] = (((FUT['AFScore'])>=(FUT['AUScore']))==((FUT['PFScore'])>=(FUT['PUScore']))).astype('int')*10*2**(FUT['Round']-1)
         TESPN = FUT['ESPN'].sum()
         
         st.markdown('Total ESPN Score: '+str(TESPN))

@@ -8,7 +8,7 @@ def app():
     # title of the app
     st.markdown('How the teams have faired since 1985')
     AG = pd.read_csv('data/B1_FavGames.csv')
-    
+    AG = AG[AG['Year']<=2021]
     # table of wins
     fw = pd.crosstab(index=AG['AFTeam'],columns=AG['Year'])
     uw = pd.crosstab(index=AG['AUTeam'],columns=AG['Year'])

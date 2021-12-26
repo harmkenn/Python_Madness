@@ -5,6 +5,7 @@ def app():
     # title of the app
     st.markdown('How the teams have faired since 1985')
     AG = pd.read_csv('data/B1_FavGames.csv')
+    AG = AG[AG['Year']<=2021]
     champs = AG[AG['Round']=='6']
     champs.index = champs["Year"]
     
