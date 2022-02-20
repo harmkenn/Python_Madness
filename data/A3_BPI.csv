@@ -318,7 +318,6 @@ Year,Team,BPIO,BPID
 2008,Idaho St.,-8.9,-1.6
 2008,Jacksonville St.,-0.9,-9.7
 2008,Cal St. Bakersfield,-4.4,-6.3
-2008,Winston Salem,-8.7,-2.2
 2008,Bethune Cookman,-12.3,1.3
 2008,Maine,-5.7,-5.4
 2008,Canisius,-8.1,-3.1
@@ -673,7 +672,6 @@ Year,Team,BPIO,BPID
 2009,Howard,-6.8,-5.8
 2009,Southern,-8.6,-4.2
 2009,Kennesaw St.,-10.9,-2.7
-2009,Winston Salem,-10.7,-3.2
 2009,Alabama A&M,-7.7,-6.3
 2009,Sacramento St.,-9.7,-4.6
 2009,Loyola Marymount,-10.7,-3.6
@@ -1001,7 +999,6 @@ Year,Team,BPIO,BPID
 2010,Southern Utah,-5.7,-4.9
 2010,St. Francis PA,-6.5,-4.4
 2010,VMI,11.0,-22.1
-2010,Winston Salem,-8.6,-2.5
 2010,Coppin St.,-8.9,-2.3
 2010,Sacramento St.,-6.3,-5.1
 2010,Tennessee Martin,-4.6,-7.0
@@ -4501,361 +4498,361 @@ Year,Team,BPIO,BPID
 2021,South Carolina St.,-10.7,-6.2
 2021,Chicago St.,-10.5,-10.5
 2021,Mississippi Valley St.,-13.7,-12.4
-2022,Houston,8.6,8.1
-2022,Gonzaga,10.4,5.4
-2022,Baylor,8.4,6.5
-2022,Purdue,10.1,4.8
-2022,Arizona,7.8,6.7
-2022,Tennessee,6.9,7.4
-2022,Villanova,9.2,5.0
-2022,Kentucky,8.6,5.4
-2022,Kansas,10.2,3.8
-2022,LSU,4.9,8.9
-2022,Illinois,8.9,4.8
-2022,Duke,8.7,4.6
-2022,UCLA,8.2,5.0
-2022,Auburn,5.7,6.1
-2022,Connecticut,6.3,5.5
-2022,Iowa,10.0,1.4
-2022,Virginia Tech,5.7,5.3
-2022,Texas,5.2,5.6
-2022,Texas Tech,5.2,5.5
-2022,Ohio St.,7.1,3.1
-2022,Mississippi St.,5.9,4.4
-2022,Florida,4.5,5.7
-2022,Michigan,6.1,4.0
-2022,Alabama,6.7,3.2
-2022,USC,4.5,5.5
-2022,Xavier,4.2,5.6
-2022,Michigan St.,4.5,5.3
-2022,Seton Hall,5.6,4.2
-2022,Loyola Chicago,6.0,3.5
-2022,West Virginia,3.1,6.0
-2022,Oklahoma,3.5,5.1
-2022,Indiana,3.1,5.4
-2022,Clemson,5.4,3.0
-2022,Memphis,3.0,5.4
-2022,Providence,4.2,4.1
-2022,BYU,4.8,3.4
-2022,North Carolina,5.4,2.8
-2022,Wisconsin,3.0,4.7
-2022,Iowa St.,1.3,6.4
-2022,Richmond,5.8,1.8
-2022,Louisville,2.5,5.0
-2022,UAB,3.2,4.3
-2022,Northwestern,3.5,4.0
-2022,TCU,3.3,4.1
-2022,Arkansas,4.7,2.6
-2022,San Diego St.,0.9,6.4
-2022,Florida St.,3.1,4.1
-2022,Saint Mary's,1.8,5.3
-2022,Oklahoma St.,1.3,5.7
-2022,Murray St.,5.2,1.8
-2022,UCF,3.9,3.1
-2022,SMU,4.8,2.0
-2022,Belmont,5.4,1.5
-2022,San Francisco,2.1,4.8
-2022,Texas A&M,2.3,4.3
-2022,Saint Louis,4.6,2.0
-2022,Iona,3.1,3.4
-2022,Wake Forest,3.5,2.8
-2022,Chattanooga,4.9,1.3
-2022,Boise St.,1.3,4.7
-2022,Colorado St.,6.1,-0.2
-2022,Oregon,4.7,1.2
-2022,St. John's,3.6,2.2
-2022,Rhode Island,2.1,3.6
-2022,Virginia,1.5,4.1
-2022,Utah St.,4.6,0.9
-2022,Vanderbilt,1.6,3.8
-2022,Washington St.,2.1,3.3
-2022,Syracuse,4.6,0.7
-2022,St. Bonaventure,4.3,1.0
-2022,Minnesota,2.4,2.9
-2022,VCU,-3.1,8.4
-2022,Buffalo,3.4,1.7
-2022,Notre Dame,4.8,0.4
-2022,DePaul,3.1,2.1
-2022,Davidson,6.2,-1.0
-2022,Kansas St.,0.4,4.8
-2022,Maryland,1.9,3.3
-2022,Wofford,4.8,0.2
-2022,Santa Clara,3.5,1.4
-2022,South Dakota St.,7.1,-2.2
-2022,Drake,4.6,0.1
-2022,South Carolina,0.0,4.7
-2022,Wichita St.,0.5,4.2
-2022,Wagner,0.7,4.0
-2022,Fresno St.,0.5,3.9
-2022,Liberty,2.8,1.6
-2022,Furman,5.5,-1.2
-2022,Creighton,2.1,2.1
-2022,Towson,4.0,0.1
-2022,George Mason,2.0,2.1
-2022,Grand Canyon,0.8,3.3
-2022,Miami FL,4.1,-0.1
-2022,Akron,2.1,1.9
-2022,Hofstra,4.1,-0.1
-2022,North Texas,-0.2,4.1
-2022,Arizona St.,0.8,3.1
-2022,Monmouth,1.0,2.9
-2022,Dayton,1.8,2.0
-2022,Mississippi,0.1,3.7
-2022,Vermont,0.9,2.7
-2022,Marquette,1.8,1.8
-2022,Cincinnati,1.3,2.3
-2022,Abilene Christian,-0.9,4.5
-2022,Stanford,1.5,1.9
-2022,Utah,4.0,-0.5
-2022,Western Kentucky,1.2,2.2
-2022,UC Irvine,-1.0,4.4
-2022,Rutgers,0.3,3.1
-2022,California,0.0,3.3
-2022,Ohio,1.9,1.3
-2022,Wyoming,3.5,-0.5
-2022,North Carolina St.,2.6,0.4
-2022,Missouri St.,3.4,-0.4
-2022,Kent St.,1.2,1.8
-2022,James Madison,0.4,2.6
-2022,Toledo,2.9,0.0
-2022,Oakland,2.2,0.7
-2022,Oral Roberts,3.0,-0.2
-2022,Boston College,1.4,1.3
-2022,Louisiana Tech,2.4,0.2
-2022,Colgate,4.4,-1.8
-2022,Nevada,1.9,0.6
-2022,Navy,-0.8,3.1
-2022,Georgia St.,1.7,0.6
-2022,Tulsa,1.8,0.5
-2022,Colorado,0.6,1.2
-2022,Texas St.,1.1,0.6
-2022,Penn St.,2.7,-1.0
-2022,Georgia Tech,-0.4,2.0
-2022,Coastal Carolina,1.4,0.2
-2022,Bowling Green,1.7,-0.1
-2022,South Alabama,0.2,1.3
-2022,UNLV,1.0,0.4
-2022,Middle Tennessee,0.2,1.1
-2022,Winthrop,2.5,-1.2
-2022,UMKC,-1.5,2.7
-2022,Eastern Kentucky,1.7,-0.6
-2022,Texas Southern,-0.1,1.3
-2022,Seattle,1.0,0.1
-2022,Niagara,0.8,0.2
-2022,Boston University,1.2,-0.2
-2022,Northern Iowa,2.3,-1.3
-2022,Fairfield,1.0,-0.1
-2022,UNC Asheville,1.0,-0.2
-2022,Jacksonville St.,1.2,-0.3
-2022,Butler,-0.7,1.5
-2022,Miami OH,2.8,-2.1
-2022,UC Riverside,-1.8,2.5
-2022,Longwood,-0.5,1.1
-2022,North Alabama,-2.3,2.9
-2022,Massachusetts,4.9,-4.4
-2022,East Carolina,0.3,0.2
-2022,Nebraska,-0.3,0.8
-2022,New Hampshire,0.9,-0.5
-2022,Rice,2.7,-2.3
-2022,Utah Valley,0.1,0.3
-2022,Jacksonville,-2.5,2.9
-2022,Washington,-2.0,2.4
-2022,New Mexico St.,2.0,-1.7
-2022,Northeastern,-0.7,1.1
-2022,FIU,-1.5,1.8
-2022,VMI,2.4,-2.2
-2022,Sam Houston St.,-0.8,1.0
-2022,Georgetown,1.3,-1.1
-2022,Morehead St.,0.5,-0.4
-2022,Oregon St.,0.8,-0.7
-2022,Florida Gulf Coast,1.3,-1.3
-2022,Loyola Marymount,0.6,-0.6
-2022,UMass Lowell,-2.0,1.9
-2022,Georgia Southern,-1.4,1.4
-2022,Georgia,0.7,-0.7
-2022,Detroit Mercy,2.5,-2.6
-2022,San Diego,-1.9,1.9
-2022,Marshall,0.1,-0.1
-2022,Wright St.,0.4,-0.5
-2022,Pittsburgh,-1.7,1.6
-2022,Southern Utah,0.4,-0.6
-2022,Old Dominion,-0.5,0.2
-2022,Drexel,1.4,-1.7
-2022,Campbell,-0.1,-0.2
-2022,Temple,-1.4,1.1
-2022,Tulane,-0.6,0.2
-2022,Western Illinois,1.0,-1.4
-2022,Brown,-1.9,1.5
-2022,UNC Greensboro,-2.0,1.5
-2022,Weber St.,0.1,-0.7
-2022,Missouri,-1.3,0.7
-2022,Delaware,1.0,-1.7
-2022,Cal St. Fullerton,0.9,-1.6
-2022,Charleston,0.0,-0.7
-2022,Gardner Webb,-1.5,0.9
-2022,Southern Illinois,-0.2,-0.5
-2022,UC Santa Barbara,1.5,-2.2
-2022,East Tennessee St.,0.6,-1.3
-2022,Appalachian St.,-0.9,0.2
-2022,Marist,-1.6,0.8
-2022,Norfolk St.,-1.8,1.0
-2022,Bradley,-0.4,-0.4
-2022,UMBC,-0.5,-0.3
-2022,Tarleton St.,-3.6,2.7
-2022,Nicholls St.,-0.2,-0.7
-2022,Montana,-1.2,0.2
-2022,Manhattan,-1.2,0.1
-2022,UTEP,-1.3,0.2
-2022,Saint Joseph's,-0.3,-0.9
-2022,Duquesne,-0.2,-1.0
-2022,The Citadel,1.4,-2.6
-2022,Stony Brook,-0.1,-1.2
-2022,Bryant,-0.1,-1.2
-2022,Louisiana,-2.7,1.3
-2022,Cornell,0.7,-2.1
-2022,Portland,0.9,-2.3
-2022,Princeton,3.0,-4.4
-2022,Cleveland St.,-1.2,-0.3
-2022,Valparaiso,0.5,-2.0
-2022,Howard,-0.3,-1.4
-2022,Portland St.,-3.3,1.6
-2022,North Dakota St.,0.7,-2.4
-2022,Fordham,-3.2,1.4
-2022,Youngstown St.,0.6,-2.3
-2022,Stephen F. Austin,-1.6,-0.2
-2022,Saint Peter's,-4.4,2.6
-2022,UC Davis,-2.5,0.6
-2022,Montana St.,-0.4,-1.6
-2022,South Florida,-5.0,3.1
-2022,Hawaii,-0.3,-1.7
-2022,Mercer,-0.4,-1.7
-2022,Southern,-2.7,0.6
-2022,Bellarmine,2.1,-4.2
-2022,Tennessee St.,-1.1,-1.2
-2022,LIU,-1.7,-0.6
-2022,Yale,-0.9,-1.3
-2022,Louisiana Monroe,0.7,-3.0
-2022,Quinnipiac,-0.7,-1.7
-2022,Pepperdine,-1.6,-0.8
-2022,UT Arlington,-3.3,0.8
-2022,UC San Diego,-1.5,-1.1
-2022,Arkansas St.,-0.4,-2.3
-2022,Northern Kentucky,-0.6,-2.1
-2022,Cal St. Bakersfield,-3.8,1.1
-2022,Cal Baptist,-0.6,-2.1
-2022,Jackson St.,-5.5,2.8
-2022,Florida Atlantic,-0.7,-2.0
-2022,Tennessee Tech,-1.6,-1.2
-2022,Charlotte,1.8,-4.5
-2022,George Washington,-3.5,0.5
-2022,Canisius,-2.1,-1.0
-2022,Purdue Fort Wayne,-0.4,-2.7
-2022,St. Francis PA,-0.2,-2.9
-2022,Texas A&M Corpus Chris,-1.4,-1.8
-2022,La Salle,-2.9,-0.3
-2022,North Carolina Central,-3.1,-0.3
-2022,Sacred Heart,0.6,-4.0
-2022,Penn,-0.3,-3.2
-2022,Loyola MD,-3.6,0.1
-2022,Eastern Washington,-0.9,-2.7
-2022,North Florida,-1.3,-2.3
-2022,Binghamton,-2.0,-1.6
-2022,Long Beach St.,-1.6,-2.1
-2022,Harvard,-3.3,-0.4
-2022,Dartmouth,-1.6,-2.1
-2022,Austin Peay,-0.8,-2.9
-2022,South Dakota,0.2,-4.0
-2022,Troy,-3.6,-0.1
-2022,Hartford,-0.8,-3.0
-2022,Western Carolina,-0.2,-3.6
-2022,Illinois St.,-0.9,-2.9
-2022,Robert Morris,-0.6,-3.3
-2022,NJIT,-5.0,1.1
-2022,New Orleans,-2.9,-1.2
-2022,Illinois Chicago,-3.2,-1.0
-2022,Indiana St.,-0.4,-3.8
-2022,High Point,-3.2,-1.2
-2022,Samford,-2.2,-2.3
-2022,Eastern Michigan,-3.9,-0.5
-2022,Pacific,-3.2,-1.3
-2022,Elon,-1.2,-3.4
-2022,SIU Edwardsville,-4.6,0.1
-2022,Albany,-5.3,0.8
-2022,Northern Colorado,-0.3,-4.4
-2022,North Carolina A&T,-3.5,-1.2
-2022,Prairie View A&M,-1.7,-3.1
-2022,Stetson,-1.6,-3.2
-2022,Rider,-3.3,-1.6
-2022,Merrimack,-6.4,1.5
-2022,Army,-3.8,-1.1
-2022,McNeese St.,-3.0,-1.9
-2022,St. Francis NY,-3.2,-1.7
-2022,Siena,-3.1,-1.9
-2022,Southeastern Louisiana,-2.2,-2.8
-2022,UT Rio Grande Valley,-3.2,-2.0
-2022,Milwaukee,-3.8,-1.7
-2022,Ball St.,-0.4,-5.1
-2022,St. Thomas,1.6,-7.2
-2022,Kennesaw St.,-2.4,-3.2
-2022,Tennessee Martin,-2.8,-2.9
-2022,Radford,-5.1,-0.7
-2022,Cal Poly,-4.6,-1.2
-2022,Presbyterian,-5.3,-0.5
-2022,San Jose St.,-2.9,-3.0
-2022,Evansville,-2.7,-3.2
-2022,Morgan St.,-5.1,-1.1
-2022,Coppin St.,-4.1,-2.2
-2022,UNC Wilmington,-3.1,-3.3
-2022,Maryland Eastern Shore,-5.4,-1.0
-2022,Dixie St.,-2.7,-3.8
-2022,New Mexico,-1.6,-4.9
-2022,USC Upstate,-4.0,-2.6
-2022,Mount St. Mary's,-3.4,-3.3
-2022,Alcorn St.,-4.6,-2.0
-2022,Southern Miss,-5.6,-1.3
-2022,Lipscomb,-1.5,-5.5
-2022,Sacramento St.,-4.4,-2.7
-2022,Hampton,-6.5,-0.7
-2022,Northern Illinois,-6.9,-0.3
-2022,Cal St. Northridge,-4.6,-2.8
-2022,UTSA,-3.7,-3.8
-2022,Charleston Southern,-4.2,-3.3
-2022,Florida A&M,-6.6,-1.1
-2022,Lamar,-4.3,-3.4
-2022,South Carolina St.,-5.3,-2.5
-2022,Central Michigan,-2.7,-5.2
-2022,Grambling St.,-6.0,-2.0
-2022,Lafayette,-2.6,-5.6
-2022,Bethune Cookman,-5.4,-2.8
-2022,American,-2.9,-5.4
-2022,Southeast Missouri St.,-3.3,-5.0
-2022,Central Connecticut,-4.7,-3.8
-2022,Northern Arizona,-3.9,-4.7
-2022,Bucknell,-2.1,-6.5
-2022,Idaho St.,-4.3,-4.3
-2022,Fairleigh Dickinson,-3.3,-5.5
-2022,Air Force,-5.2,-3.7
-2022,Little Rock,-4.5,-4.4
-2022,Lehigh,-5.1,-4.2
-2022,Houston Baptist,-5.4,-3.9
-2022,Northwestern St.,-4.3,-5.0
-2022,Holy Cross,-5.0,-4.7
-2022,Alabama A&M,-9.4,-0.3
-2022,Idaho,-3.3,-6.6
-2022,Denver,-5.8,-4.5
-2022,Green Bay,-3.5,-6.9
-2022,Columbia,-5.7,-5.6
-2022,Eastern Illinois,-8.3,-3.1
-2022,William & Mary,-7.1,-4.4
-2022,Incarnate Word,-3.8,-7.8
-2022,Western Michigan,-5.4,-6.2
-2022,Alabama St.,-6.8,-4.8
-2022,Nebraska Omaha,-5.0,-6.8
-2022,Central Arkansas,-5.0,-7.0
-2022,Maine,-9.5,-2.5
-2022,Arkansas Pine Bluff,-6.2,-6.0
-2022,North Dakota,-3.0,-9.4
-2022,Chicago St.,-7.8,-4.7
-2022,IUPUI,-9.7,-3.8
-2022,Delaware St.,-8.3,-5.7
-2022,Mississippi Valley St.,-8.8,-9.4
+2022,Gonzaga,12.7,8.0
+2022,Houston,9.0,9.5
+2022,Kentucky,10.9,7.3
+2022,Arizona,9.6,8.5
+2022,Villanova,11.1,6.5
+2022,Baylor,9.7,7.6
+2022,Tennessee,7.0,10.2
+2022,Purdue,13.1,3.9
+2022,Kansas,11.0,5.6
+2022,Duke,9.8,6.5
+2022,UCLA,8.6,7.2
+2022,Auburn,7.3,8.5
+2022,Texas Tech,5.9,9.5
+2022,Illinois,8.3,6.4
+2022,LSU,3.3,11.1
+2022,Texas,5.4,8.5
+2022,Iowa,10.8,2.9
+2022,UConn,7.2,6.4
+2022,Ohio State,9.2,3.4
+2022,Alabama,8.8,3.5
+2022,Arkansas,4.6,7.5
+2022,Virginia Tech,7.3,4.2
+2022,Mississippi State,6.6,4.4
+2022,Michigan State,5.3,5.6
+2022,Saint Mary's,3.9,7.0
+2022,Michigan,7.5,3.4
+2022,Memphis,4.3,6.4
+2022,Wisconsin,5.1,5.6
+2022,USC,5.5,5.2
+2022,San Diego State,0.0,10.4
+2022,Murray State,6.4,4.0
+2022,Xavier,4.8,5.5
+2022,Wake Forest,5.2,5.1
+2022,Seton Hall,5.2,5.0
+2022,North Carolina,6.8,3.2
+2022,Florida,4.2,5.7
+2022,Indiana,2.5,7.3
+2022,Loyola Chicago,6.0,3.7
+2022,Providence,4.9,4.8
+2022,Oklahoma,4.7,5.0
+2022,San Francisco,4.2,5.3
+2022,Dayton,3.7,5.7
+2022,Iowa State,1.2,8.2
+2022,UAB,4.8,4.3
+2022,Oklahoma State,1.8,7.4
+2022,Marquette,4.3,4.7
+2022,Saint Louis,5.0,3.9
+2022,SMU,4.9,3.8
+2022,Belmont,6.4,2.3
+2022,St. John's,4.8,3.8
+2022,Vermont,6.6,1.8
+2022,Boise State,2.1,6.0
+2022,Syracuse,7.1,1.1
+2022,TCU,2.5,5.6
+2022,West Virginia,2.6,5.4
+2022,North Texas,2.1,5.8
+2022,Washington State,2.1,5.8
+2022,Notre Dame,5.7,2.1
+2022,Virginia,3.6,4.2
+2022,Oregon,5.0,2.6
+2022,South Dakota State,8.8,-1.2
+2022,Texas A&M,2.7,4.9
+2022,Kansas State,2.7,4.8
+2022,Chattanooga,4.6,2.9
+2022,Northwestern,3.1,4.4
+2022,Rutgers,2.5,4.9
+2022,VCU,-2.3,9.8
+2022,Davidson,8.5,-1.1
+2022,Iona,3.7,3.6
+2022,Miami,6.8,0.4
+2022,Vanderbilt,2.1,4.9
+2022,Furman,6.8,0.2
+2022,St. Bonaventure,5.3,1.6
+2022,Maryland,3.8,3.0
+2022,Richmond,5.0,1.8
+2022,Clemson,5.0,1.8
+2022,Missouri State,5.7,1.0
+2022,Toledo,5.0,1.7
+2022,Towson,4.6,1.7
+2022,Penn State,2.7,3.6
+2022,Creighton,1.0,5.2
+2022,Colorado State,6.3,-0.3
+2022,Santa Clara,5.0,1.0
+2022,South Carolina,0.5,5.5
+2022,BYU,3.7,2.1
+2022,Florida State,2.9,2.9
+2022,Wichita State,0.5,5.2
+2022,Fresno State,1.1,4.5
+2022,UCF,2.5,2.9
+2022,Liberty,4.5,0.8
+2022,Cincinnati,1.4,3.8
+2022,Utah State,4.2,1.0
+2022,George Mason,3.5,1.6
+2022,UNLV,3.4,1.7
+2022,Ole Miss,1.8,3.2
+2022,Drake,3.5,1.2
+2022,Buffalo,3.5,1.1
+2022,Minnesota,2.3,2.1
+2022,DePaul,2.2,2.1
+2022,Hofstra,4.6,-0.3
+2022,Tulane,3.0,1.3
+2022,Wagner,1.2,3.1
+2022,Ohio,2.2,2.0
+2022,Louisville,1.1,3.1
+2022,Wyoming,4.2,-0.1
+2022,Wofford,3.9,0.1
+2022,Western Kentucky,2.7,1.2
+2022,Colorado,1.0,2.9
+2022,Louisiana Tech,3.1,0.7
+2022,Stanford,1.3,2.4
+2022,UC Irvine,-1.9,5.6
+2022,NC State,3.9,-0.2
+2022,Kent State,-0.1,3.7
+2022,Arizona State,-1.0,4.5
+2022,Colgate,3.8,-0.3
+2022,Bradley,0.5,2.9
+2022,Middle Tennessee,1.9,1.4
+2022,Grand Canyon,-0.5,3.7
+2022,Oral Roberts,4.2,-1.1
+2022,Northern Iowa,2.9,0.2
+2022,Temple,-0.4,3.3
+2022,Oakland,2.3,0.6
+2022,Rhode Island,-1.8,4.6
+2022,Seattle U,0.6,2.3
+2022,Akron,1.7,0.9
+2022,Monmouth,-0.4,3.0
+2022,New Mexico State,2.0,0.6
+2022,Princeton,5.0,-2.4
+2022,California,-0.5,2.8
+2022,South Alabama,0.5,1.6
+2022,VMI,5.7,-3.6
+2022,Utah,2.0,-0.2
+2022,Washington,-0.8,2.5
+2022,Drexel,2.4,-0.8
+2022,Jacksonville State,1.9,-0.4
+2022,Navy,-3.5,5.0
+2022,Saint Peter's,-2.9,4.3
+2022,Tulsa,1.1,0.3
+2022,Morehead State,-0.3,1.7
+2022,Boston College,0.5,0.8
+2022,Georgia Tech,-1.4,2.6
+2022,Texas State,1.0,0.3
+2022,Gardner-Webb,-1.6,2.8
+2022,Georgia State,-1.6,2.8
+2022,Longwood,1.7,-0.5
+2022,Norfolk State,-0.3,1.3
+2022,Sam Houston,-1.2,2.1
+2022,Coastal Carolina,0.9,0.0
+2022,UNC Asheville,0.6,0.3
+2022,Delaware,2.9,-2.0
+2022,Florida Atlantic,1.9,-1.1
+2022,Abilene Christian,-1.1,1.9
+2022,Appalachian State,-1.1,1.7
+2022,Winthrop,1.7,-1.1
+2022,Kansas City,-0.3,0.8
+2022,UC Santa Barbara,1.2,-0.7
+2022,Nevada,0.9,-0.5
+2022,Southern Illinois,-1.3,1.8
+2022,Yale,-0.7,1.1
+2022,Butler,-1.1,1.5
+2022,Jacksonville,-1.9,2.3
+2022,Stephen F. Austin,-2.3,2.3
+2022,Texas Southern,-2.1,2.1
+2022,Cleveland State,0.7,-0.7
+2022,Pittsburgh,-1.2,1.2
+2022,Missouri,-0.7,0.7
+2022,Utah Valley,-0.3,0.3
+2022,North Dakota State,0.9,-0.9
+2022,Bellarmine,2.9,-2.9
+2022,Marist,-0.3,0.2
+2022,Saint Joseph's,-0.3,0.2
+2022,Wright State,1.7,-1.8
+2022,Montana State,0.0,-0.1
+2022,UNC Greensboro,-2.4,2.2
+2022,Nebraska,0.0,-0.3
+2022,East Carolina,-0.2,0.0
+2022,Charleston,-0.8,0.5
+2022,Niagara,-0.1,-0.3
+2022,James Madison,0.7,-1.1
+2022,CSU Fullerton,0.5,-0.9
+2022,Boston University,1.5,-2.1
+2022,UTEP,-1.4,0.7
+2022,Southern,-2.3,1.6
+2022,Hawai'i,0.0,-0.9
+2022,Fairfield,-0.4,-0.5
+2022,UMass,4.3,-5.2
+2022,Georgetown,1.1,-1.9
+2022,Bryant,0.7,-1.6
+2022,Fordham,-4.0,3.1
+2022,Weber State,0.7,-1.7
+2022,Nicholls,-0.3,-0.8
+2022,Georgia,1.7,-2.8
+2022,Portland,-0.8,-0.4
+2022,Troy,-3.2,1.8
+2022,South Dakota,2.0,-3.4
+2022,Howard,-1.1,-0.3
+2022,Detroit Mercy,1.5,-3.0
+2022,Charlotte,2.3,-3.8
+2022,Old Dominion,-1.0,-0.5
+2022,Campbell,0.1,-1.7
+2022,Long Beach State,-1.5,-0.1
+2022,Florida Gulf Coast,0.8,-2.4
+2022,East Tennessee State,2.3,-4.0
+2022,Long Island University,-1.7,0.0
+2022,Cornell,0.7,-2.4
+2022,North Carolina Central,-2.1,0.3
+2022,UC Riverside,-3.6,1.8
+2022,San Diego,-2.9,1.0
+2022,Purdue Fort Wayne,-1.9,0.0
+2022,Pennsylvania,0.7,-2.7
+2022,Southern Utah,0.5,-2.5
+2022,Louisiana,-2.5,0.5
+2022,Northern Kentucky,-0.9,-1.1
+2022,Brown,-2.4,0.4
+2022,Mercer,0.4,-2.4
+2022,Arkansas State,-1.6,-0.5
+2022,Rice,2.3,-4.5
+2022,UMass Lowell,-2.8,0.4
+2022,Bowling Green,1.7,-4.1
+2022,Valparaiso,-0.3,-2.2
+2022,George Washington,-2.7,0.2
+2022,Oregon State,0.9,-3.5
+2022,UMBC,-0.5,-2.1
+2022,UT Arlington,-2.4,-0.2
+2022,Montana,-2.4,-0.3
+2022,Western Illinois,-0.4,-2.4
+2022,Samford,-0.7,-2.1
+2022,Eastern Kentucky,-0.5,-2.3
+2022,California Baptist,-1.1,-1.7
+2022,Miami (OH),1.1,-4.0
+2022,Kennesaw State,-0.4,-2.4
+2022,Manhattan,-0.6,-2.3
+2022,Youngstown State,1.0,-4.0
+2022,Illinois State,0.0,-3.0
+2022,New Hampshire,0.7,-3.7
+2022,The Citadel,0.5,-3.5
+2022,North Florida,-2.2,-0.9
+2022,Stony Brook,1.6,-4.7
+2022,Quinnipiac,-0.3,-2.9
+2022,Loyola Marymount,1.0,-4.2
+2022,New Orleans,-3.8,0.4
+2022,Tarleton,-3.6,0.2
+2022,Florida International,-1.7,-1.7
+2022,Tennessee Tech,-0.9,-2.5
+2022,Eastern Washington,-0.2,-3.4
+2022,La Salle,-2.6,-0.9
+2022,UNC Wilmington,-1.1,-2.5
+2022,Harvard,-3.3,-0.3
+2022,Northern Colorado,1.9,-5.6
+2022,North Alabama,-5.6,1.9
+2022,UC Davis,-2.4,-1.3
+2022,Canisius,-3.0,-0.8
+2022,Dartmouth,-2.5,-1.3
+2022,Portland State,-3.4,-0.4
+2022,Marshall,-1.3,-2.5
+2022,Georgia Southern,-4.2,0.4
+2022,Indiana State,-2.5,-1.4
+2022,New Mexico,-0.2,-3.8
+2022,Siena,-4.0,0.0
+2022,Mount St. Mary's,-3.9,-0.2
+2022,Albany,-5.2,1.0
+2022,Texas A&M-CC,-2.7,-1.5
+2022,South Florida,-7.1,2.8
+2022,Northeastern,-2.4,-2.0
+2022,Rider,-3.7,-0.7
+2022,Ball State,-0.4,-4.3
+2022,Loyola (MD),-4.2,-0.5
+2022,Binghamton,-3.3,-1.4
+2022,Hartford,-0.1,-4.7
+2022,South Carolina Upstate,-1.3,-3.6
+2022,Tennessee State,-2.4,-2.6
+2022,High Point,-3.1,-2.0
+2022,Duquesne,-3.2,-2.0
+2022,UIC,-1.9,-3.5
+2022,McNeese,-2.1,-3.3
+2022,St. Francis (BKN),-3.0,-2.4
+2022,Presbyterian,-4.9,-0.7
+2022,UC San Diego,-2.8,-2.9
+2022,North Carolina A&T,-3.3,-2.6
+2022,UL Monroe,-1.0,-4.9
+2022,Army,-4.3,-1.6
+2022,Alcorn State,-3.4,-2.5
+2022,Prairie View A&M,-2.4,-3.6
+2022,SIU Edwardsville,-5.1,-0.9
+2022,CSU Bakersfield,-3.2,-2.9
+2022,Elon,-2.5,-3.7
+2022,SE Louisiana,0.1,-6.3
+2022,Jackson State,-7.4,1.2
+2022,Pepperdine,-3.3,-2.9
+2022,Pacific,-5.6,-0.8
+2022,Dixie State,-4.0,-2.4
+2022,Merrimack,-6.2,-0.3
+2022,Austin Peay,-3.8,-2.9
+2022,Western Carolina,-2.2,-4.6
+2022,Southeast Missouri State,-0.7,-6.3
+2022,Maryland-Eastern Shore,-6.9,0.0
+2022,Robert Morris,-1.9,-5.3
+2022,Lipscomb,-0.4,-6.8
+2022,UT Martin,-4.9,-2.3
+2022,Eastern Michigan,-5.4,-2.0
+2022,Morgan State,-5.9,-1.4
+2022,Radford,-5.5,-1.9
+2022,NJIT,-7.4,0.0
+2022,Northern Illinois,-6.0,-1.6
+2022,Coppin State,-5.9,-1.7
+2022,Sacred Heart,-0.8,-6.9
+2022,St. Thomas - Minnesota,0.5,-8.2
+2022,St. Francis (PA),-4.2,-3.6
+2022,UT Rio Grande Valley,-3.2,-4.8
+2022,Stetson,-3.8,-4.3
+2022,Grambling,-6.1,-2.0
+2022,San José State,-2.5,-5.8
+2022,South Carolina State,-6.9,-1.4
+2022,Lehigh,-3.6,-4.8
+2022,Milwaukee,-6.1,-2.7
+2022,Florida A&M,-6.2,-2.9
+2022,Lafayette,-2.9,-6.2
+2022,Air Force,-5.3,-3.9
+2022,Hampton,-8.2,-1.1
+2022,Central Michigan,-4.3,-5.2
+2022,Central Arkansas,-3.1,-6.5
+2022,Northwestern State,-2.9,-6.9
+2022,Alabama State,-5.9,-4.0
+2022,Cal Poly,-7.8,-2.2
+2022,Sacramento State,-5.8,-4.3
+2022,UTSA,-5.6,-4.5
+2022,CSU Northridge,-5.7,-4.5
+2022,Houston Baptist,-5.5,-4.9
+2022,Evansville,-6.9,-3.6
+2022,Bethune-Cookman,-7.9,-2.7
+2022,Northern Arizona,-4.6,-5.9
+2022,Little Rock,-5.3,-5.3
+2022,Idaho,-2.6,-8.2
+2022,Central Connecticut,-6.7,-4.1
+2022,William & Mary,-7.5,-3.4
+2022,American University,-5.4,-5.6
+2022,Holy Cross,-6.5,-4.5
+2022,Bucknell,-2.5,-8.7
+2022,Charleston Southern,-5.9,-5.3
+2022,Denver,-5.4,-5.8
+2022,Southern Miss,-6.0,-5.4
+2022,Alabama A&M,-11.3,-0.2
+2022,Green Bay,-6.1,-5.5
+2022,Fairleigh Dickinson,-5.4,-6.5
+2022,North Dakota,-3.1,-8.9
+2022,Lamar,-6.7,-5.9
+2022,Idaho State,-6.3,-6.3
+2022,Western Michigan,-5.4,-7.2
+2022,Maine,-8.1,-4.8
+2022,Omaha,-5.0,-8.5
+2022,Chicago State,-6.1,-7.4
+2022,Incarnate Word,-5.1,-8.6
+2022,Columbia,-6.9,-7.2
+2022,Arkansas-Pine Bluff,-6.0,-8.8
+2022,Delaware State,-10.7,-4.8
+2022,Eastern Illinois,-11.6,-4.2
+2022,Mississippi Valley State,-7.8,-10.1
+2022,IUPUI,-14.3,-4.5

@@ -5,7 +5,7 @@ import numpy as np
 
 def app():
     # title of the app
-    py = 2021
+    py = 2022
     st.markdown('Predicting ' + str(py))
         
     fup = pd.read_csv("data/B3_AllFandU.csv").fillna(0)
@@ -159,6 +159,13 @@ def app():
         BB.loc[x,'PUScore']=pus[x-63]
         BB.loc[x,'PWSeed'] = np.where(BB.loc[x,'PFScore']>=BB.loc[x,'PUScore'],BB.loc[x,'PFSeed'],BB.loc[x,'PUSeed'])
         BB.loc[x,'PWTeam'] = str(np.where(BB.loc[x,'PFScore']>=BB.loc[x,'PUScore'],BB.loc[x,'PFTeam'],BB.loc[x,'PUTeam']))
+        
+        BB['Year'] = BB['Year'].astype(int)
+        BB['Round'] = BB['Round'].astype(int)
+        BB['Game'] = BB['Game'].astype(int)
+        BB['PFSeed'] = BB['PFSeed'].astype(int)
+        BB['PUSeed'] = BB['PUSeed'].astype(int)
+        BB['PWSeed'] = BB['PWSeed'].astype(int)
        
     st.dataframe(BB[BB['Game']<=63],height=500)
     
