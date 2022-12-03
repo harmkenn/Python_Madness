@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from scikit-learn.linear_model import LinearRegression
-from scikit-learn.linear_model import ElasticNet
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import ElasticNet
 import numpy as np
 
 def app():
