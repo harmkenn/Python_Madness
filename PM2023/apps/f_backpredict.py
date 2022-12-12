@@ -7,8 +7,8 @@ def app():
     st.markdown('Predicticting Each Game Independently')
     #https://www.youtube.com/watch?v=xxgOkAt8nMU
 
-    FUP = pd.read_csv("data/B3_AllFandU.csv").fillna(0)
-    FUP = FUP[FUP['Year']<=2021][FUP['Game']>=1]
+    FUP = pd.read_csv('notebooks/step04_FUHistory.csv').fillna(0)
+    FUP = FUP[FUP['Game']>=1]
     FUP['Round'] = FUP['Round'].astype('int32')
     p_year = st.slider('Year: ', 2008,2021)
     if p_year == 2020:
