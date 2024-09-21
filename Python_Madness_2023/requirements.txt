@@ -1,0 +1,11 @@
+# pip install -r requirements.txt
+streamlit
+numpy
+pandas
+plotly
+scikit-learn
+pip
+bs4
+html-table-parser-python3
+lxml
+selenium
