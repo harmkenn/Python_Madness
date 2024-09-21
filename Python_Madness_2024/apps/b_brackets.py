@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 def app():
     # title of the app
     st.markdown('All Tournament Brackets Since 1985')
-    AG = pd.read_csv('notebooks/step04_FUHistory.csv')
+    AG = pd.read_csv('Python_Madness_2024/notebooks/step04_FUHistory.csv')
 
     AG['AFSeed'] = pd.to_numeric(AG['AFSeed'], errors='coerce').astype('Int32')
     AG['AFScore'] = pd.to_numeric(AG['AFScore'], errors='coerce').astype('Int32')
