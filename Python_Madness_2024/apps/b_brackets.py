@@ -12,7 +12,7 @@ def app():
     AG['AFScore'] = pd.to_numeric(AG['AFScore'], errors='coerce').astype('Int32')
     AG['AUSeed'] = pd.to_numeric(AG['AUSeed'], errors='coerce').astype('Int32')
     AG['AUScore'] = pd.to_numeric(AG['AUScore'], errors='coerce').astype('Int32')
-    p_year = st.slider('Year: ', 1985,2023)
+    p_year = st.slider('Year: ', 2008,2023)
     if p_year == 2020:
         st.markdown("No Bracket in 2020")
     if p_year != 2020:
@@ -29,6 +29,7 @@ def app():
         br_headers = ['Round 1 W','Round 2 W','Round 3 W','Round 4 W','Final Four W','Champ',
               'Final Four E','Round 4 E','Round 3 E','Round 2 E','Round 1 E']
         df = pd.DataFrame(columns = br_headers)
+        
         for x in br_headers:
             for y in range(32):
                 df.loc[y,x]=''
