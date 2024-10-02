@@ -22,8 +22,8 @@ def app():
         # Split the dataframe into features and targets
         expl = FUPN[FUPN['Year'] != p_year].drop(['AFScore', 'AUScore'], axis=1)
 
-        respF = FUPN[['AFScore']]
-        respU = FUPN[['AUScore']]
+        respF = FUPN[FUPN['Year'] != p_year]['AFScore']
+        respU = FUPN[FUPN['Year'] != p_year]['AUScore']
         
         # Make Gradient Boosting Regressor models
         model_F = GradientBoostingRegressor(random_state=42)
