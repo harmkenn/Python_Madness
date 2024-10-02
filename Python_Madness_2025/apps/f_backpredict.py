@@ -21,7 +21,7 @@ def app():
         
         # Split the dataframe into features and targets
         expl = FUPN.drop(['AFScore', 'AUScore'], axis=1)
-        st.write(expl)
+        st.write(expl.shape)
         respF = FUPN[['AFScore']]
         respU = FUPN[['AUScore']]
         
@@ -39,7 +39,7 @@ def app():
         
         FUT = FUNY
         FUT['PFScore'] = model_F.predict(FUNY)
-        st.write(FUNY)
+        st.write(FUNY.shape)
         FUT['PUScore'] = model_U.predict(FUNY)
         FUT.index = FUT.Game
     
