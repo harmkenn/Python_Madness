@@ -36,6 +36,7 @@ def app():
         # Use the trained model to predict scores for the selected year
         FUT = FUP[FUP['Year'] == p_year]
         FUT = FUT.iloc[:, 0:10]
+        st.write(FUT)
         FUT['PFScore'] = model_F.predict(FUT.drop(['AFScore', 'AUScore'], axis=1))
         FUT['PUScore'] = model_U.predict(FUT.drop(['AFScore', 'AUScore'], axis=1))
         FUT.index = FUT.Game
