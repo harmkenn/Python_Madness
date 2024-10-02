@@ -39,6 +39,7 @@ def app():
         
         FUT = FUNY
         FUT['PFScore'] = model_F.predict(FUNY)
+        FUNY = FUPN[FUPN['Year'] == p_year].drop(['AFScore', 'AUScore'], axis=1)
         st.write(FUNY.shape)
         st.write(FUT.shape)
         st.write(expl.columns.symmetric_difference(FUNY.columns))
