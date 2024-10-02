@@ -41,6 +41,8 @@ def app():
 
         
         FUT = FUP[FUP['Year']==p_year]
+        FUT['PFScore'] = pfs
+        FUT['PUScore'] = pus
         st.write(FUT.shape)
         FUT.index = FUT.Game
     
