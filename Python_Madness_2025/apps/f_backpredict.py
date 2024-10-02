@@ -36,9 +36,10 @@ def app():
         # Use the trained model to predict scores for the selected year
         FUNY = FUPN[FUPN['Year'] == p_year].drop(['AFScore', 'AUScore'], axis=1)
         
-        st.write(FUNY)
+        
         FUT = FUNY
         FUT['PFScore'] = model_F.predict(FUNY)
+        st.write(FUNY)
         FUT['PUScore'] = model_U.predict(FUNY)
         FUT.index = FUT.Game
     
