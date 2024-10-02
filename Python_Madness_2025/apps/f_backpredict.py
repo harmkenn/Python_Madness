@@ -34,11 +34,11 @@ def app():
         model_U.fit(expl, respU)
         
         # Use the trained model to predict scores for the selected year
-        FUT = FUPN[FUPN['Year'] == p_year]
-        #FUT = FUT.iloc[:, 0:10]
+        FUT = FUPN[FUPN['Year'] == p_year].drop(['AFScore', 'AUScore'], axis=1)
+        
         st.write(FUT)
-        FUT['PFScore'] = model_F.predict(FUT.drop(['AFScore', 'AUScore'], axis=1))
-        FUT['PUScore'] = model_U.predict(FUT.drop(['AFScore', 'AUScore'], axis=1))
+        FUT['PFScore'] = model_F.predict(FUT)
+        FUT['PUScore'] = model_U.predict(FUT)
         FUT.index = FUT.Game
     
         for x in range(1, 64):
