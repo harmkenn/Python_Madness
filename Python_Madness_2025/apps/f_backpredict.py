@@ -40,9 +40,10 @@ def app():
         FUT = FUNY
         FUT['PFScore'] = model_F.predict(FUNY)
         st.write(FUNY.shape)
-        FUT['PUScore'] = model_U.predict(FUNY)
         st.write(FUT.shape)
         st.write(expl.columns.symmetric_difference(FUNY.columns))
+        FUT['PUScore'] = model_U.predict(FUNY)
+        
         FUT.index = FUT.Game
     
         for x in range(1, 64):
