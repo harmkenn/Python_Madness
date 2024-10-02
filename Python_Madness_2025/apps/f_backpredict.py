@@ -1,57 +1,51 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
+        import streamlit as st
+        import pandas as pd
+        from sklearn.ensemble import GradientBoostingRegressor
+        import numpy as np
 
-def app():
-    # title of the app
-    st.markdown('Predicticting Each Game Independently')
-    #https://www.youtube.com/watch?v=xxgOkAt8nMU
+        def app():
+          # Title of the app
+          st.markdown('Predicting Each Game Independently')
+          # https://www.youtube.com/watch?v=xxgOkAt8nMU
 
-    FUP = pd.read_csv('Python_Madness_2024/notebooks/step07_FUStats.csv').fillna(0)
-    FUP = FUP[FUP['Game']>=1]
-    FUP['Round'] = FUP['Round'].astype('int32')
-    p_year = st.slider('Year: ', 2008,2023)
-    if p_year == 2020:
-        st.markdown("No Bracket in 2020")
-    if p_year != 2020:
+          FUP = pd.read_csv('Python_Madness_2024/notebooks/step07_FUStats.csv').fillna(0)
+          FUP = FUP[FUP['Game'] >= 1]
+          FUP['Round'] = FUP['Round'].astype('int32')
+          p_year = st.slider('Year: ', 2008, 2023)
 
-        FUPN = FUP.select_dtypes(exclude=['object'])
+          if p_year == 2020:
+            st.markdown("No Bracket in 2020")
+          elif p_year != 2020:
 
-        # Split the dataframe into x and y
-        expl = FUPN.drop(['AFScore', 'AUScore'], axis=1)
-        respF = FUPN[['Year','AFScore']]
-        respU = FUPN[['Year','AUScore']]
-        
-        # Tran and Test
-        X_train = expl[expl['Year'] != p_year]
-        y_train_F = respF[respF['Year'] != p_year]['AFScore'].to_numpy() 
-        y_train_U = respU[respU['Year'] != p_year]['AUScore'].to_numpy() 
-        X_test = expl[expl['Year'] == p_year]
-        y_test_F = respF[respF['Year'] == p_year]['AFScore'].to_numpy()
-        y_test_U = respU[respU['Year'] == p_year]['AUScore'].to_numpy()
-        
-        # Make Model
-        from sklearn.linear_model import LinearRegression
-        model = LinearRegression()
-        model.fit(X_train,y_train_F)
-        y_pred_F = model.predict(X_test)
-        model.fit(X_train,y_train_U)
-        y_pred_U = model.predict(X_test)
-        
-        # How did the model do
-        FUT = FUP[FUP['Year']==p_year]
-        FUT = FUT.iloc[:,0:10]
-        FUT['PFScore'] = y_pred_F
-        FUT['PUScore'] = y_pred_U
-        FUT.index = FUT.Game
+            FUPN = FUP.select_dtypes(exclude=['object'])
 
-        for x in range(1,64):
-            FUT.loc[x,'AWTeam']=str(np.where(FUT.loc[x,'AFScore']>=FUT.loc[x,'AUScore'],FUT.loc[x,'AFTeam'],FUT.loc[x,'AUTeam']))
-            FUT.loc[x,'PWTeam']=str(np.where(FUT.loc[x,'PFScore']>=FUT.loc[x,'PUScore'],FUT.loc[x,'AFTeam'],FUT.loc[x,'AUTeam']))
-            FUT.loc[x,'ESPN'] = np.where(FUT.loc[x,'AWTeam']==FUT.loc[x,'PWTeam'],10*2**(FUT.loc[x,'Round']-1),0)
-            #FUT['ESPN'] = (((FUT['AFScore'])>=(FUT['AUScore']))==((FUT['PFScore'])>=(FUT['PUScore']))).astype('int')*10*2**(FUT['Round']-1)
-        TESPN = FUT['ESPN'].sum()
-        
-        st.markdown('Total ESPN Score: '+str(TESPN))
-        FUT['Year'] = FUT['Year'].astype('str')
-        st.dataframe(FUT)
+            # Split the dataframe into features and targets
+            expl = FUPN.drop(['AFScore', 'AUScore'], axis=1)
+            respF = FUPN[['AFScore']]
+            respU = FUPN[['AUScore']]
+
+            # Make Gradient Boosting Regressor models
+            model_F = GradientBoostingRegressor(random_state=42)
+            model_U = GradientBoostingRegressor(random_state=42)
+
+            # Train the models on the entire dataset
+            model_F.fit(expl, respF)
+            model_U.fit(expl, respU)
+
+            # Use the trained model to predict scores for the selected year
+            FUT = FUP[FUP['Year'] == p_year]
+            FUT = FUT.iloc[:, 0:10]
+            FUT['PFScore'] = model_F.predict(FUT.drop(['AFScore', 'AUScore'], axis=1))
+            FUT['PUScore'] = model_U.predict(FUT.drop(['AFScore', 'AUScore'], axis=1))
+            FUT.index = FUT.Game
+
+            for x in range(1, 64):
+              FUT.loc[x, 'AWTeam'] = str(np.where(FUT.loc[x, 'AFScore'] >= FUT.loc[x, 'AUScore'], FUT.loc[x, 'AFTeam'], FUT.loc[x, 'AUTeam']))
+              FUT.loc[x, 'PWTeam'] = str(np.where(FUT.loc[x, 'PFScore'] >= FUT.loc[x, 'PUScore'], FUT.loc[x, 'AFTeam'], FUT.loc[x, 'AUTeam']))
+              FUT.loc[x, 'ESPN'] = np.where(FUT.loc[x, 'AWTeam'] == FUT.loc[x, 'PWTeam'], 10 * 2**(FUT.loc[x, 'Round'] - 1), 0)
+
+            TESPN = FUT['ESPN'].sum()
+
+            st.markdown('Total ESPN Score: ' + str(TESPN))
+            FUT['Year'] = FUT['Year'].astype('str')
+            st.dataframe(FUT)
