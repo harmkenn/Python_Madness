@@ -51,8 +51,8 @@ def app():
             FUT.loc[x, 'PWTeam'] = str(np.where(FUT.loc[x, 'PFScore'] >= FUT.loc[x, 'PUScore'], FUT.loc[x, 'AFTeam'], FUT.loc[x, 'AUTeam']))
             FUT.loc[x, 'ESPN'] = np.where(FUT.loc[x, 'AWTeam'] == FUT.loc[x, 'PWTeam'], 10 * 2**(FUT.loc[x, 'Round'] - 1), 0)
     
-    TESPN = FUT['ESPN'].sum()
-    
-    st.markdown('Total ESPN Score: ' + str(TESPN))
-    FUT['Year'] = FUT['Year'].astype('str')
-    st.dataframe(FUT)
+        TESPN = FUT['ESPN'].sum()
+        
+        st.markdown('Total ESPN Score: ' + str(TESPN))
+        FUT['Year'] = FUT['Year'].astype('str')
+        st.dataframe(FUT)
