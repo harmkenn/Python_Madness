@@ -25,9 +25,14 @@ def app():
         respF = FUPN[FUPN['Year'] != p_year]['AFScore']
         respU = FUPN[FUPN['Year'] != p_year]['AUScore']
         
-        # Make Gradient Boosting Regressor models
-        model_F = GradientBoostingRegressor(random_state=42)
-        model_U = GradientBoostingRegressor(random_state=42)
+        # Create Gradient Boosting Regressor models with adjustable parameters
+        learning_rate = st.number_input('Learning Rate (default: 0.1)', min_value=0.0, max_value=1.0, value=0.1)
+        n_estimators = st.number_input('Number of Estimators (default: 100)', min_value=1, value=100)
+        max_depth = st.number_input('Maximum Depth of Trees (default: 3)', min_value=1, value=3)
+
+        model_F = GradientBoostingRegressor(learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, random_state=42)
+        model_U = GradientBoostingRegressor(learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, random_state=42)
+
         
         # Train the models on the entire dataset
         model_F.fit(expl, respF)
