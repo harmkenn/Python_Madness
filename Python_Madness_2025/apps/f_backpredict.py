@@ -20,7 +20,7 @@ def app():
         FUPN = FUP.select_dtypes(exclude=['object'])
         
         # Split the dataframe into features and targets
-        expl = FUPN.drop(['AFScore', 'AUScore'], axis=1)
+        expl = FUPN[FUPN['Year'] != p_year].drop(['AFScore', 'AUScore'], axis=1)
 
         respF = FUPN[['AFScore']]
         respU = FUPN[['AUScore']]
