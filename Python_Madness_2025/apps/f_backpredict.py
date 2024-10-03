@@ -28,8 +28,8 @@ def app():
         
         # Create Gradient Boosting Regressor models with adjustable parameters
         learning_rate = st.number_input('Learning Rate (default: 0.1)', min_value=0.0, max_value=1.0, value=0.1)
-        n_estimators = st.number_input('Number of Estimators (default: 100)', min_value=1, value=100)
-        max_depth = st.number_input('Maximum Depth of Trees (default: 3)', min_value=1, value=3)
+        n_estimators = st.number_input('Number of Estimators (default: 100)', min_value=1, value=20)
+        max_depth = st.number_input('Maximum Depth of Trees (default: 3)', min_value=1, value=5)
 
         # Create XGBoost Regressor models
         model_F = xgb.XGBRegressor(learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, random_state=42)
