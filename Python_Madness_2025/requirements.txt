@@ -10,4 +10,5 @@ html-table-parser-python3
 lxml
 selenium
 openpyxl
+xgboost
 
