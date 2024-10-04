@@ -11,4 +11,4 @@ lxml
 selenium
 openpyxl
 xgboost
-
+lightgbm
