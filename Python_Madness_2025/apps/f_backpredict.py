@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 
 def app():
@@ -25,8 +26,8 @@ def app():
         respF = FUPN[FUPN['Year'] != p_year]['AFScore']
         respU = FUPN[FUPN['Year'] != p_year]['AUScore']
         
-        model_F = LinearRegression()
-        model_U = LinearRegression()
+        model_F = RandomForestRegressor()
+        model_U = RandomForestRegressor()
 
         # Train the models on the entire dataset
         model_F.fit(expl, respF)
