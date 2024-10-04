@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sklearn.ensemble import GradientBoostingRegressor
-import xgboost as xgb
+from lightgbm import LGBMRegressor
 import numpy as np
 
 def app():
@@ -26,15 +26,14 @@ def app():
         respF = FUPN[FUPN['Year'] != p_year]['AFScore']
         respU = FUPN[FUPN['Year'] != p_year]['AUScore']
         
-        # Create Gradient Boosting Regressor models with adjustable parameters
+        # Create LightGBM Regressor models with adjustable parameters
         learning_rate = st.number_input('Learning Rate (default: 0.1)', min_value=0.0, max_value=1.0, value=0.1)
-        n_estimators = st.number_input('Number of Estimators (default: 100)', min_value=1, value=100)
-        max_depth = st.number_input('Maximum Depth of Trees (default: 3)', min_value=1, value=3)
+        n_estimators = st.number_input('Number of Estimators (default: 20)', min_value=1, value=20)
+        num_leaves = st.number_input('Number of Leaves (default: 31)', min_value=1, value=31)
 
-        model_F = GradientBoostingRegressor(learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, random_state=42)
-        model_U = GradientBoostingRegressor(learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, random_state=42)
+        model_F = LGBMRegressor(learning_rate=learning_rate, n_estimators=n_estimators, num_leaves=num_leaves, random_state=42)
+        model_U = LGBMRegressor(learning_rate=learning_rate, n_estimators=n_estimators, num_leaves=num_leaves, random_state=42)
 
-        
         # Train the models on the entire dataset
         model_F.fit(expl, respF)
         model_U.fit(expl, respU)
