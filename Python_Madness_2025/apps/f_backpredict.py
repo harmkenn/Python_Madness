@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.svm import SVR
 import numpy as np
 
 def app():
