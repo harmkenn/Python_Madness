@@ -10,7 +10,7 @@ st.markdown('Predicticting Each Game Independently')
 FUP = pd.read_csv('Python_Madness_2024/notebooks/step07_FUStats.csv').fillna(0)
 FUP = FUP[FUP['Game']>=1]
 FUP['Round'] = FUP['Round'].astype('int32')
-p_year = st.slider('Year: ', 2008,2023)
+p_year = st.slider('Year: ', 2008,2024)
 if p_year == 2020:
     st.markdown("No Bracket in 2020")
 if p_year != 2020:
