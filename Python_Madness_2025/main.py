@@ -13,7 +13,7 @@ sub_app_names = {
     'd_teampase.py': 'Team Performance',
     'd_teamwins.py': 'Team Wins',
     'e_teamrank.py': 'Team Rankings',
-    'f_sungrid.py': 'Sun to Grid',
+    'f_backpredict.py': 'Back Predict',
     'g_sunnorth.py': 'Grid to Sun',
     'h_celgrid.py': 'Celestial to Grid',
     'i_grid_cel.py': 'Grid to Celestial',
