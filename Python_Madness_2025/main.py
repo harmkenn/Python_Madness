@@ -9,7 +9,7 @@ st.set_page_config(layout="wide", page_title=f"Python Shots 2025")
 sub_app_names = {
     'a_allgames.py': 'All Games',
     'b_brackets.py': 'All Brackets',
-    'c_polar.py': 'Polar',
+    'c_seedhistory.py': 'Seed History',
     'd_afatds.py': 'AFATDS',
     'e_physics.py': 'Physics',
     'f_sungrid.py': 'Sun to Grid',

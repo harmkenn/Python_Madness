@@ -6,13 +6,13 @@ import plotly.graph_objects as go
 
 # title of the app
 st.markdown('All Tournament Brackets Since 2008')
-AG = pd.read_csv('Python_Madness_2024/notebooks/step04_FUHistory.csv')
+AG = pd.read_csv('Python_Madness_2025/notebooks/step04_FUHistory.csv')
 
 AG['AFSeed'] = pd.to_numeric(AG['AFSeed'], errors='coerce').astype('Int32')
 AG['AFScore'] = pd.to_numeric(AG['AFScore'], errors='coerce').astype('Int32')
 AG['AUSeed'] = pd.to_numeric(AG['AUSeed'], errors='coerce').astype('Int32')
 AG['AUScore'] = pd.to_numeric(AG['AUScore'], errors='coerce').astype('Int32')
-p_year = st.slider('Year: ', 2008,2023)
+p_year = st.slider('Year: ', 2008,2024)
 if p_year == 2020:
     st.markdown("No Bracket in 2020")
 if p_year != 2020:

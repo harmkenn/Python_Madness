@@ -994,39 +994,70 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2023,5,F4,61,5,San Diego St.,72,9,Florida Atlantic,71,5,20
 2023,5,F4,62,4,Connecticut,72,5,Miami FL,59,55,37
 2023,6,Champ,63,4,Connecticut,76,5,San Diego St.,59,55,5
-2024,0,PI,-4,10,Boise St.,72,10,Colorado,72,0,0
-2024,0,PI,-3,16,Montana St.,72,16,Grambling St.,72,0,0
-2024,0,PI,-2,10,Virginia,72,10,Colorado St.,72,0,0
-2024,0,PI,-1,16,Howard,72,16,Wagner,72,0,0
-2024,1,NW,1,1,Connecticut,72,16,Stetson,72,1,2
-2024,1,NW,2,8,Florida Atlantic,72,9,Northwestern,72,3,4
-2024,1,NW,3,5,San Diego St.,72,12,UAB,72,5,6
-2024,1,NW,4,4,Auburn,72,13,Yale,72,7,8
-2024,1,NW,5,6,BYU,72,11,Duquesne,72,9,10
-2024,1,NW,6,3,Illinois,72,14,Morehead St.,72,11,12
-2024,1,NW,7,7,Washington St.,72,10,Drake,72,13,14
-2024,1,NW,8,2,Iowa St.,72,15,South Dakota St.,72,15,16
-2024,1,SW,9,1,North Carolina,72,16,Howard,72,17,18
-2024,1,SW,10,8,Mississippi St.,72,9,Michigan St.,72,19,20
-2024,1,SW,11,5,Saint Mary's,72,12,Grand Canyon,72,21,22
-2024,1,SW,12,4,Alabama,72,13,Charleston,72,23,24
-2024,1,SW,13,6,Clemson,72,11,New Mexico,72,25,26
-2024,1,SW,14,3,Baylor,72,14,Colgate,72,27,28
-2024,1,SW,15,7,Dayton,72,10,Nevada,72,29,30
-2024,1,SW,16,2,Arizona,72,15,Long Beach St.,72,31,32
-2024,1,NE,17,1,Houston,72,16,Longwood,72,33,34
-2024,1,NE,18,8,Nebraska,72,9,Texas A&M,72,35,36
-2024,1,NE,19,5,Wisconsin,72,12,James Madison,72,37,38
-2024,1,NE,20,4,Duke,72,13,Vermont,72,39,40
-2024,1,NE,21,6,Texas Tech,72,11,North Carolina St.,72,41,42
-2024,1,NE,22,3,Kentucky,72,14,Oakland,72,43,44
-2024,1,NE,23,7,Florida,72,10,Boise St.,72,45,46
-2024,1,NE,24,2,Marquette,72,15,Western Kentucky,72,47,48
-2024,1,SE,25,1,Purdue,72,16,Montana St.,72,49,50
-2024,1,SE,26,8,Utah St.,72,9,TCU,72,51,52
-2024,1,SE,27,5,Gonzaga,72,12,McNeese St.,72,53,54
-2024,1,SE,28,4,Kansas,72,13,Samford,72,55,56
-2024,1,SE,29,6,South Carolina,72,11,Oregon,72,57,58
-2024,1,SE,30,3,Creighton,72,14,Akron,72,59,60
-2024,1,SE,31,7,Texas,72,10,Virginia,72,61,62
-2024,1,SE,32,2,Tennessee,72,15,Saint Peter's,72,63,64
+2024,0,PI,-4,10,Boise St.,53,10,Colorado,60,0,0
+2024,0,PI,-3,16,Montana St.,81,16,Grambling St.,88,0,0
+2024,0,PI,-2,10,Virginia,42,10,Colorado St.,67,0,0
+2024,0,PI,-1,16,Howard,68,16,Wagner,71,0,0
+2024,1,NW,1,1,Connecticut,91,16,Stetson,52,1,2
+2024,1,NW,2,8,Florida Atlantic,65,9,Northwestern,77,3,4
+2024,1,NW,3,5,San Diego St.,69,12,UAB,65,5,6
+2024,1,NW,4,4,Auburn,76,13,Yale,78,7,8
+2024,1,NW,5,6,BYU,67,11,Duquesne,71,9,10
+2024,1,NW,6,3,Illinois,85,14,Morehead St.,69,11,12
+2024,1,NW,7,7,Washington St.,66,10,Drake,61,13,14
+2024,1,NW,8,2,Iowa St.,82,15,South Dakota St.,65,15,16
+2024,1,SW,9,1,North Carolina,90,16,Wagner,62,17,18
+2024,1,SW,10,8,Mississippi St.,51,9,Michigan St.,69,19,20
+2024,1,SW,11,5,Saint Mary's,66,12,Grand Canyon,75,21,22
+2024,1,SW,12,4,Alabama,109,13,Charleston,96,23,24
+2024,1,SW,13,6,Clemson,77,11,New Mexico,56,25,26
+2024,1,SW,14,3,Baylor,92,14,Colgate,67,27,28
+2024,1,SW,15,7,Dayton,63,10,Nevada,60,29,30
+2024,1,SW,16,2,Arizona,85,15,Long Beach St.,65,31,32
+2024,1,NE,17,1,Houston,86,16,Longwood,46,33,34
+2024,1,NE,18,8,Nebraska,83,9,Texas A&M,98,35,36
+2024,1,NE,19,5,Wisconsin,61,12,James Madison,72,37,38
+2024,1,NE,20,4,Duke,64,13,Vermont,47,39,40
+2024,1,NE,21,6,Texas Tech,67,11,North Carolina St.,80,41,42
+2024,1,NE,22,3,Kentucky,76,14,Oakland,80,43,44
+2024,1,NE,23,7,Florida,100,10,Colorado,102,45,46
+2024,1,NE,24,2,Marquette,87,15,Western Kentucky,69,47,48
+2024,1,SE,25,1,Purdue,78,16,Grambling St.,50,49,50
+2024,1,SE,26,8,Utah St.,88,9,TCU,72,51,52
+2024,1,SE,27,5,Gonzaga,86,12,McNeese St.,65,53,54
+2024,1,SE,28,4,Kansas,93,13,Samford,89,55,56
+2024,1,SE,29,6,South Carolina,73,11,Oregon,87,57,58
+2024,1,SE,30,3,Creighton,77,14,Akron,60,59,60
+2024,1,SE,31,7,Texas,56,10,Colorado St.,44,61,62
+2024,1,SE,32,2,Tennessee,83,15,Saint Peter's,49,63,64
+2024,2,NW,33,1,Connecticut,75,9,Northwestern,58,1,4
+2024,2,NW,34,5,San Diego St.,85,13,Yale,57,5,8
+2024,2,NW,35,3,Illinois,89,11,Duquesne,63,11,10
+2024,2,NW,36,2,Iowa St.,67,7,Washington St.,56,15,13
+2024,2,SW,37,1,North Carolina,85,9,Michigan St.,69,17,20
+2024,2,SW,38,4,Alabama,75,12,Grand Canyon,61,23,22
+2024,2,SW,39,3,Baylor,64,6,Clemson,72,27,25
+2024,2,SW,40,2,Arizona,78,7,Dayton,68,31,30
+2024,2,NE,41,1,Houston,100,9,Texas A&M,95,33,36
+2024,2,NE,42,4,Duke,93,12,James Madison,55,39,38
+2024,2,NE,43,11,North Carolina St.,79,14,Oakland,73,42,44
+2024,2,NE,44,2,Marquette,81,10,Colorado,77,47,46
+2024,2,SE,45,1,Purdue,106,8,Utah St.,67,49,51
+2024,2,SE,46,4,Kansas,68,5,Gonzaga,89,55,53
+2024,2,SE,47,3,Creighton,86,11,Oregon,73,59,58
+2024,2,SE,48,2,Tennessee,62,7,Texas,58,63,61
+2024,3,NW,49,1,Connecticut,75,5,San Diego St.,52,1,5
+2024,3,NW,50,2,Iowa St.,69,3,Illinois,72,15,11
+2024,3,SW,51,1,North Carolina,87,4,Alabama,89,17,23
+2024,3,SW,52,2,Arizona,72,6,Clemson,77,31,25
+2024,3,NE,53,1,Houston,51,4,Duke,54,33,39
+2024,3,NE,54,2,Marquette,58,11,North Carolina St.,67,47,42
+2024,3,SE,55,1,Purdue,80,5,Gonzaga,89,49,53
+2024,3,SE,56,2,Tennessee,82,3,Creighton,75,63,59
+2024,4,NW,57,1,Connecticut,77,3,Illinois,52,1,11
+2024,4,SW,58,4,Alabama,89,6,Clemson,82,23,25
+2024,4,NE,59,4,Duke,64,11,North Carolina St.,76,39,42
+2024,4,SE,60,1,Purdue,72,2,Tennessee,66,49,63
+2024,5,F4,61,1,Connecticut,86,4,Alabama,72,1,23
+2024,5,F4,62,1,Purdue,63,11,North Carolina St.,50,49,42
+2024,6,Champ,63,1,Connecticut,75,1,Purdue,60,1,49
