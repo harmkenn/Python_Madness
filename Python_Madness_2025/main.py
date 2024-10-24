@@ -11,6 +11,7 @@ sub_app_names = {
     'b_brackets.py': 'All Brackets',
     'c_seedhistory.py': 'Seed History',
     'd_teampase.py': 'Team Performance',
+    'd_teamwins.py': 'Team Wins',
     'e_physics.py': 'Physics',
     'f_sungrid.py': 'Sun to Grid',
     'g_sunnorth.py': 'Grid to Sun',
