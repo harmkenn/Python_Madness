@@ -8,7 +8,7 @@ st.set_page_config(layout="wide", page_title=f"Python Shots 2025")
 # Dictionary that maps .py filenames to user-friendly names
 sub_app_names = {
     'a_allgames.py': 'All Games',
-    'b_points.py': 'Point to Point',
+    'b_brackets.py': 'All Brackets',
     'c_polar.py': 'Polar',
     'd_afatds.py': 'AFATDS',
     'e_physics.py': 'Physics',
