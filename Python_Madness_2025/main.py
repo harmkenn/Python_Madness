@@ -14,11 +14,8 @@ sub_app_names = {
     'd_teamwins.py': 'Team Wins',
     'e_teamrank.py': 'Team Rankings',
     'f_backpredict.py': 'Back Predict',
-    'g_sunnorth.py': 'Grid to Sun',
-    'h_celgrid.py': 'Celestial to Grid',
-    'i_grid_cel.py': 'Grid to Celestial',
-    'j_jadocs.py': 'JADOCS',
-    'k_rockets.py': 'Rockets'
+    'g_fullpredict.py': 'Full Predict',
+    'i_bracketmaker.py': 'Bracket Maker'
 }
 
 # Get a list of .py files from the SubApps folder
