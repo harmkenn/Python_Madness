@@ -3,7 +3,7 @@ import importlib.util
 import os
 
 # Set the page layout to wide
-st.set_page_config(layout="wide", page_title=f"Python Shots 2025")
+st.set_page_config(layout="wide", page_title=f"Python Madness 2025")
 
 # Dictionary that maps .py filenames to user-friendly names
 sub_app_names = {
