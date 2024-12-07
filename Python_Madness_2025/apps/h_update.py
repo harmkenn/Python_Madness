@@ -1,18 +1,15 @@
-
-
-
-# Now Scrape 2009 to 2024 
+# Now Scrape and add 2025 
 import streamlit as st
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 import io
 
-allkp = pd.read_csv('step01_kenpom0824.csv').reset_index(drop=True)
-b = 2024
+allkp = pd.read_csv('Python_Madness_2025/notebooks/step01_kenpom0824.csv').reset_index(drop=True)
+b = 2025
 allkp = allkp[allkp['Year']<b]
 
-for y in range(b,2025):
+for y in range(b,2026):
     headers = {
         "User-Agent":
             "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.70 Safari/537.36"
@@ -23,7 +20,7 @@ for y in range(b,2025):
     with requests.Session() as request:
         response = request.get(url, timeout=30,  headers=headers)
     if response.status_code != 200:
-        print(response.raise_for_status())
+        st.write(response.raise_for_status())
 
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -44,4 +41,4 @@ for y in range(b,2025):
 
     allkp = pd.concat([allkp, df])
 
-allkp.to_csv('step01_kenpom0824.csv',index=False)
+allkp.to_csv('step01_kenpom0825.csv',index=False)
