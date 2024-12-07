@@ -15,6 +15,7 @@ sub_app_names = {
     'e_teamrank.py': 'Team Rankings',
     'f_backpredict.py': 'Back Predict',
     'g_fullpredict.py': 'Full Predict',
+    'h_update.py': 'Update',
     'i_bracketmaker.py': 'Bracket Maker'
 }
 
