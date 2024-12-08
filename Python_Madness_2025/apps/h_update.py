@@ -8,7 +8,9 @@ def execute_code():
     df = df.iloc[:, 1:8]
     df2 = pd.read_csv('Python_Madness_2025/data/step01_kenpom0824.csv')
     df_concat = pd.concat([df2, df])
+    df_concat = df_concat.reset_index(drop=True)
     df_concat.to_csv('Python_Madness_2025/data/step01_kenpom0825.csv', index=False)
+    st.write("KenPom Data Updated")
     st.dataframe(df_concat) 
 
 # Display the button
