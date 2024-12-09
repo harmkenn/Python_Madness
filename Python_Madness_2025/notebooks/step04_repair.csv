@@ -8,10 +8,10 @@ Alabama St. Hornets,Alabama St.
 Alabama-Birmingham,UAB
 Albany (NY),Albany
 Albany Great Danes,Albany
-UAlbany Great Danes,Albany
 Alcorn St. Braves,Alcorn St.
 American University,American
 American University Eagles,American
+App St. Mountaineers,Appalachian St.
 Appalachian St. Mountaineers,Appalachian St.
 Arizona St. Sun Devils,Arizona St.
 Arizona Wildcats,Arizona
@@ -38,16 +38,16 @@ Bowling Green St.,Bowling Green
 Bradley Braves,Bradley
 Brigham Young,BYU
 Brown Bears,Brown
-Bryant Bulldogs,Bryant
 Bryant,out
+Bryant Bulldogs,Bryant
 Bucknell Bison,Bucknell
 Buffalo Bulls,Buffalo
 Butler Bulldogs,Butler
 BYU Cougars,BYU
 Cal Poly Mustangs,Cal Poly
-Cal St. Long Beach,Long Beach St.
 Cal St. Bakersfield Roadrunners,Cal St. Bakersfield
 Cal St. Fullerton Titans,Cal St. Fullerton
+Cal St. Long Beach,Long Beach St.
 Cal St. Northridge Matadors,Cal St. Northridge
 California Baptist,Cal Baptist
 California Baptist Lancers,Cal Baptist
@@ -56,9 +56,9 @@ Campbell Fighting Camels,Campbell
 Canisius Golden Griffins,Canisius
 Centenary,out
 Centenary (LA),out
+Centenary (LA) Gentlemen,out
 Centenary Louisiana,out
 Centenary Louisiana Gentlemen,out
-Centenary (LA) Gentlemen,out
 Central Arkansas Bears,Central Arkansas
 Central Connecticut Blue Devils,Central Connecticut
 Central Connecticut St.,Central Connecticut
@@ -100,6 +100,7 @@ Duke Blue Devils,Duke
 Duquesne Dukes,Duquesne
 East Carolina Pirates,East Carolina
 East Tennessee St. Buccaneers,East Tennessee St.
+East Texas A&M Lions,Texas A&M Commerce
 Eastern Illinois Panthers,Eastern Illinois
 Eastern Kentucky Colonels,Eastern Kentucky
 Eastern Michigan Eagles,Eastern Michigan
@@ -160,6 +161,7 @@ Iona Gaels,Iona
 Iowa Hawkeyes,Iowa
 Iowa St. Cyclones,Iowa St.
 IPFW,Purdue Fort Wayne
+IU Indianapolis Jaguars,IUPUI
 IUPUI Jaguars,IUPUI
 Jackson St. Tigers,Jackson St.
 Jacksonville Dolphins,Jacksonville
@@ -175,8 +177,8 @@ Kentucky Wildcats,Kentucky
 La Salle Explorers,La Salle
 Lafayette Leopards,Lafayette
 Lamar Cardinals,Lamar
-Lehigh Mountain Hawks,Lehigh
 Le Moyne Dolphins,Le Moyne
+Lehigh Mountain Hawks,Lehigh
 Liberty Flames,Liberty
 Lindenwood Lions,Lindenwood
 Lipscomb Bisons,Lipscomb
@@ -204,15 +206,18 @@ Manhattan Jaspers,Manhattan
 Marist Red Foxes,Marist
 Marquette Golden Eagles,Marquette
 Marshall Thundering Herd,Marshall
+Maryland Eastern Shore Hawks,Maryland Eastern Shore
 Maryland Terrapins,Maryland
 Maryland-Baltimore County,UMBC
 Maryland-Eastern Shore,Maryland Eastern Shore
 Maryland-Eastern Shore Hawks,Maryland Eastern Shore
+Massachusetts Minutemen,Massachusetts
 Massachusetts-Lowell,UMass Lowell
 McNeese,McNeese St.
 McNeese Cowboys,McNeese St.
 Memphis Tigers,Memphis
 Mercer Bears,Mercer
+Mercyhurst Lakers,Mercyhurst
 Merrimack Warriors,Merrimack
 Miami,Miami FL
 Miami (FL),Miami FL
@@ -330,6 +335,7 @@ San Diego Toreros,San Diego
 San Francisco Dons,San Francisco
 San José St.,San Jose St.
 San José St. Spartans,San Jose St.
+San Jos� St. Spartans,San Jose St.
 Santa Clara Broncos,Santa Clara
 Savannah St.,out
 Savannah St.,out
@@ -345,9 +351,9 @@ SMU Mustangs,SMU
 South Alabama Jaguars,South Alabama
 South Carolina Gamecocks,South Carolina
 South Carolina St. Bulldogs,South Carolina St.
-South Carolina Upstate,out
 South Carolina UpSt.,out
 South Carolina UpSt. Spartans,out
+South Carolina Upstate,out
 South Carolina Upstate Spartans,out
 South Dakota Coyotes,South Dakota
 South Dakota St. Jackrabbits,South Dakota St.
@@ -364,12 +370,12 @@ Southern Utah Thunderbirds,Southern Utah
 St. Bonaventure Bonnies,St. Bonaventure
 St. Francis (BKN),out
 St. Francis (NY),out
-St. Francis NY,out
 St. Francis (PA),Saint Francis
-St. Francis PA,Saint Francis
 St. Francis (PA) Red Flash,Saint Francis
 St. Francis Brooklyn,out
 St. Francis Brooklyn Terriers,out
+St. Francis NY,out
+St. Francis PA,Saint Francis
 St. John's (NY),St. John's
 St. John's Red Storm,St. John's
 St. Thomas - Minnesota,St. Thomas
@@ -383,8 +389,8 @@ Stonehill Skyhawks,Stonehill
 Stony Brook Seawolves,Stony Brook
 Syracuse Orange,Syracuse
 Tarleton,Tarleton St.
-Tarleton Texans,Tarleton St.
 Tarleton St. Texans,Tarleton St.
+Tarleton Texans,Tarleton St.
 TCU Horned Frogs,TCU
 Temple Owls,Temple
 Tennessee St. Tigers,Tennessee St.
@@ -414,6 +420,7 @@ Troy Trojans,Troy
 Tulane Green Wave,Tulane
 Tulsa Golden Hurricane,Tulsa
 UAB Blazers,UAB
+UAlbany Great Danes,Albany
 UC Davis Aggies,UC Davis
 UC Irvine Anteaters,UC Irvine
 UC Riverside Highlanders,UC Riverside
@@ -435,15 +442,14 @@ UL Monroe Warhawks,Louisiana Monroe
 UMass,Massachusetts
 UMass Lowell River Hawks,UMass Lowell
 UMass Minutemen,Massachusetts
-Massachusetts Minutemen,Massachusetts
 UMBC Retrievers,UMBC
 UNC Asheville Bulldogs,UNC Asheville
 UNC Greensboro Spartans,UNC Greensboro
 UNC Wilmington Seahawks,UNC Wilmington
 University of California,California
 UNLV Rebels,UNLV
-USC UpSt.,USC Upstate
 USC Trojans,USC
+USC UpSt.,USC Upstate
 UT Arlington Mavericks,UT Arlington
 UT Martin,Tennessee Martin
 UT Martin Skyhawks,Tennessee Martin
@@ -469,6 +475,7 @@ Wake Forest Demon Deacons,Wake Forest
 Washington Huskies,Washington
 Washington St. Cougars,Washington St.
 Weber St. Wildcats,Weber St.
+West Georgia Wolves,West Georgia
 West Virginia Mountaineers,West Virginia
 Western Carolina Catamounts,Western Carolina
 Western Illinois Leathernecks,Western Illinois
