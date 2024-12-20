@@ -30,4 +30,5 @@ SpeechRecognition
 streamlit
 streamlit_folium
 streamlit-aggrid
+webdriver_manager
 yfinance
