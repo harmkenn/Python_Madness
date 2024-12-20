@@ -1,26 +1,50 @@
-import pandas as pd
-import streamlit as st
-from selenium import webdriver
-import io
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
-import time
+from webdriver_manager.chrome import ChromeDriverManager
+import pandas as pd
+import io
+
 
 def kenpom_code():
     # Code to be executed when the button is clicked
     # Load the CSV file
-    df = pd.read_csv('Python_Madness_2025/data/Just2025.csv')
-    df = df.iloc[:, 1:8]
-    df2 = pd.read_csv('Python_Madness_2025/data/step01_kenpom0824.csv')
-    df_concat = pd.concat([df2, df])
-    df_concat = df_concat.reset_index(drop=True)
-    df_concat.to_csv('Python_Madness_2025/data/step01_kenpom0825.csv', index=False)
-    st.write("KenPom Data Updated")
-    st.dataframe(df_concat) 
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    def remove_trailing_space_or_digit(text):
+        while text and (text[-1].isspace() or text[-1].isdigit()):
+            text = text[:-1]
+        return text
+
+    b = 2024
+
+    kenpom = pd.read_csv('data/step01c_kenpom0824.csv')
+    kenpom = kenpom[kenpom['Year']<b]
+
+    for y in range(b,2026):
+
+        driver.get(f'https://kenpom.com/index.php?y={y}')
+        driver.maximize_window()
+        element = WebDriverWait(driver, 1000).until(EC.presence_of_element_located((By.XPATH, "//table")))
+        with io.StringIO(driver.page_source) as f:
+            df = pd.read_html(f)[0]
+        df['Year'] = y
+        #df.columns = df.columns.droplevel(list(range(18)))
+        new_columns = ['Rank', 'Team', 'Conf', 'W-L', 'NetRtg', 'ORtg', 'rk','DRtg','rk','AdjT'
+                        ,'rk','Luck','rk','Luck','rk','Luck','rk','Luck','rk','Luck','rk','Year']  # create a list of new column names
+        df.columns = new_columns
+        columns_to_keep = ['Year','Team', 'Conf', 'NetRtg', 'ORtg', 'DRtg','AdjT']  # create a list of column names to keep
+        df = df.loc[:, columns_to_keep]
+
+        # Apply the lambda function to the 'A' column
+        df['Team'] = df['Team'].apply(remove_trailing_space_or_digit)
+
+        # assuming kenpom is your main DataFrame
+        kenpom = pd.concat([kenpom, df], ignore_index=True)
+
+    kenpom.to_csv('step01d_kenpom0825.csv',index=False)
 
 def espnbpi_code():
     service = Service(executable_path="chromedriver.exe")
