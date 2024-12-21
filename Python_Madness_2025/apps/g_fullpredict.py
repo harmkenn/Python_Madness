@@ -8,7 +8,7 @@ import numpy as np
 # title of the app
 st.markdown('Use Linear Regression to do a Full Bracket Prediction')
 
-fup = pd.read_csv("Python_Madness_2025/data/step075g_FUStats.csv").fillna(0)
+fup = pd.read_csv("Python_Madness_2025/data/step05g_FUStats.csv").fillna(0)
 fup = fup[fup['Year']<=2024][fup['Game']>=1]
 fup['Round'] = fup['Round'].astype('int32')
 fup['PFSeed']=fup['AFSeed']
