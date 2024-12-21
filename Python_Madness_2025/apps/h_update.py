@@ -7,6 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import streamlit as st
 import pandas as pd
 import io
+import time
 
 
 def kenpom_code():
@@ -19,9 +20,9 @@ def kenpom_code():
             text = text[:-1]
         return text
 
-    b = 2024
+    b = 2025
 
-    kenpom = pd.read_csv('data/step01c_kenpom0824.csv')
+    kenpom = pd.read_csv('Python_Madness_2025/data/step01c_kenpom0824.csv')
     kenpom = kenpom[kenpom['Year']<b]
 
     for y in range(b,2026):
@@ -45,23 +46,25 @@ def kenpom_code():
         # assuming kenpom is your main DataFrame
         kenpom = pd.concat([kenpom, df], ignore_index=True)
 
-    kenpom.to_csv('step01d_kenpom0825.csv',index=False)
+    kenpom.to_csv('Python_Madness_2025/data/step01d_kenpom0825.csv',index=False)
+
+    st.write('KenPom updated!')
+    st.dataframe(kenpom[kenpom['Year']==2025].head(5))
 
 def espnbpi_code():
-    service = Service(executable_path="chromedriver.exe")
-    options = webdriver.ChromeOptions()
-    #options.add_argument('--headless')
-    driver = webdriver.Chrome(service=service,options=options)
-    y = 2024
-    driver.get(f'https://www.espn.com/mens-college-basketball/bpi/_/view/bpi/season/{y}')
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+
+    y = 2025
+    driver.get(f'https://www.espn.com/mens-college-basketball/bpi/_/season/{y}')
     driver.maximize_window()
     time.sleep(10)
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "onetrust-accept-btn-handler"))).click()
 
     try:
-        for x in range(8):
-            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "Show More"))).click() 
-            time.sleep(5)
+        for _ in range(10):
+            show_more_link = driver.find_element(By.CSS_SELECTOR, "a.loadMore__link")
+            show_more_link.click()
+            time.sleep(5)  # wait for the content to load
     except:
         try:
             element = WebDriverWait(driver, 1000).until(EC.presence_of_element_located((By.XPATH, "//table")))
@@ -75,12 +78,19 @@ def espnbpi_code():
             bpi = bpi.iloc[:,[12,0,6,7]]
             bpi.columns = ['Year','Team','BPI(O)','BPI(D)']
             print(y)
-    espnBPI = pd.read_csv('step02_espnbpi0824.csv')
+    espnBPI = pd.read_csv('Python_Madness_2025/data/step02b_espnbpi0824.csv')
     espnBPI = espnBPI[espnBPI['Year']<y]   
     espnBPI = pd.concat([espnBPI,bpi]) 
 
-    espnBPI.to_csv('step02_espnbpi0825.csv',index=False)      
+    espnBPI.to_csv('Python_Madness_2025/data/step02c_espnbpi0825.csv',index=False)      
+
+    a = espnBPI['Team'].unique()
+    b = pd.DataFrame({'tm':sorted(a)})
+    b.to_csv('Python_Madness_2025/data/bbb.csv',index=False) 
+    st.write('ESPN BPI updated!')
+    st.dataframe(espnBPI[espnBPI['Year']==2025].head(5))
 
 # Display the button
 if st.button("Update Data"):
     kenpom_code()
+    espnbpi_code()
