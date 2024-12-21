@@ -4,7 +4,7 @@ import pandas as pd
 
 # title of the app
 st.markdown('Team Wins Since 2008')
-AG = pd.read_csv('Python_Madness_2025/notebooks/step04_FUHistory.csv')
+AG = pd.read_csv('Python_Madness_2025/data/step05c_FUHistory.csv')
 AG = AG[AG['Year']<=2023]
 champs = AG[AG['Round']== 6]
 champs.index = champs["Year"]

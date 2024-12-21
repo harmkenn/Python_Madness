@@ -8,7 +8,7 @@ import numpy as np
 py = 2024
 st.markdown('Predicting ' + str(py))
     
-fup = pd.read_csv("Python_Madness_2025/notebooks/step07_FUStats.csv").fillna(0)
+fup = pd.read_csv("Python_Madness_2025/data/step05g_FUStats.csv").fillna(0)
 fup['Year'] = pd.to_numeric(fup['Year'], errors='coerce').astype('Int32')
 
 fup = fup[fup['Game']>=1]
@@ -34,7 +34,7 @@ LRF.fit(MX,MFY)
 RFU = LinearRegression()
 RFU.fit(MX,MUY)
 
-BB = pd.read_csv('Python_Madness_2025/notebooks/step04_FUHistory.csv')
+BB = pd.read_csv('Python_Madness_2025/data/step05c_FUHistory.csv')
 BB = BB[BB['Year']==py][BB['Game']>=1][BB['Game']<=32]
 
 BB['Round']=BB['Round'].astype('int32')
@@ -43,7 +43,7 @@ BB = BB.iloc[:,0:10]
 BBcol = ['Year','Round','Region','Game','PFSeed','PFTeam','PFScore','PUSeed','PUTeam','PUScore']
 BB.columns = BBcol
 
-KBBP = pd.read_csv("Python_Madness_2025/notebooks/step06_AllStats.csv").fillna(0)
+KBBP = pd.read_csv("Python_Madness_2025/data/step05f_AllStats.csv").fillna(0)
 KBBP = KBBP[KBBP['Year']==py]
 BB['Year'] = pd.to_numeric(BB['Year'], errors='coerce').astype('Int64')
 
