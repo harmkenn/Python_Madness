@@ -5916,8 +5916,8 @@ Year,Team,BPI(O),BPI(D)
 2025,Wisconsin,8.3,4.9
 2025,Utah St.,7.2,5.5
 2025,SMU,7.4,4.9
-2025,Nebraska,4.3,8.0
 2025,Penn St.,5.7,6.6
+2025,Nebraska,4.3,8.0
 2025,Memphis,6.3,5.9
 2025,Oklahoma,6.8,5.2
 2025,Utah,5.7,6.3
@@ -5943,7 +5943,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Arizona St.,3.5,5.8
 2025,South Carolina,3.9,5.4
 2025,USC,4.0,5.1
-2025,George Mason,2.8,6.2
+2025,George Mason,2.8,6.3
 2025,Butler,4.7,4.1
 2025,New Mexico,4.2,4.3
 2025,San Francisco,1.6,6.7
@@ -5981,14 +5981,14 @@ Year,Team,BPI(O),BPI(D)
 2025,UC San Diego,2.2,2.7
 2025,Loyola Chicago,-0.0,4.9
 2025,Washington,0.3,4.4
-2025,High Point,4.9,-0.3
+2025,High Point,4.9,-0.2
 2025,Oklahoma St.,1.8,2.7
 2025,St. Bonaventure,-0.3,4.8
 2025,UC Irvine,-1.5,6.0
 2025,Wichita St.,0.9,3.5
-2025,Murray St.,1.1,3.0
 2025,Georgia Tech,1.0,3.1
 2025,Rhode Island,2.2,1.8
+2025,Murray St.,1.2,2.7
 2025,Seton Hall,-3.0,6.7
 2025,California,3.3,-0.2
 2025,Samford,3.0,0.1
@@ -5997,11 +5997,11 @@ Year,Team,BPI(O),BPI(D)
 2025,Northern Iowa,2.1,0.9
 2025,Louisiana Tech,0.1,2.6
 2025,UAB,4.1,-1.4
-2025,Kent St.,-1.3,3.9
+2025,Kent St.,-1.4,3.9
 2025,La Salle,0.5,2.0
 2025,Temple,0.7,1.7
 2025,UNC Greensboro,-0.7,3.0
-2025,Davidson,1.5,0.8
+2025,Davidson,1.4,0.8
 2025,Lipscomb,0.1,2.1
 2025,Illinois St.,2.1,0.0
 2025,UNC Wilmington,3.5,-1.5
@@ -6020,7 +6020,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Boston College,0.4,0.6
 2025,St. Thomas,1.4,-0.6
 2025,Illinois Chicago,-1.1,1.9
-2025,Middle Tennessee,-0.9,1.6
+2025,Middle Tennessee,-1.0,1.6
 2025,Seattle,-0.8,1.4
 2025,Duquesne,-1.7,2.2
 2025,Western Kentucky,-2.2,2.6
@@ -6053,7 +6053,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Loyola Marymount,-1.7,0.8
 2025,Drexel,-1.4,0.6
 2025,Winthrop,-1.0,0.1
-2025,Massachusetts,-2.2,1.2
+2025,Massachusetts,-2.2,1.3
 2025,Youngstown St.,-4.6,3.6
 2025,Norfolk St.,-0.7,-0.4
 2025,Miami OH,-1.6,0.5
@@ -6064,10 +6064,10 @@ Year,Team,BPI(O),BPI(D)
 2025,Tulane,-2.6,1.3
 2025,Wofford,0.6,-2.0
 2025,Maine,-4.0,2.5
+2025,Charlotte,0.9,-2.5
 2025,Rice,-3.0,1.3
 2025,Fordham,-2.7,1.0
 2025,Belmont,0.7,-2.6
-2025,Charlotte,0.6,-2.5
 2025,South Alabama,-1.7,-0.2
 2025,Saint Peter's,-3.1,1.1
 2025,Bryant,-1.7,-0.3
@@ -6080,7 +6080,7 @@ Year,Team,BPI(O),BPI(D)
 2025,UTSA,-0.6,-2.0
 2025,Chattanooga,-0.3,-2.4
 2025,Merrimack,-4.9,2.2
-2025,Cleveland St.,-3.7,1.0
+2025,Cleveland St.,-3.8,1.0
 2025,Southern Illinois,-2.7,-0.2
 2025,Lamar,-3.4,0.4
 2025,Nicholls St.,-3.6,0.7
@@ -6102,7 +6102,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Kennesaw St.,-3.2,-0.6
 2025,Tulsa,-3.4,-0.4
 2025,New Mexico St.,-3.7,-0.2
-2025,North Alabama,-1.7,-2.2
+2025,North Alabama,-1.7,-2.1
 2025,UT Rio Grande Valley,-3.0,-0.9
 2025,Presbyterian,-1.7,-2.2
 2025,North Carolina Central,-2.2,-1.8
@@ -6133,13 +6133,13 @@ Year,Team,BPI(O),BPI(D)
 2025,UC Davis,-6.8,1.6
 2025,Eastern Kentucky,-2.0,-3.3
 2025,Jacksonville,-5.2,-0.2
-2025,Georgia St.,-3.5,-2.0
+2025,Georgia St.,-3.5,-1.9
 2025,Robert Morris,-5.2,-0.2
 2025,Bucknell,-5.6,0.1
 2025,Northern Arizona,-2.2,-3.4
 2025,Air Force,-2.6,-3.0
 2025,Fairfield,-2.0,-3.7
-2025,Bethune Cookman,-6.1,0.3
+2025,Bethune Cookman,-6.0,0.3
 2025,Southern Utah,-3.9,-1.9
 2025,Bowling Green,-2.9,-3.0
 2025,Incarnate Word,-2.2,-3.7
@@ -6154,7 +6154,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Morehead St.,-4.9,-1.6
 2025,SIU Edwardsville,-6.4,-0.1
 2025,Tennessee Martin,-5.5,-1.0
-2025,Louisiana,-4.3,-2.2
+2025,Louisiana,-4.4,-2.2
 2025,Charleston Southern,-4.3,-2.4
 2025,Portland St.,-4.2,-2.8
 2025,Army,-3.8,-3.3
@@ -6208,7 +6208,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Western Illinois,-6.6,-3.4
 2025,Tennessee Tech,-5.0,-5.2
 2025,Stonehill,-6.3,-3.9
-2025,Evansville,-7.5,-2.8
+2025,Evansville,-7.6,-2.8
 2025,Siena,-7.5,-2.9
 2025,Western Carolina,-9.1,-1.3
 2025,San Diego,-8.9,-1.5
