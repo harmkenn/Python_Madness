@@ -5,7 +5,7 @@ import numpy as np
 
 
 # title of the app
-py = 2024
+py = 2025
 st.markdown('Predicting ' + str(py))
     
 fup = pd.read_csv("Python_Madness_2025/data/step05g_FUStats.csv").fillna(0)

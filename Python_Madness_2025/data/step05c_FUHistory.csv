@@ -1061,3 +1061,70 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2024,5,F4,61,1,Connecticut,86,4,Alabama,72,1,23
 2024,5,F4,62,1,Purdue,63,11,North Carolina St.,50,49,42
 2024,6,Champ,63,1,Connecticut,75,1,Purdue,60,1,49
+2025,0,PI,-4,16,Morehead St.,71,16,Howard,70,0,0
+2025,0,PI,-3,16,Colgate,71,16,LIU,70,0,0
+2025,0,PI,-2,11,San Diego St.,71,11,Ohio St.,70,0,0
+2025,0,PI,-1,11,Texas,71,11,UCF,70,0,0
+2025,1,NW,1,1,Auburn,71,16,Morehead St.,70,1,2
+2025,1,NW,2,8,UCLA,71,9,Saint Mary's,70,3,4
+2025,1,NW,3,5,Mississippi St.,71,12,Bradley,70,5,6
+2025,1,NW,4,4,Houston,71,13,Samford,70,7,8
+2025,1,NW,5,6,Louisville,71,11,New Mexico,70,9,10
+2025,1,NW,6,3,Kentucky,71,14,Northern Colorado,70,11,12
+2025,1,NW,7,7,Texas Tech,71,10,Pittsburgh,70,13,14
+2025,1,NW,8,2,Marquette,71,15,UNC Asheville,70,15,16
+2025,1,SW,9,1,Iowa St.,71,16,Colgate,70,17,18
+2025,1,SW,10,8,Creighton,71,9,Baylor,70,19,20
+2025,1,SW,11,5,Mississippi,71,12,George Mason,70,21,22
+2025,1,SW,12,4,Illinois,71,13,Yale,70,23,24
+2025,1,SW,13,6,Arizona,71,11,San Diego St.,70,25,26
+2025,1,SW,14,3,Oregon,71,14,Utah Valley,70,27,28
+2025,1,SW,15,7,Gonzaga,71,10,Vanderbilt,70,29,30
+2025,1,SW,16,2,Florida,71,15,Bryant,70,31,32
+2025,1,NE,17,1,Duke,71,16,Nebraska Omaha,70,33,34
+2025,1,NE,18,8,Utah St.,71,9,Maryland,70,35,36
+2025,1,NE,19,5,Wisconsin,71,12,McNeese St.,70,37,38
+2025,1,NE,20,4,Texas A&M,71,13,Middle Tennessee,70,39,40
+2025,1,NE,21,6,Connecticut,71,11,UC Irvine,70,41,42
+2025,1,NE,22,3,Purdue,71,14,Charleston,70,43,44
+2025,1,NE,23,7,Clemson,71,10,Oklahoma,70,45,46
+2025,1,NE,24,2,Tennessee,71,15,Cleveland St.,70,47,48
+2025,1,SE,25,1,Alabama,71,16,Southern,70,49,50
+2025,1,SE,26,8,West Virginia,71,9,Georgia,70,51,52
+2025,1,SE,27,5,Memphis,71,12,Lipscomb,70,53,54
+2025,1,SE,28,4,Michigan,71,13,Akron,70,55,56
+2025,1,SE,29,6,St. John's,71,11,Texas,70,57,58
+2025,1,SE,30,3,Michigan St.,71,14,South Alabama,70,59,60
+2025,1,SE,31,7,Missouri,71,10,North Carolina,70,61,62
+2025,1,SE,32,2,Kansas,71,15,Quinnipiac,70,63,64
+2025,2,NW,33,,,,,,,,
+2025,2,NW,34,,,,,,,,
+2025,2,NW,35,,,,,,,,
+2025,2,NW,36,,,,,,,,
+2025,2,SW,37,,,,,,,,
+2025,2,SW,38,,,,,,,,
+2025,2,SW,39,,,,,,,,
+2025,2,SW,40,,,,,,,,
+2025,2,NE,41,,,,,,,,
+2025,2,NE,42,,,,,,,,
+2025,2,NE,43,,,,,,,,
+2025,2,NE,44,,,,,,,,
+2025,2,SE,45,,,,,,,,
+2025,2,SE,46,,,,,,,,
+2025,2,SE,47,,,,,,,,
+2025,2,SE,48,,,,,,,,
+2025,3,NW,49,,,,,,,,
+2025,3,NW,50,,,,,,,,
+2025,3,SW,51,,,,,,,,
+2025,3,SW,52,,,,,,,,
+2025,3,NE,53,,,,,,,,
+2025,3,NE,54,,,,,,,,
+2025,3,SE,55,,,,,,,,
+2025,3,SE,56,,,,,,,,
+2025,4,NW,57,,,,,,,,
+2025,4,SW,58,,,,,,,,
+2025,4,NE,59,,,,,,,,
+2025,4,SE,60,,,,,,,,
+2025,5,F4,61,,,,,,,,
+2025,5,F4,62,,,,,,,,
+2025,6,Champ,63,,,,,,,,
