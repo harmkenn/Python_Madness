@@ -5878,303 +5878,366 @@ Year,Team,BPI(O),BPI(D)
 2024,Pacific,-8.6,-8.1
 2024,IUPUI,-9.5,-8.9
 2024,Mississippi Valley St.,-13.7,-8.2
-2025,Duke,13.1,10.8
-2025,Houston,11.0,12.9
-2025,Auburn,13.1,9.8
+2025,Duke,13.5,11.3
+2025,Houston,11.0,13.1
+2025,Auburn,13.2,9.8
 2025,Tennessee,8.2,11.3
-2025,Florida,10.5,8.7
-2025,Arizona,9.2,9.8
-2025,Alabama,12.3,6.5
-2025,Iowa St.,8.2,10.5
-2025,Texas Tech,10.4,7.7
-2025,Gonzaga,11.1,6.9
-2025,Kansas,7.3,10.0
-2025,Michigan St.,7.5,9.6
-2025,Purdue,10.3,6.4
-2025,Maryland,7.5,9.2
-2025,Kentucky,10.8,5.6
-2025,Clemson,8.8,7.7
-2025,St. John's,5.2,11.1
-2025,Texas A&M,6.6,9.5
-2025,Connecticut,9.9,6.1
-2025,Baylor,10.3,5.7
-2025,Wisconsin,9.5,6.4
-2025,Illinois,8.7,7.2
-2025,Marquette,7.5,8.1
-2025,Creighton,7.4,7.9
-2025,BYU,8.6,6.3
-2025,Michigan,7.3,7.5
-2025,UCLA,6.2,8.4
-2025,Mississippi,6.8,7.5
-2025,Texas,8.0,6.2
-2025,Missouri,8.7,5.4
-2025,Mississippi St.,7.3,6.7
-2025,Saint Mary's,5.5,8.3
-2025,Louisville,7.0,6.8
-2025,North Carolina,8.1,5.7
-2025,Ohio St.,6.9,6.6
-2025,VCU,5.0,8.1
-2025,Oregon,6.7,6.1
-2025,Cincinnati,4.5,8.2
-2025,Villanova,8.3,3.8
-2025,Utah St.,8.5,3.6
-2025,Arkansas,4.2,7.7
-2025,Memphis,5.3,6.5
-2025,SMU,7.3,4.5
-2025,Xavier,5.8,5.9
-2025,Georgia,4.7,7.0
-2025,Pittsburgh,6.9,4.4
-2025,Nebraska,5.0,6.1
-2025,West Virginia,2.8,8.3
-2025,New Mexico,4.3,6.7
-2025,Northwestern,5.1,5.7
-2025,San Diego St.,1.6,9.2
+2025,Alabama,12.5,6.7
+2025,Florida,10.4,8.6
+2025,Arizona,9.5,9.2
+2025,Iowa St.,7.8,10.4
+2025,Texas Tech,10.2,7.7
+2025,Gonzaga,11.0,6.9
+2025,Kansas,7.2,10.1
+2025,Michigan St.,7.1,9.9
+2025,St. John's,5.6,11.0
+2025,Clemson,9.0,7.5
+2025,Maryland,7.0,9.4
+2025,Kentucky,10.8,5.7
+2025,Wisconsin,9.8,6.4
+2025,Purdue,9.9,6.2
+2025,Marquette,7.5,8.4
+2025,Baylor,10.3,5.5
+2025,Texas A&M,6.5,9.1
+2025,Connecticut,10.1,5.5
+2025,Illinois,8.4,6.8
+2025,Creighton,7.4,7.7
+2025,BYU,9.2,5.7
+2025,UCLA,6.0,8.6
+2025,Michigan,6.5,7.7
+2025,Missouri,9.0,5.1
+2025,Saint Mary's,5.4,8.5
+2025,Louisville,6.7,7.1
+2025,Mississippi,6.9,6.9
+2025,VCU,5.6,8.1
+2025,North Carolina,8.4,5.2
+2025,Texas,7.7,5.9
+2025,Ohio St.,7.1,6.3
+2025,Mississippi St.,7.0,6.2
+2025,Cincinnati,4.6,8.1
+2025,Oregon,6.7,6.0
+2025,Villanova,8.0,4.1
+2025,Arkansas,4.4,7.6
+2025,Memphis,5.4,6.5
+2025,Georgia,4.9,7.0
+2025,Utah St.,8.7,3.2
+2025,SMU,7.2,4.5
+2025,Xavier,5.6,6.0
+2025,West Virginia,2.9,8.5
+2025,Boise St.,5.8,5.3
+2025,Northwestern,5.2,5.8
+2025,New Mexico,4.2,6.8
+2025,Pittsburgh,6.7,4.2
+2025,San Diego St.,1.9,9.0
+2025,Nebraska,4.3,6.5
 2025,Oklahoma,6.2,4.5
-2025,Boise St.,5.5,5.1
-2025,Vanderbilt,6.3,4.1
-2025,Indiana,4.8,5.1
-2025,USC,5.6,4.2
-2025,Wake Forest,2.4,7.1
-2025,Iowa,8.0,1.3
-2025,Utah,3.8,5.4
-2025,Penn St.,4.5,4.7
-2025,Kansas St.,3.9,5.2
-2025,Yale,5.6,3.3
-2025,TCU,1.4,7.5
-2025,Butler,5.5,3.3
-2025,LSU,3.3,5.5
-2025,Arizona St.,3.0,5.5
-2025,UC San Diego,4.3,4.2
-2025,George Mason,1.0,7.5
-2025,Colorado St.,4.3,3.9
-2025,Santa Clara,5.1,3.1
-2025,Nevada,4.8,3.2
-2025,UCF,4.4,3.4
-2025,McNeese St.,4.3,3.5
-2025,Rutgers,3.8,3.9
-2025,Saint Joseph's,2.7,5.0
-2025,Providence,3.8,3.8
-2025,San Francisco,2.1,5.3
-2025,Drake,2.7,4.6
-2025,Dayton,5.6,1.7
-2025,North Texas,1.8,5.5
-2025,Florida St.,1.4,5.6
-2025,Georgetown,1.1,6.0
-2025,High Point,7.2,-0.4
-2025,South Carolina,1.9,5.0
-2025,Minnesota,3.0,3.5
-2025,North Carolina St.,3.1,3.4
-2025,Notre Dame,3.8,2.6
-2025,Grand Canyon,0.6,5.6
-2025,Liberty,1.0,5.1
-2025,Arkansas St.,2.6,3.4
-2025,Bradley,3.4,2.5
-2025,Colorado,1.1,4.6
-2025,Oregon St.,4.5,1.2
-2025,Stanford,3.5,2.1
-2025,UNLV,1.8,3.7
-2025,Washington,2.1,3.2
-2025,Virginia,1.5,3.5
-2025,Florida Atlantic,4.1,0.8
-2025,Syracuse,3.1,1.7
-2025,UC Irvine,-1.8,6.5
-2025,Georgia Tech,0.7,3.9
-2025,Loyola Chicago,0.3,4.0
-2025,UAB,6.2,-1.9
-2025,Lipscomb,1.8,2.1
-2025,Oklahoma St.,0.9,3.0
-2025,St. Bonaventure,0.4,3.5
-2025,California,3.3,0.3
-2025,Samford,2.0,1.4
-2025,Northern Iowa,1.9,1.4
-2025,Saint Louis,1.3,1.9
-2025,DePaul,1.3,1.8
-2025,Washington St.,2.6,0.4
-2025,Miami FL,5.3,-2.4
-2025,George Washington,0.4,2.4
-2025,Akron,1.3,1.5
-2025,Virginia Tech,1.4,1.3
-2025,UNC Wilmington,3.4,-0.7
-2025,Troy,-0.7,3.3
-2025,UNC Greensboro,0.1,2.4
+2025,Vanderbilt,6.5,4.0
+2025,Indiana,5.1,5.3
+2025,USC,6.1,3.3
+2025,UC San Diego,4.5,4.7
+2025,Penn St.,4.6,4.4
+2025,Utah,3.8,5.3
+2025,Butler,5.8,3.1
+2025,Wake Forest,2.5,6.5
+2025,Iowa,7.7,1.2
+2025,Colorado St.,4.1,4.6
+2025,Yale,5.5,3.2
+2025,LSU,3.2,5.5
+2025,Arizona St.,3.0,5.7
+2025,Kansas St.,3.4,5.2
+2025,TCU,1.2,7.3
+2025,George Mason,0.8,7.5
+2025,Nevada,5.0,3.2
+2025,McNeese St.,4.4,3.7
+2025,Santa Clara,4.9,3.1
+2025,Rutgers,4.4,3.6
+2025,UCF,4.5,3.3
+2025,North Texas,2.0,5.8
+2025,Saint Joseph's,2.8,5.0
+2025,San Francisco,2.2,5.3
+2025,Dayton,5.7,1.8
+2025,Drake,2.6,4.7
+2025,Providence,3.4,3.7
+2025,Georgetown,1.5,5.4
+2025,High Point,7.1,-0.3
+2025,South Carolina,2.1,4.6
+2025,Florida St.,1.9,4.9
+2025,Notre Dame,3.9,2.5
+2025,Arkansas St.,2.6,3.7
+2025,North Carolina St.,2.8,3.4
+2025,Minnesota,2.8,3.3
+2025,Bradley,3.4,2.6
+2025,Grand Canyon,0.4,5.6
+2025,Liberty,0.8,5.2
+2025,Stanford,3.2,2.7
+2025,Colorado,1.0,4.6
+2025,Oregon St.,4.5,1.0
+2025,Virginia,2.0,3.3
+2025,UNLV,1.3,4.0
+2025,Syracuse,3.1,2.0
+2025,Georgia Tech,1.0,4.1
+2025,UC Irvine,-1.8,6.8
+2025,Washington,2.0,2.8
+2025,UAB,6.3,-1.5
+2025,Loyola Chicago,0.5,4.2
+2025,Florida Atlantic,3.9,0.4
+2025,Oklahoma St.,1.0,3.3
+2025,Lipscomb,2.3,1.6
+2025,St. Bonaventure,0.4,3.4
+2025,California,2.9,0.8
+2025,Northern Iowa,1.9,1.8
+2025,Samford,2.3,1.2
+2025,UNC Wilmington,3.8,-0.5
+2025,Saint Louis,1.0,2.2
+2025,DePaul,1.4,1.5
+2025,Washington St.,2.6,0.2
+2025,Virginia Tech,1.2,1.6
+2025,Akron,1.5,1.2
+2025,Troy,-0.7,3.4
+2025,Miami FL,5.1,-2.5
+2025,George Washington,0.1,2.2
 2025,Wichita St.,-0.0,2.3
-2025,Davidson,2.2,-0.1
-2025,Illinois St.,3.7,-1.6
-2025,Murray St.,0.2,1.9
-2025,Rhode Island,0.9,1.1
-2025,James Madison,1.4,0.5
-2025,Duquesne,-0.8,2.7
-2025,Princeton,1.1,0.8
-2025,Charleston,0.2,1.4
-2025,Illinois Chicago,0.6,0.8
-2025,Cal St. Northridge,-1.1,2.5
-2025,Ohio,1.4,-0.2
-2025,Temple,2.0,-0.8
-2025,Milwaukee,1.0,0.2
-2025,Purdue Fort Wayne,2.2,-1.2
-2025,Kent St.,-1.1,2.2
-2025,Cornell,3.0,-2.1
+2025,Murray St.,0.4,1.7
+2025,Duquesne,-0.9,2.9
+2025,UNC Greensboro,-0.1,2.1
+2025,Illinois St.,3.8,-2.0
+2025,Rhode Island,0.8,1.0
+2025,Kent St.,-0.5,2.4
+2025,James Madison,1.6,0.2
+2025,Davidson,1.7,-0.1
+2025,Charleston,0.4,1.2
+2025,Cornell,3.2,-1.8
+2025,Princeton,0.4,1.0
+2025,Cal St. Northridge,-1.2,2.5
+2025,Towson,-1.0,2.0
 2025,South Dakota St.,1.2,-0.3
-2025,South Florida,-0.6,1.4
-2025,Towson,-1.5,2.2
-2025,East Tennessee St.,-1.2,1.9
-2025,Appalachian St.,-3.0,3.7
-2025,Seton Hall,-2.9,3.5
-2025,Tulane,-0.8,1.4
-2025,East Carolina,0.5,0.1
-2025,South Alabama,-1.0,1.6
-2025,Jacksonville St.,0.7,-0.1
-2025,Middle Tennessee,-0.3,0.8
+2025,Illinois Chicago,0.3,0.7
+2025,Temple,1.9,-1.0
+2025,Ohio,1.1,-0.3
+2025,Chattanooga,3.6,-2.7
+2025,Milwaukee,0.4,0.3
+2025,Purdue Fort Wayne,2.0,-1.3
+2025,South Florida,-0.6,1.3
+2025,Seton Hall,-3.3,4.0
+2025,Middle Tennessee,-0.2,0.9
+2025,UC Santa Barbara,0.4,0.3
+2025,Jacksonville St.,0.5,0.2
+2025,Tulane,-0.7,1.3
+2025,Seattle,-1.8,2.4
+2025,South Alabama,-0.7,1.3
+2025,East Carolina,0.7,-0.1
+2025,Appalachian St.,-3.2,3.8
+2025,East Tennessee St.,-1.6,2.1
+2025,Louisiana Tech,-0.3,0.8
 2025,Northern Colorado,2.4,-1.9
-2025,UC Santa Barbara,0.3,0.3
-2025,Louisiana Tech,-0.2,0.7
-2025,St. Thomas,3.3,-2.9
-2025,Utah Valley,-2.1,2.5
-2025,Chattanooga,3.3,-2.9
-2025,Boston College,-0.1,0.4
-2025,Bryant,-0.5,0.7
-2025,Miami OH,0.6,-0.5
-2025,Seattle,-1.9,1.9
-2025,Wofford,1.5,-1.6
-2025,Furman,0.3,-0.4
-2025,Norfolk St.,0.2,-0.7
-2025,Massachusetts,-2.6,2.0
-2025,Central Connecticut,-2.7,2.1
-2025,Cal Baptist,-0.0,-0.6
-2025,Texas A&M Corpus Chris,-1.9,1.3
-2025,North Alabama,1.0,-1.7
-2025,Cleveland St.,-2.5,1.6
-2025,UNC Asheville,1.1,-2.1
-2025,Rice,-0.2,-0.7
-2025,Western Kentucky,-2.7,1.7
-2025,North Dakota St.,3.3,-4.3
-2025,Florida Gulf Coast,0.4,-1.4
-2025,Longwood,-0.7,-0.3
-2025,New Mexico St.,-3.7,2.6
-2025,Belmont,2.1,-3.3
-2025,Montana St.,-1.6,0.4
-2025,Youngstown St.,-2.9,1.6
-2025,Maine,-3.7,2.5
-2025,La Salle,-1.5,0.2
-2025,Winthrop,-0.0,-1.3
-2025,Vermont,-3.8,2.4
-2025,Brown,-1.2,-0.2
-2025,UTEP,-3.3,1.9
-2025,Drexel,-2.6,1.2
-2025,San José St. Spartans,0.3,-1.7
-2025,Loyola Marymount,-2.7,1.3
-2025,Nicholls St.,-1.5,0.0
-2025,Texas St.,0.3,-1.8
+2025,Miami OH,0.8,-0.3
+2025,Furman,0.4,0.1
+2025,Utah Valley,-2.1,2.4
+2025,Bryant,-0.6,0.9
+2025,St. Thomas,3.1,-2.8
+2025,Wofford,1.8,-1.6
+2025,Boston College,-0.3,0.4
+2025,North Alabama,1.4,-1.8
+2025,Norfolk St.,0.0,-0.6
+2025,Winthrop,0.2,-0.9
+2025,Massachusetts,-2.6,1.9
+2025,Texas A&M Corpus Chris,-1.8,1.1
+2025,Central Connecticut,-2.7,1.9
+2025,Western Kentucky,-2.5,1.7
+2025,Rice,-0.1,-0.8
+2025,Belmont,2.1,-3.0
+2025,Florida Gulf Coast,0.3,-1.3
+2025,Cal Baptist,-0.6,-0.4
+2025,Loyola Marymount,-2.3,1.2
+2025,North Dakota St.,3.1,-4.2
+2025,Cleveland St.,-2.1,1.0
+2025,Brown,-1.4,0.2
+2025,Vermont,-3.7,2.5
+2025,UNC Asheville,0.7,-1.9
+2025,Maine,-3.6,2.4
+2025,New Mexico St.,-3.8,2.5
+2025,Robert Morris,-1.9,0.5
+2025,La Salle,-1.6,0.2
+2025,Dartmouth,-3.1,1.6
+2025,Youngstown St.,-3.0,1.5
+2025,Nicholls St.,-1.4,-0.1
+2025,San José St. Spartans,0.2,-1.7
 2025,Sam Houston St.,-0.2,-1.4
-2025,Northeastern,-1.3,-0.3
-2025,Indiana St.,0.2,-1.9
-2025,Quinnipiac,-3.4,1.7
-2025,Wyoming,-2.0,0.2
-2025,Radford,0.5,-2.3
-2025,Kennesaw St.,-2.7,0.8
-2025,Elon,-0.7,-1.3
-2025,Toledo,2.1,-4.0
-2025,Campbell,-3.0,1.1
-2025,Robert Morris,-2.3,0.4
-2025,Marshall,-2.2,0.2
-2025,Montana,0.6,-2.7
-2025,UMass Lowell,0.6,-2.7
-2025,UT Arlington,-0.4,-1.8
-2025,Dartmouth,-3.2,1.0
-2025,Southern Illinois,-2.0,-0.2
-2025,UC Riverside,-0.5,-1.8
-2025,William & Mary,-0.2,-2.2
-2025,Wright St.,0.6,-3.0
-2025,UTSA,-0.3,-2.2
-2025,South Carolina St.,-3.1,0.6
-2025,UMKC,-2.9,0.3
-2025,Merrimack,-6.0,3.3
-2025,Central Michigan,-3.0,0.3
-2025,Hofstra,-4.7,2.0
-2025,Fordham,-1.8,-0.9
-2025,Southern,-5.0,2.0
+2025,Drexel,-3.1,1.5
+2025,UTEP,-3.2,1.6
+2025,Northeastern,-1.2,-0.5
+2025,Radford,0.3,-2.0
+2025,Texas St.,0.2,-1.9
+2025,Quinnipiac,-3.6,1.9
+2025,Longwood,-1.1,-0.7
+2025,Indiana St.,0.3,-2.2
+2025,Marshall,-2.0,0.2
+2025,Montana,0.8,-2.7
+2025,Montana St.,-1.5,-0.4
+2025,Southern Illinois,-1.6,-0.3
+2025,Elon,-0.5,-1.5
+2025,Wyoming,-2.1,-0.0
+2025,UC Riverside,-0.2,-1.9
+2025,UMass Lowell,0.5,-2.6
+2025,UT Arlington,-0.5,-1.6
+2025,Kennesaw St.,-3.0,0.7
+2025,South Carolina St.,-2.9,0.5
+2025,Wright St.,0.9,-3.3
+2025,Campbell,-3.3,0.9
+2025,UTSA,-0.1,-2.4
+2025,Fordham,-1.8,-0.8
+2025,Toledo,1.9,-4.5
+2025,UMKC,-3.0,0.4
+2025,Merrimack,-5.5,2.7
+2025,William & Mary,0.0,-2.9
+2025,Hofstra,-4.9,2.0
+2025,Bucknell,-3.3,0.3
+2025,Southern,-4.9,1.9
 2025,Oakland,-1.5,-1.6
-2025,Lamar,-3.7,0.5
-2025,Valparaiso,-0.7,-2.6
-2025,Colgate,-1.2,-2.2
-2025,Southeastern Louisiana,-2.9,-0.6
-2025,Charlotte,-0.6,-2.9
-2025,Eastern Kentucky,-0.4,-3.2
-2025,Bucknell,-3.7,0.0
-2025,Jacksonville,-4.2,0.5
-2025,Richmond,-2.6,-1.1
-2025,Marist,-4.8,1.0
-2025,Portland St.,-4.6,0.7
-2025,Columbia,-0.5,-3.6
-2025,Missouri St.,-3.7,-0.4
-2025,Nebraska Omaha,-0.4,-3.8
-2025,Idaho St.,-1.9,-2.2
-2025,Presbyterian,-1.4,-3.0
-2025,Little Rock,-6.0,1.6
-2025,Hawaii,-3.1,-1.3
+2025,Central Michigan,-3.1,-0.3
+2025,Portland St.,-4.3,0.9
+2025,Valparaiso,-0.8,-2.6
+2025,Eastern Kentucky,-0.5,-3.0
+2025,Lamar,-3.9,0.3
+2025,Hampton,-3.3,-0.5
+2025,Southeastern Louisiana,-2.9,-0.9
+2025,Jacksonville,-4.6,0.8
+2025,Charlotte,-0.8,-3.1
+2025,Richmond,-2.5,-1.4
+2025,Colgate,-1.4,-2.5
+2025,Idaho St.,-2.0,-2.0
+2025,Presbyterian,-1.5,-2.6
+2025,Southeast Missouri St.,-5.1,1.0
+2025,Nebraska Omaha,-0.3,-3.8
+2025,Columbia,-0.7,-3.4
+2025,Marist,-5.5,1.2
+2025,Missouri St.,-3.9,-0.5
 2025,UC Davis,-6.5,2.0
-2025,SIU Edwardsville,-4.9,0.4
-2025,American,-2.7,-1.8
-2025,Hampton,-3.2,-1.3
-2025,Southeast Missouri St.,-5.5,0.9
-2025,Abilene Christian,-5.7,1.1
-2025,Queens,-2.3,-2.6
-2025,Mercer,-3.9,-1.0
-2025,Weber St.,-2.1,-2.8
+2025,Queens,-2.3,-2.2
+2025,Mercer,-4.1,-0.5
+2025,Little Rock,-6.1,1.4
+2025,Northern Kentucky,-4.4,-0.4
+2025,American,-3.0,-1.9
+2025,Monmouth,-2.0,-2.8
+2025,Weber St.,-2.2,-2.7
 2025,Tulsa,-4.2,-0.8
-2025,Northern Kentucky,-4.3,-0.6
-2025,Monmouth,-2.5,-2.6
-2025,UT Rio Grande Valley,-3.4,-1.6
-2025,Cal St. Bakersfield,-1.7,-3.3
-2025,Pepperdine,-2.8,-2.3
-2025,Ball St.,-1.7,-3.4
-2025,Northern Arizona,-2.2,-2.9
-2025,Delaware,-0.8,-4.4
-2025,Stephen F. Austin,-8.5,3.2
-2025,Georgia St.,-1.3,-4.0
-2025,Albany,-2.9,-2.4
-2025,Harvard,-3.6,-1.7
-2025,North Carolina Central,-2.2,-3.2
-2025,Mount St. Mary's,-4.9,-0.6
-2025,South Dakota,0.6,-6.1
-2025,Georgia Southern,-3.2,-2.3
-2025,Saint Peter's,-6.4,0.8
-2025,Navy,-3.9,-1.9
-2025,Gardner Webb,-2.5,-3.2
-2025,Incarnate Word,-2.0,-3.8
-2025,Penn,-1.8,-4.1
-2025,Iona,-6.0,0.1
-2025,Evansville,-5.9,-0.2
-2025,UMBC,-1.0,-5.1
-2025,Siena,-4.5,-1.7
-2025,Cal Poly,-2.8,-3.4
-2025,North Florida,0.2,-6.5
-2025,Tennessee St.,-4.5,-1.9
-2025,Lehigh,-4.6,-1.9
-2025,Army,-3.4,-3.0
-2025,Fresno St.,-5.3,-1.2
-2025,Delaware St.,-5.4,-1.2
-2025,Manhattan,-2.2,-4.5
-2025,Sacred Heart,-2.2,-4.5
-2025,Lafayette,-6.0,-0.7
-2025,Idaho,-0.8,-5.9
-2025,Boston University,-5.4,-1.4
-2025,Bethune Cookman,-6.1,-0.7
-2025,Louisiana,-5.1,-2.0
-2025,Bowling Green,-4.0,-3.3
-2025,North Dakota,-1.6,-5.7
-2025,Texas Southern,-7.0,-0.3
-2025,Austin Peay,-4.3,-3.1
-2025,Northwestern St.,-5.2,-2.3
-2025,Southern Miss,-6.6,-0.9
-2025,Southern Utah,-5.5,-2.1
-2025,Eastern Michigan,-3.5,-4.1
-2025,Jackson St.,-5.4,-2.2
-2025,Charleston Southern,-4.9,-2.7
-2025,Air Force,-4.7,-3.1
-2025,Fairleigh Dickinson,-4.8,-3.1
-2025,Tennessee Martin,-4.7,-3.1
-2025,FIU,-7.4,-0.5
-2025,Eastern Washington,-3.7,-4.2
-2025,Old Dominion,-5.3,-2.6
-2025,Tarleton St.,-8.5,0.5
+2025,Cal St. Bakersfield,-1.5,-3.5
+2025,Abilene Christian,-6.0,0.9
+2025,Delaware,-0.7,-4.4
+2025,Albany,-2.7,-2.4
+2025,Northern Arizona,-2.2,-3.0
+2025,Ball St.,-1.6,-3.6
+2025,SIU Edwardsville,-5.1,-0.2
+2025,Hawaii,-3.6,-1.8
+2025,Georgia Southern,-3.2,-2.1
+2025,UT Rio Grande Valley,-3.6,-1.7
+2025,Saint Peter's,-6.2,0.8
+2025,South Dakota,0.6,-6.0
+2025,Navy,-3.9,-1.6
+2025,Incarnate Word,-1.7,-3.7
+2025,Harvard,-4.0,-1.5
+2025,Georgia St.,-1.1,-4.4
+2025,Mount St. Mary's,-5.0,-0.6
+2025,Pepperdine,-2.5,-3.2
+2025,Stephen F. Austin,-8.7,3.1
+2025,North Carolina Central,-2.5,-3.4
+2025,Evansville,-5.8,-0.2
+2025,Gardner Webb,-2.9,-3.1
+2025,Iona,-6.1,0.0
+2025,Penn,-2.0,-4.2
+2025,Tennessee St.,-4.6,-1.7
+2025,Sacred Heart,-2.0,-4.3
+2025,UMBC,-1.0,-5.3
+2025,North Florida,0.2,-6.6
+2025,Lafayette,-5.8,-0.6
+2025,Boston University,-5.1,-1.3
+2025,Cal Poly,-2.8,-3.6
+2025,Fresno St.,-5.2,-1.3
+2025,Delaware St.,-5.2,-1.4
+2025,Siena,-4.5,-2.0
+2025,Manhattan,-2.2,-4.4
+2025,Bethune Cookman,-6.1,-0.6
+2025,Lehigh,-4.5,-2.2
+2025,Idaho,-1.0,-5.8
+2025,Bowling Green,-4.1,-2.9
+2025,Texas Southern,-7.0,-0.1
+2025,Louisiana,-5.3,-1.9
+2025,Northwestern St.,-4.9,-2.3
+2025,North Dakota,-1.5,-5.8
+2025,Army,-3.9,-3.5
+2025,Southern Utah,-5.3,-2.0
+2025,Austin Peay,-3.7,-3.7
+2025,Eastern Michigan,-3.5,-4.0
+2025,FIU,-7.3,-0.2
+2025,Charleston Southern,-4.8,-2.8
+2025,Jackson St.,-5.3,-2.2
+2025,Southern Miss,-6.3,-1.3
+2025,Tennessee Martin,-4.6,-3.0
+2025,Tarleton St.,-8.7,1.0
+2025,Fairleigh Dickinson,-4.7,-3.0
+2025,LIU,-8.3,0.4
+2025,Air Force,-4.9,-3.2
+2025,Eastern Washington,-3.8,-4.2
+2025,Old Dominion,-5.3,-2.9
+2025,Binghamton,-5.0,-3.2
+2025,Fairfield,-3.8,-4.4
+2025,Alabama St.,-5.0,-3.3
+2025,Niagara,-4.3,-4.1
+2025,Loyola MD,-5.5,-3.0
+2025,Portland,-3.3,-5.3
+2025,Howard,-2.3,-6.4
+2025,Pacific,-5.3,-3.4
+2025,Rider,-4.4,-4.4
+2025,Wagner,-8.3,-0.6
+2025,Holy Cross,-4.1,-4.8
+2025,Saint Francis,-4.7,-4.4
+2025,Western Michigan,-4.9,-4.3
+2025,Oral Roberts,-3.2,-6.0
+2025,Morehead St.,-6.4,-2.9
+2025,North Carolina A&T,-5.5,-3.8
+2025,Grambling St.,-7.8,-1.5
+2025,Houston Christian,-5.8,-3.6
+2025,Stony Brook,-3.7,-5.8
+2025,Utah Tech,-5.0,-4.5
+2025,San Diego,-6.7,-2.9
+2025,Alcorn St.,-5.5,-4.4
+2025,Tennessee Tech,-5.3,-4.6
+2025,VMI,-6.3,-3.9
+2025,Long Beach St.,-5.5,-4.7
+2025,Stonehill,-6.0,-4.2
+2025,Eastern Illinois,-9.1,-1.1
+2025,Coastal Carolina,-4.9,-5.5
+2025,Florida A&M,-6.1,-4.4
+2025,Sacramento St.,-8.0,-2.5
+2025,Morgan St.,-4.1,-6.5
+2025,Southern Indiana,-6.3,-4.6
+2025,Lindenwood,-9.1,-1.8
+2025,Green Bay,-5.0,-6.0
+2025,Louisiana Monroe,-7.0,-4.2
+2025,Denver,-5.7,-5.6
+2025,IUPUI,-3.0,-8.4
+2025,Western Illinois,-6.3,-5.6
+2025,Northern Illinois,-8.4,-3.6
+2025,Western Carolina,-8.5,-3.6
+2025,NJIT,-7.9,-4.2
+2025,West Georgia,-7.4,-4.7
+2025,Detroit Mercy,-8.7,-3.5
+2025,Le Moyne,-5.0,-7.2
+2025,Mercyhurst,-7.1,-5.3
+2025,Bellarmine,-3.7,-8.9
+2025,Texas A&M Commerce,-8.8,-3.9
+2025,New Hampshire,-8.7,-4.5
+2025,Central Arkansas,-7.4,-6.1
+2025,Canisius,-5.0,-8.5
+2025,Cal St. Fullerton,-9.3,-4.4
+2025,New Orleans,-6.7,-7.1
+2025,Alabama A&M,-9.6,-4.5
+2025,Stetson,-5.9,-8.3
+2025,Prairie View A&M,-7.3,-7.1
+2025,Buffalo,-9.5,-5.0
+2025,Chicago St.,-10.3,-4.9
+2025,The Citadel,-8.8,-6.6
+2025,Maryland Eastern Shore,-9.8,-6.8
+2025,Coppin St.,-13.9,-3.7
+2025,Arkansas Pine Bluff,-8.4,-9.7
+2025,Mississippi Valley St.,-17.6,-11.2
