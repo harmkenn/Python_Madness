@@ -53,7 +53,7 @@ BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team']
  
 r1p = BBstats
 
-pfs = LRF.predict(r1p[xcol]) + np.random.rand(32)*12-6
+pfs = LRF.predict(r1p[xcol]) + np.random.rand(32)*12-8
 pus = RFU.predict(r1p[xcol]) 
 
 
@@ -77,7 +77,7 @@ for x in range(33,49):
 BBstats = BB[BB['Round']==2].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + np.random.rand(16)*12-6
+pfs = LRF.predict(BBstats[xcol]) + np.random.rand(16)*12-8
 pus = RFU.predict(BBstats[xcol])  
 for x in range(33,49):
     BB.loc[x,'PFScore']=pfs[x-33]
@@ -98,7 +98,7 @@ for x in range(49,57):
 BBstats = BB[BB['Round']==3].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + np.random.rand(8)*12-6
+pfs = LRF.predict(BBstats[xcol]) + np.random.rand(8)*12-8
 pus = RFU.predict(BBstats[xcol])  
 for x in range(49,57):
     BB.loc[x,'PFScore']=pfs[x-49]
@@ -119,7 +119,7 @@ for x in range(57,61):
 BBstats = BB[BB['Round']==4].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + np.random.rand(4)*12-6
+pfs = LRF.predict(BBstats[xcol]) + np.random.rand(4)*12-8
 pus = RFU.predict(BBstats[xcol])  
 for x in range(57,61):
     BB.loc[x,'PFScore']=pfs[x-57]
@@ -141,7 +141,7 @@ BB.loc[62,'Region'] = 'East'
 BBstats = BB[BB['Round']==5].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + np.random.rand(2)*12-6
+pfs = LRF.predict(BBstats[xcol]) + np.random.rand(2)*12-8
 pus = RFU.predict(BBstats[xcol])  
 for x in range(61,63):
     BB.loc[x,'PFScore']=pfs[x-61]
@@ -162,7 +162,7 @@ BB.loc[x,'Region'] = 'Champ'
 BBstats = BB[BB['Round']==6].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + np.random.rand()*12-6
+pfs = LRF.predict(BBstats[xcol]) + np.random.rand()*12-8
 pus = RFU.predict(BBstats[xcol])  
 for x in range(63,64):
     BB.loc[x,'PFScore']=pfs[x-63]
