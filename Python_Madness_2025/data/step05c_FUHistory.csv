@@ -1061,42 +1061,42 @@ Year,Round,Region,Game,AFSeed,AFTeam,AFScore,AUSeed,AUTeam,AUScore,Fti,Uti
 2024,5,F4,61,1,Connecticut,86,4,Alabama,72,1,23
 2024,5,F4,62,1,Purdue,63,11,North Carolina St.,50,49,42
 2024,6,Champ,63,1,Connecticut,75,1,Purdue,60,1,49
-2025,0,PI,-4,16,Southern,71,16,American,70,0,0
-2025,0,PI,-3,12,Ohio St.,71,12,Texas,70,0,0
-2025,0,PI,-2,11,Oklahoma,71,11,Indiana,70,0,0
-2025,0,PI,-1,16,Marist,71,11,Southeast Missouri,70,0,0
+2025,0,PI,-4,16,Southern,71,16,Bucknell,70,0,0
+2025,0,PI,-3,12,Boise St.,71,12,Xavier,70,0,0
+2025,0,PI,-2,11,San Diego St.,71,11,Indiana,70,0,0
+2025,0,PI,-1,16,Quinnipiac,71,16,SE Missouri St.,70,0,0
 2025,1,NW,1,1,Auburn,71,16,Southern,70,1,2
-2025,1,NW,2,8,Illinois,71,9,Vanderbilt,70,3,4
-2025,1,NW,3,5,Clemson,71,12,Ohio St.,70,5,6
-2025,1,NW,4,4,Michigan,71,13,High Point,70,7,8
-2025,1,NW,5,6,Marquette,71,11,VCU,70,9,10
-2025,1,NW,6,3,Kentucky,71,14,James Madison,70,11,12
-2025,1,NW,7,7,Mississippi St.,71,10,San Diego St.,70,13,14
-2025,1,NW,8,2,Iowa St.,71,15,Montana,70,15,16
-2025,1,SW,9,1,Houston,71,16,Nebraska Omaha,70,17,18
-2025,1,SW,10,8,BYU,71,9,Utah St.,70,19,20
-2025,1,SW,11,5,Oregon,71,12,Drake,70,21,22
-2025,1,SW,12,4,St. John's,71,13,Liberty,70,23,24
-2025,1,SW,13,6,Saint Mary's,71,11,Oklahoma,70,25,26
+2025,1,NW,2,8,Kansas,71,9,New Mexico,70,3,4
+2025,1,NW,3,5,Oregon,71,12,Boise St.,70,5,6
+2025,1,NW,4,4,Arizona,71,13,Lipscomb,70,7,8
+2025,1,NW,5,6,Louisville,71,11,San Diego St.,70,9,10
+2025,1,NW,6,3,St. Johns,71,14,Towson,70,11,12
+2025,1,NW,7,7,Memphis,71,10,Georgia,70,13,14
+2025,1,NW,8,2,Michigan St.,71,15,Robert Morris,70,15,16
+2025,1,SW,9,1,Florida,71,16,Norfolk St.,70,17,18
+2025,1,SW,10,8,Creighton,71,9,West Virginia,70,19,20
+2025,1,SW,11,5,Michigan,71,12,McNeese St.,70,21,22
+2025,1,SW,12,4,Kentucky,71,13,High Point,70,23,24
+2025,1,SW,13,6,Saint Mary's,71,11,Arkansas,70,25,26
 2025,1,SW,14,3,Wisconsin,71,14,Chattanooga,70,27,28
-2025,1,SW,15,7,Louisville,71,10,West Virginia,70,29,30
-2025,1,SW,16,2,Florida,71,15,Central Connecticut,70,31,32
-2025,1,NE,17,1,Duke,71,16,Marist,70,33,34
-2025,1,NE,18,8,New Mexico,71,9,Connecticut,70,35,36
+2025,1,SW,15,7,Mississippi,71,10,Utah St.,70,29,30
+2025,1,SW,16,2,Texas Tech,71,15,Bryant,70,31,32
+2025,1,NE,17,1,Duke,71,16,Quinnipiac,70,33,34
+2025,1,NE,18,8,Connecticut,71,9,Vanderbilt,70,35,36
 2025,1,NE,19,5,Missouri,71,12,Yale,70,37,38
-2025,1,NE,20,4,Purdue,71,13,Lipscomb,70,39,40
+2025,1,NE,20,4,Maryland,71,13,Liberty,70,39,40
 2025,1,NE,21,6,UCLA,71,11,UC San Diego,70,41,42
-2025,1,NE,22,3,Texas Tech,71,14,Towson,70,43,44
-2025,1,NE,23,7,Memphis,71,10,Arkansas,70,45,46
-2025,1,NE,24,2,Tennessee,71,15,Norfolk St.,70,47,48
-2025,1,SE,25,1,Alabama,71,16,Bryant,70,49,50
-2025,1,SE,26,8,Creighton,71,9,Gonzaga,70,51,52
-2025,1,SE,27,5,Maryland,71,12,McNeese St.,70,53,54
-2025,1,SE,28,4,Arizona,71,13,Akron,70,55,56
-2025,1,SE,29,6,Kansas,71,11,Nebraska,70,57,58
+2025,1,NE,22,3,Iowa St.,71,14,Northern Colorado,70,43,44
+2025,1,NE,23,7,BYU,71,10,Ohio St.,70,45,46
+2025,1,NE,24,2,Alabama,71,15,South Alabama,70,47,48
+2025,1,SE,25,1,Houston,71,16,Nebraska Omaha,70,49,50
+2025,1,SE,26,8,Mississippi St.,71,9,Gonzaga,70,51,52
+2025,1,SE,27,5,Clemson,71,12,Drake,70,53,54
+2025,1,SE,28,4,Purdue,71,13,Akron,70,55,56
+2025,1,SE,29,6,Marquette,71,11,VCU,70,57,58
 2025,1,SE,30,3,Texas A&M,71,14,Utah Valley,70,59,60
-2025,1,SE,31,7,Mississippi,71,10,Baylor,70,61,62
-2025,1,SE,32,2,Michigan St.,71,15,Robert Morris,70,63,64
+2025,1,SE,31,7,Illinois,71,10,Baylor,70,61,62
+2025,1,SE,32,2,Tennessee,71,15,Central Connecticut,70,63,64
 2025,2,NW,33,,,,,,,,
 2025,2,NW,34,,,,,,,,
 2025,2,NW,35,,,,,,,,

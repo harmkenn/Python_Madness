@@ -156,7 +156,7 @@ def combined():
     KP['Team'] = KP['Team'].replace(LF,LR)
     KP = KP[KP['Team']!='out']
     KP = KP[KP['Team']!='Team']
-    sn = KP[KP['Year']>2020].sort_values('Team')['Team'].unique()
+    sn = KP[KP['Year']>2024].sort_values('Team')['Team'].unique()
     KPN = KP.sort_values('Team')['Team'].unique()
     pd.DataFrame(KPN).to_csv('Python_Madness_2025/data/kpn.csv', index=False)
     KP2fix = list(set(KPN) - set(sn))
@@ -207,24 +207,10 @@ def combined():
     st.write(bart2fix)
     st.write('Bart Fixed!')
 
-    # Make the history Favored team names match Ken Pom
-    AG = pd.read_csv("Python_Madness_2025/data/step05c_FUHistory.csv").dropna()
-    AG['AFTeam'] = AG['AFTeam'].replace(LF,LR)
-    AG = AG[AG['AFTeam']!='out']
-    AGN = AG['AFTeam'].unique()
-    AG2fix = list(set(AGN) - set(sn))
-    st.write(AG2fix)
-    st.write('Favored Checked!')
-    # Make the history Underdog team names match Ken Pom
-    AG['AUTeam'] = AG['AUTeam'].replace(LF,LR)
-    AG = AG[AG['AUTeam']!='out']
-    AGN = AG['AUTeam'].unique()
-    AG2fix = list(set(AGN) - set(sn))
-    st.write(AG2fix)
-    st.write('Underdogs Checked!')
-
     # Compute Seed History
-    #AG = AG[AG['Year']<2025]
+    AG = pd.read_csv("Python_Madness_2025/data/step05c_FUHistory.csv").dropna()
+    AG = AG[AG['Year']<2025]
+
     LG = AG[AG['Round']==6]
     CS = pd.DataFrame({'Round','Seed'})
 
@@ -247,6 +233,24 @@ def combined():
     sh.to_csv('Python_Madness_2025/data/step05d_SeedHistory.csv',index=False) 
     
     st.write('Seed History Updated!')
+
+    # Make the history Favored team names match Ken Pom
+    AG = pd.read_csv("Python_Madness_2025/data/step05c_FUHistory.csv").dropna()
+    AG['AFTeam'] = AG['AFTeam'].replace(LF,LR)
+    AG = AG[AG['AFTeam']!='out']
+    AGN = AG['AFTeam'].unique()
+    AG2fix = list(set(AGN) - set(sn))
+    st.write(AG2fix)
+    st.write('Favored Checked!')
+    # Make the history Underdog team names match Ken Pom
+    AG['AUTeam'] = AG['AUTeam'].replace(LF,LR)
+    AG = AG[AG['AUTeam']!='out']
+    AGN = AG['AUTeam'].unique()
+    AG2fix = list(set(AGN) - set(sn))
+    st.write(AG2fix)
+    st.write('Underdogs Checked!')
+
+    
 
     #Build PASE
 
@@ -316,8 +320,8 @@ def combined():
 
 # Display the button
 if st.button("Update Data"):
-    kenpom_code()
-    espnbpi_code()
-    scrapeBR()
-    bartdata()
+    #kenpom_code()
+    #espnbpi_code()
+    #scrapeBR()
+    #bartdata()
     combined()
