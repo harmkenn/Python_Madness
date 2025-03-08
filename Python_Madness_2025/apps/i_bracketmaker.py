@@ -51,10 +51,11 @@ BB['Year'] = pd.to_numeric(BB['Year'], errors='coerce').astype('Int64')
 BBstats = BB.merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
-    
+BBstats = BBstats.dropna()
+ 
 r1p = BBstats
 
-pfs = LRF.predict(r1p[xcol]) + np.random.rand(32)*10-5
+pfs = LRF.predict(r1p[xcol])
 pus = RFU.predict(r1p[xcol]) 
 
 
