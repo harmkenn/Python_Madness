@@ -250,6 +250,7 @@ def combined():
     st.write(AG2fix)
     st.write('Underdogs Checked!')
 
+    AG.to_csv('Python_Madness_2025/data/step05c_FUHistory.csv',index=False) 
     
 
     #Build PASE
