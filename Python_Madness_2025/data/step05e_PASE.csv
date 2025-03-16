@@ -8,7 +8,7 @@ American,-0.16666666666666666
 Appalachian St.,
 Arizona,-0.23317307692307693
 Arizona St.,-0.02734375
-Arkansas,0.29296875
+Arkansas,0.3359375
 Arkansas Pine Bluff,0.984375
 Auburn,-0.5651041666666666
 Austin Peay,-0.1015625
@@ -16,11 +16,11 @@ BYU,-0.3819444444444444
 Baylor,-0.04927884615384615
 Belmont,-0.2630208333333333
 Binghamton,-0.1875
-Boise St.,-0.24609375
+Boise St.,-0.3359375
 Boston College,-0.9375
 Boston University,-0.015625
 Bradley,-0.1875
-Bryant,-0.1875
+Bryant,-0.015625
 Bucknell,-0.35546875
 Buffalo,0.08203125
 Butler,1.0243055555555556
@@ -29,17 +29,16 @@ Cal Poly,0.984375
 Cal St. Bakersfield,-0.1875
 Cal St. Fullerton,-0.16666666666666666
 California,-0.4609375
-Central Connecticut,-0.1875
 Charleston,-0.359375
-Chattanooga,-0.23828125
+Chattanooga,-0.2760416666666667
 Cincinnati,-0.2690972222222222
-Clemson,-0.189453125
+Clemson,-0.138671875
 Cleveland St.,0.2734375
 Coastal Carolina,-0.015625
 Colgate,-0.15
 Colorado,-0.11197916666666667
-Colorado St.,-0.23828125
-Connecticut,0.7627840909090909
+Colorado St.,-0.371875
+Connecticut,0.7713068181818182
 Coppin St.,
 Cornell,0.4010416666666667
 Creighton,0.0734375
@@ -65,10 +64,10 @@ Gardner Webb,-0.015625
 George Mason,-0.1484375
 George Washington,-0.65625
 Georgetown,-1.1495535714285714
-Georgia,-0.453125
+Georgia,-0.4765625
 Georgia St.,0.13671875
 Georgia Tech,-0.109375
-Gonzaga,0.21783088235294118
+Gonzaga,0.21231617647058823
 Grambling St.,0.984375
 Grand Canyon,0.046875
 Green Bay,-0.125
@@ -79,25 +78,26 @@ High Point,-0.265625
 Holy Cross,0.984375
 Houston,-0.228515625
 Howard,-0.015625
-Illinois,-0.505859375
-Indiana,-0.203125
+Illinois,-0.482421875
+Indiana,-0.291015625
 Indiana St.,-0.125
-Iona,-0.17633928571428573
+Iona,-0.03125
 Iowa,-0.4166666666666667
-Iowa St.,-0.3025568181818182
+Iowa St.,-0.2755681818181818
+Jackson St.,0.984375
 Jacksonville St.,-0.1875
 James Madison,0.71875
-Kansas,-0.2426470588235294
+Kansas,-0.2417279411764706
 Kansas St.,0.06875
 Kennesaw St.,-0.125
 Kent St.,-0.3489583333333333
-Kentucky,0.32924107142857145
+Kentucky,0.3080357142857143
 LIU,-0.1015625
 LSU,-0.159375
 La Salle,2.734375
 Lamar,
 Lehigh,0.3984375
-Liberty,-0.026041666666666668
+Liberty,-0.11979166666666667
 Lipscomb,-0.2265625
 Little Rock,0.453125
 Long Beach St.,-0.3671875
@@ -107,12 +107,12 @@ Louisville,0.1590909090909091
 Loyola Chicago,1.2604166666666667
 Loyola MD,-0.1875
 Manhattan,-0.265625
-Marquette,-0.19661458333333334
+Marquette,-0.23046875
 Marshall,0.734375
-Maryland,-0.14583333333333334
+Maryland,-0.17881944444444445
 Massachusetts,-0.734375
 McNeese St.,-0.546875
-Memphis,-0.05555555555555555
+Memphis,-0.03298611111111111
 Mercer,0.875
 Miami FL,0.5424107142857143
 Michigan,0.59375
@@ -120,23 +120,23 @@ Michigan St.,0.482421875
 Middle Tennessee,0.6328125
 Milwaukee,-0.1875
 Minnesota,-0.415625
-Mississippi,-0.28515625
-Mississippi St.,-0.53125
+Mississippi,-0.3359375
+Mississippi St.,-0.56875
 Mississippi Valley St.,-0.015625
-Missouri,-0.5208333333333334
-Montana,-0.19375
+Missouri,-0.4982638888888889
+Montana,-0.19270833333333334
 Montana St.,-0.125
 Morehead St.,0.3671875
 Morgan St.,-0.1875
 Mount St. Mary's,0.984375
 Murray St.,0.19375
 Nebraska,-0.828125
-Nebraska Omaha,-0.015625
+Nebraska Omaha,-0.1875
 Nevada,-0.24609375
 New Mexico,-0.9088541666666666
 New Mexico St.,-0.2552083333333333
 New Orleans,
-Norfolk St.,0.44140625
+Norfolk St.,0.3984375
 North Carolina,0.5457589285714286
 North Carolina A&T,0.984375
 North Carolina Central,-0.125
@@ -146,7 +146,7 @@ North Dakota St.,0.28125
 North Florida,
 North Texas,0.2734375
 Northeastern,-0.1953125
-Northern Colorado,-0.15625
+Northern Colorado,-0.1875
 Northern Iowa,0.1875
 Northern Kentucky,-0.109375
 Northwestern,0.21875
@@ -154,12 +154,12 @@ Northwestern St.,-0.125
 Notre Dame,0.043402777777777776
 Oakland,0.16145833333333334
 Ohio,1.1145833333333333
-Ohio St.,-0.20703125
-Oklahoma,0.14930555555555555
+Ohio St.,-0.1747159090909091
+Oklahoma,0.06875
 Oklahoma St.,-0.6160714285714286
 Old Dominion,-0.22916666666666666
 Oral Roberts,0.3333333333333333
-Oregon,0.446875
+Oregon,0.4
 Oregon St.,0.7578125
 Pacific,-0.1875
 Penn,-0.015625
@@ -169,34 +169,35 @@ Portland St.,-0.140625
 Prairie View A&M,
 Princeton,0.3333333333333333
 Providence,-0.3958333333333333
-Purdue,-0.26458333333333334
-Quinnipiac,0.984375
+Purdue,-0.23333333333333334
 Radford,0.484375
 Rhode Island,0.078125
 Richmond,0.3229166666666667
-Robert Morris,0.10546875
+Robert Morris,0.12109375
 Rutgers,0.4375
+SIUE,-0.015625
 SMU,-0.734375
+Saint Francis,
 Saint Joseph's,-0.40625
 Saint Louis,-0.16796875
-Saint Mary's,-0.296875
+Saint Mary's,-0.3171875
 Saint Peter's,0.8333333333333334
 Sam Houston St.,-0.125
 Samford,-0.265625
 San Diego,0.734375
-San Diego St.,0.09975961538461539
+San Diego St.,0.10026041666666667
 San Francisco,-0.5625
 Seton Hall,-0.490625
 Siena,0.2708333333333333
-South Alabama,-0.375
+South Alabama,-0.5625
 South Carolina,1.1640625
 South Dakota St.,-0.3229166666666667
 South Florida,1.453125
 Southeast Missouri,
-Southern,0.484375
+Southern,-0.015625
 Southern Miss,-0.65625
 St. Bonaventure,-0.22916666666666666
-St. John's,-1.0989583333333333
+St. John's,-1.1875
 Stanford,0.765625
 Stephen F. Austin,0.10625
 Stetson,-0.015625
@@ -206,24 +207,23 @@ TCU,-0.1953125
 Temple,-0.5558035714285714
 Tennessee,-0.10026041666666667
 Texas,-0.328125
-Texas A&M,-0.19270833333333334
+Texas A&M,-0.1597222222222222
 Texas A&M Corpus Chris,0.984375
 Texas Southern,0.55
-Texas Tech,0.12723214285714285
-Towson,-0.125
-Troy,-0.1875
+Texas Tech,0.16517857142857142
+Troy,-0.15625
 Tulsa,-0.265625
 UAB,-0.07291666666666667
 UC Davis,0.984375
 UC Irvine,0.234375
-UC San Diego,-0.90625
+UC San Diego,-0.546875
 UC Santa Barbara,-0.26171875
 UCF,0.34375
-UCLA,0.5042613636363636
+UCLA,0.5028409090909091
 UMBC,0.3984375
 UNC Asheville,0.1484375
 UNC Greensboro,-0.265625
-UNC Wilmington,-0.40625
+UNC Wilmington,-0.3125
 UNLV,-0.625
 USC,0.11607142857142858
 UT Arlington,-0.015625
@@ -234,7 +234,7 @@ Utah St.,-0.56640625
 Utah Valley,-0.125
 VCU,-0.12239583333333333
 Valparaiso,-0.1953125
-Vanderbilt,-0.96875
+Vanderbilt,-0.7864583333333334
 Vermont,-0.04017857142857143
 Villanova,0.23557692307692307
 Virginia,-0.8784722222222222
@@ -244,14 +244,14 @@ Wake Forest,-0.6328125
 Washington,0.22265625
 Washington St.,0.2265625
 Weber St.,-0.1015625
-West Virginia,-0.046875
+West Virginia,0.008522727272727272
 Western Kentucky,0.5375
 Western Michigan,-0.125
 Wichita St.,0.140625
 Winthrop,-0.359375
 Wisconsin,0.051041666666666666
-Wofford,-0.2125
+Wofford,-0.20833333333333334
 Wright St.,-0.0703125
 Wyoming,-0.546875
 Xavier,0.353125
-Yale,0.078125
+Yale,0.134375
