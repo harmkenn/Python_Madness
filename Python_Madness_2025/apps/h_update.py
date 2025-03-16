@@ -321,8 +321,8 @@ def combined():
 
 # Display the button
 if st.button("Update Data"):
-    kenpom_code()
-    espnbpi_code()
-    scrapeBR()
-    bartdata()
+    #kenpom_code()
+    #espnbpi_code()
+    #scrapeBR()
+    #bartdata()
     combined()
