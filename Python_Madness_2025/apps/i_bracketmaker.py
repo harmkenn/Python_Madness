@@ -54,7 +54,7 @@ BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team']
  
 r1p = BBstats
 
-pfs = LRF.predict(r1p[xcol]) + [random.randint(-10, 8) for _ in range(32)]
+pfs = LRF.predict(r1p[xcol]) + [random.randint(-12, 12) for _ in range(32)]
 pus = RFU.predict(r1p[xcol]) 
 
 
@@ -78,7 +78,7 @@ for x in range(33,49):
 BBstats = BB[BB['Round']==2].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-10, 8) for _ in range(16)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-12, 12) for _ in range(16)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(33,49):
     BB.loc[x,'PFScore']=pfs[x-33]
@@ -99,7 +99,7 @@ for x in range(49,57):
 BBstats = BB[BB['Round']==3].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 7) for _ in range(8)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-12, 12) for _ in range(8)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(49,57):
     BB.loc[x,'PFScore']=pfs[x-49]
@@ -120,7 +120,7 @@ for x in range(57,61):
 BBstats = BB[BB['Round']==4].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 7) for _ in range(4)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-12, 12) for _ in range(4)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(57,61):
     BB.loc[x,'PFScore']=pfs[x-57]
@@ -142,7 +142,7 @@ BB.loc[62,'Region'] = 'East'
 BBstats = BB[BB['Round']==5].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-12, 6) for _ in range(2)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-12, 12) for _ in range(2)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(61,63):
     BB.loc[x,'PFScore']=pfs[x-61]
@@ -163,7 +163,7 @@ BB.loc[x,'Region'] = 'Champ'
 BBstats = BB[BB['Round']==6].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + random.randint(-12, 6)
+pfs = LRF.predict(BBstats[xcol]) + random.randint(-12, 12)
 pus = RFU.predict(BBstats[xcol])  
 for x in range(63,64):
     BB.loc[x,'PFScore']=pfs[x-63]
@@ -179,5 +179,18 @@ for x in range(63,64):
     BB['PWSeed'] = BB['PWSeed'].astype(int)
     
 BB['Year'] = BB['Year'].astype('str')
+
+# Function to add alternating row colors in groups of 4
+def highlight_html(df):
+    html = "<style>table {border-collapse: collapse; width: 100%;} th, td {padding: 4px; text-align: left;} </style><table border='1'>"
+    html += "<tr><th>Game</th><th>Round</th><th>Seed</th><th>Team</th></tr>"  # Table headers
+    for i, row in df.iterrows():
+        color = "#FFFFFF" if ((i-1) // 4) % 2 == 0 else "#ADD8E6"
+        html += f"<tr style='background-color: {color};'><td>{row['Game']}</td><td>{row['Round']}</td><td>{row['PWSeed']}</td><td>{row['PWTeam']}</td></tr>"
+    html += "</table>"
+    return html
+
+st.markdown(highlight_html(BB), unsafe_allow_html=True)
+
 st.dataframe(BB[BB['Game']<=63],height=500)
 
