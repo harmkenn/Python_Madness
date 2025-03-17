@@ -54,7 +54,7 @@ BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team']
  
 r1p = BBstats
 
-pfs = LRF.predict(r1p[xcol]) + random.randint(-12, 6)
+pfs = LRF.predict(r1p[xcol]) + [random.randint(-10, 8) for _ in range(32)]
 pus = RFU.predict(r1p[xcol]) 
 
 
@@ -78,7 +78,7 @@ for x in range(33,49):
 BBstats = BB[BB['Round']==2].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + random.randint(-12, 6)
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-10, 8) for _ in range(16)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(33,49):
     BB.loc[x,'PFScore']=pfs[x-33]
@@ -99,7 +99,7 @@ for x in range(49,57):
 BBstats = BB[BB['Round']==3].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + random.randint(-12, 6)
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 7) for _ in range(8)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(49,57):
     BB.loc[x,'PFScore']=pfs[x-49]
@@ -120,7 +120,7 @@ for x in range(57,61):
 BBstats = BB[BB['Round']==4].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + random.randint(-12, 6)
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 7) for _ in range(4)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(57,61):
     BB.loc[x,'PFScore']=pfs[x-57]
@@ -142,7 +142,7 @@ BB.loc[62,'Region'] = 'East'
 BBstats = BB[BB['Round']==5].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + random.randint(-12, 6)
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-12, 6) for _ in range(2)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(61,63):
     BB.loc[x,'PFScore']=pfs[x-61]
