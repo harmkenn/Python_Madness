@@ -26,11 +26,12 @@ AG = AG.with_columns(
     pl.col("Year").cast(pl.Utf8)
 )
 
-# Filter by team if provided
+# filter by team if provided
 if team != "":
+    pattern = f"(?i){team}"  # (?i) makes regex case-insensitive
     AG = AG.filter(
-        (pl.col("AFTeam").str.contains(team, case=False)) | 
-        (pl.col("AUTeam").str.contains(team, case=False))
+        (pl.col("AFTeam").str.contains(pattern)) |
+        (pl.col("AUTeam").str.contains(pattern))
     )
 
 # Convert to pandas for AgGrid
@@ -48,8 +49,8 @@ gridOptions = gb.build()
 AgGrid(
     df,
     gridOptions=gridOptions,
-    height=500,
+    height=600,
     width="100%",
     enable_enterprise_modules=False,
-    fit_columns_on_grid_load=True
+    fit_columns_on_grid_load=False
 )
