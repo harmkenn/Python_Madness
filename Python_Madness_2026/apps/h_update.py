@@ -47,7 +47,7 @@ def kenpom_code():
         # assuming kenpom is your main DataFrame
         kenpom = pd.concat([kenpom, df], ignore_index=True)
 
-    kenpom.to_csv('Python_Madness_2026/data/step01d_kenpom0825.csv',index=False)
+    kenpom.to_csv('Python_Madness_2026/data/step01d_kenpom0826.csv',index=False)
 
     st.write('KenPom updated!')
     st.dataframe(kenpom[kenpom['Year']==2026].head(5))
@@ -83,7 +83,7 @@ def espnbpi_code():
     espnBPI = espnBPI[espnBPI['Year']<y]   
     espnBPI = pd.concat([espnBPI,bpi]) 
 
-    espnBPI.to_csv('Python_Madness_2026/data/step02c_espnbpi0825.csv',index=False)      
+    espnBPI.to_csv('Python_Madness_2026/data/step02c_espnbpi0826.csv',index=False)      
 
     a = espnBPI['Team'].unique()
     b = pd.DataFrame({'tm':sorted(a)})
@@ -110,7 +110,7 @@ def scrapeBR():
 
     allbr = pd.concat([allbr,df])
 
-    allbr.to_csv('Python_Madness_2026/data/step03b_br0825.csv',index=False)
+    allbr.to_csv('Python_Madness_2026/data/step03b_br0826.csv',index=False)
     st.write('Basketball Reference updated!')
     st.dataframe(allbr[allbr['Year']==2026].head(5))
 
@@ -142,7 +142,7 @@ def bartdata():
         df = df[keep]
         bartdata = pd.concat([bartdata,df])
 
-    bartdata.to_csv('Python_Madness_2026/data/step04b_bart0825.csv',index=False)
+    bartdata.to_csv('Python_Madness_2026/data/step04b_bart0826.csv',index=False)
     st.write('Bart Data updated!')
     st.dataframe(bartdata[bartdata['Year']==2026].head(5))    
 
@@ -160,7 +160,7 @@ def combined():
     KPN = KP.sort_values('Team')['Team'].unique()
     pd.DataFrame(KPN).to_csv('Python_Madness_2026/data/kpn.csv', index=False)
     KP2fix = list(set(KPN) - set(sn))
-    KP.to_csv('Python_Madness_2026/data/step01d_kenpom0825.csv',index=False)
+    KP.to_csv('Python_Madness_2026/data/step01d_kenpom0826.csv',index=False)
     pd.DataFrame(sn).to_csv('Python_Madness_2026/data/asn.csv',index=False)
     st.write(KP2fix)
     st.write('KenPom Fixed!')
@@ -176,7 +176,7 @@ def combined():
     BPIN = BPI['Team'].unique()
     BPI2fix = list(set(BPIN) - set(sn))
 
-    BPI.to_csv('Python_Madness_2026/data/step02c_espnbpi0825.csv',index=False)
+    BPI.to_csv('Python_Madness_2026/data/step02c_espnbpi0826.csv',index=False)
     st.write(BPI2fix)
     st.write('ESPNBPI Fixed!')
 
@@ -190,7 +190,7 @@ def combined():
     BR = BR[BR['Team']!='out']
     BRN = BR['Team'].unique()
     BR2fix = list(set(BRN) - set(sn))
-    BR.to_csv('Python_Madness_2026/data/step03b_br0825.csv',index=False)
+    BR.to_csv('Python_Madness_2026/data/step03b_br0826.csv',index=False)
     st.write(BR2fix)
     st.write('Basketball Reference Fixed!')
 
@@ -203,7 +203,7 @@ def combined():
     bartdata = bartdata[bartdata['Team']!='out']
     bartdataN = bartdata['Team'].unique()
     bart2fix = list(set(bartdataN) - set(sn))
-    bartdata.to_csv('Python_Madness_2026/data/step04b_bart0825.csv',index=False)
+    bartdata.to_csv('Python_Madness_2026/data/step04b_bart0826.csv',index=False)
     st.write(bart2fix)
     st.write('Bart Fixed!')
 
@@ -321,8 +321,8 @@ def combined():
 
 # Display the button
 if st.button("Update Data"):
-    #kenpom_code()
-    #espnbpi_code()
-    #scrapeBR()
-    #bartdata()
+    kenpom_code()
+    espnbpi_code()
+    scrapeBR()
+    bartdata()
     combined()
