@@ -27,7 +27,7 @@ def kenpom_code():
     kenpom = pd.read_csv('Python_Madness_2026/data/step01c_kenpom0825.csv')
     kenpom = kenpom[kenpom['Year']<b]
 
-    for y in range(b,2026):
+    for y in range(b,b+1):
 
         driver.get(f'https://kenpom.com/index.php?y={y}')
         driver.maximize_window()
