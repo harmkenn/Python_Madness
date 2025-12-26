@@ -22,9 +22,9 @@ def kenpom_code():
             text = text[:-1]
         return text
 
-    b = 2025
+    b = 2026
 
-    kenpom = pd.read_csv('Python_Madness_2026/data/step01c_kenpom0824.csv')
+    kenpom = pd.read_csv('Python_Madness_2026/data/step01c_kenpom0825.csv')
     kenpom = kenpom[kenpom['Year']<b]
 
     for y in range(b,2026):
@@ -50,13 +50,13 @@ def kenpom_code():
     kenpom.to_csv('Python_Madness_2026/data/step01d_kenpom0825.csv',index=False)
 
     st.write('KenPom updated!')
-    st.dataframe(kenpom[kenpom['Year']==2025].head(5))
+    st.dataframe(kenpom[kenpom['Year']==2026].head(5))
 
 def espnbpi_code():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
-    y = 2025
+    y = 2026
     driver.get(f'https://www.espn.com/mens-college-basketball/bpi/_/season/{y}')
     driver.maximize_window()
     time.sleep(10)
@@ -79,7 +79,7 @@ def espnbpi_code():
             bpi = bpi.iloc[:,[12,0,6,7]]
             bpi.columns = ['Year','Team','BPI(O)','BPI(D)']
             print(y)
-    espnBPI = pd.read_csv('Python_Madness_2026/data/step02b_espnbpi0824.csv')
+    espnBPI = pd.read_csv('Python_Madness_2026/data/step02b_espnbpi0825.csv')
     espnBPI = espnBPI[espnBPI['Year']<y]   
     espnBPI = pd.concat([espnBPI,bpi]) 
 
@@ -89,11 +89,11 @@ def espnbpi_code():
     b = pd.DataFrame({'tm':sorted(a)})
     b.to_csv('Python_Madness_2026/data/bbb.csv',index=False) 
     st.write('ESPN BPI updated!')
-    st.dataframe(espnBPI[espnBPI['Year']==2025].head(5))
+    st.dataframe(espnBPI[espnBPI['Year']==2026].head(5))
 
 def scrapeBR():
-    allbr = pd.read_csv('Python_Madness_2026/data/step03b_br0824.csv')
-    y = 2025
+    allbr = pd.read_csv('Python_Madness_2026/data/step03b_br0825.csv')
+    y = 2026
     allbr = allbr[allbr['Year']<y]
     url = f'https://www.sports-reference.com/cbb/seasons/men/{y}-ratings.html'
     html = requests.get(url).content
@@ -112,15 +112,15 @@ def scrapeBR():
 
     allbr.to_csv('Python_Madness_2026/data/step03b_br0825.csv',index=False)
     st.write('Basketball Reference updated!')
-    st.dataframe(allbr[allbr['Year']==2025].head(5))
+    st.dataframe(allbr[allbr['Year']==2026].head(5))
 
 def bartdata():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
-    b = 2025
+    b = 2026
 
-    bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart0824.csv')
+    bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart0825.csv')
     bartdata = bartdata[bartdata['Year']<b]
 
     for y in range(b,2026):
@@ -144,7 +144,7 @@ def bartdata():
 
     bartdata.to_csv('Python_Madness_2026/data/step04b_bart0825.csv',index=False)
     st.write('Bart Data updated!')
-    st.dataframe(bartdata[bartdata['Year']==2025].head(5))    
+    st.dataframe(bartdata[bartdata['Year']==2026].head(5))    
 
 def combined():
     # Fix KenPom
@@ -209,7 +209,7 @@ def combined():
 
     # Compute Seed History
     AG = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
-    AG = AG[AG['Year']<2025]
+    AG = AG[AG['Year']<2026]
 
     LG = AG[AG['Round']==6]
     CS = pd.DataFrame({'Round','Seed'})
