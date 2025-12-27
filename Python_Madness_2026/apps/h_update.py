@@ -11,6 +11,8 @@ import time
 import requests
 import numpy as np
 
+b = 2025
+
 def kenpom_code():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
@@ -21,10 +23,8 @@ def kenpom_code():
             name = name[:-1]
         return name
 
-    b = 2026
-
     # ================= READ EXISTING DATA =================
-    kenpom = pd.read_csv('Python_Madness_2026/data/step01c_kenpom0826.csv')
+    kenpom = pd.read_csv('Python_Madness_2026/data/step01b_kenpom.csv')
 
     # Drop duplicate columns if any
     kenpom = kenpom.loc[:, ~kenpom.columns.duplicated()]
@@ -95,7 +95,7 @@ def kenpom_code():
 
     kenpom = pd.concat([kenpom, df], ignore_index=True)
 
-    kenpom.to_csv('Python_Madness_2026/data/step01d_kenpom0826.csv', index=False)
+    kenpom.to_csv('Python_Madness_2026/data/step01b_kenpom.csv', index=False)
 
     driver.quit()
 
@@ -107,8 +107,8 @@ def espnbpi_code():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
-    y = 2026
-    driver.get(f'https://www.espn.com/mens-college-basketball/bpi/_/season/{y}')
+
+    driver.get(f'https://www.espn.com/mens-college-basketball/bpi/_/season/{b}')
     driver.maximize_window()
     time.sleep(10)
 
@@ -123,27 +123,27 @@ def espnbpi_code():
         tables = pd.read_html(f)
         bpi = pd.concat(tables[:2], axis=1)
 
-    bpi['Year'] = y
+    bpi['Year'] = b
     bpi = bpi.iloc[:, [12, 0, 6, 7]]
     bpi.columns = ['Year', 'Team', 'BPI(O)', 'BPI(D)']
 
-    espnBPI = pd.read_csv('Python_Madness_2026/data/step02b_espnbpi0826.csv')
-    espnBPI = espnBPI[espnBPI['Year'] < y]
+    espnBPI = pd.read_csv('Python_Madness_2026/data/step02b_espnbpi.csv')
+    espnBPI = espnBPI[espnBPI['Year'] < b]
     espnBPI = pd.concat([espnBPI, bpi])
 
-    espnBPI.to_csv('Python_Madness_2026/data/step02c_espnbpi0826.csv', index=False)
+    espnBPI.to_csv('Python_Madness_2026/data/step02b_espnbpi.csv', index=False)
     driver.quit()
 
     st.write('ESPN BPI updated!')
-    st.dataframe(espnBPI[espnBPI['Year'] == y].head())
+    st.dataframe(espnBPI[espnBPI['Year'] == b].head())
 
 
 def scrapeBR():
-    allbr = pd.read_csv('Python_Madness_2026/data/step03b_br0826.csv')
-    y = 2026
-    allbr = allbr[allbr['Year'] < y]
+    allbr = pd.read_csv('Python_Madness_2026/data/step03b_br.csv')
 
-    url = f'https://www.sports-reference.com/cbb/seasons/men/{y}-ratings.html'
+    allbr = allbr[allbr['Year'] < b]
+
+    url = f'https://www.sports-reference.com/cbb/seasons/men/{b}-ratings.html'
     html = requests.get(url).content
     df = pd.read_html(html)[-1]
 
@@ -151,25 +151,25 @@ def scrapeBR():
     df.columns = [c[1] if isinstance(c, tuple) else c for c in df.columns]
 
     df = df.rename(columns={'School': 'Team'})
-    df['Year'] = y
+    df['Year'] = b
 
     keep = ['Year', 'Team', 'W', 'L', 'Pts', 'Opp', 'MOV', 'SOS', 'OSRS', 'DSRS', 'SRS']
     df = df[keep]
     df = df[df['Team'] != 'School'].dropna()
 
     allbr = pd.concat([allbr, df])
-    allbr.to_csv('Python_Madness_2026/data/step03b_br0826.csv', index=False)
+    allbr.to_csv('Python_Madness_2026/data/step03b_br.csv', index=False)
 
     st.write('Basketball Reference updated!')
-    st.dataframe(allbr[allbr['Year'] == y].head())
+    st.dataframe(allbr[allbr['Year'] == b].head())
 
 
 def bartdata():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
-    b = 2026
-    bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart0826.csv')
+
+    bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart.csv')
     bartdata = bartdata[bartdata['Year'] < b]
 
     driver.get(f'https://barttorvik.com/team-tables_each.php?year={b}&top=0&conlimit=All')
@@ -184,7 +184,7 @@ def bartdata():
 
     df['Year'] = b
     bartdata = pd.concat([bartdata, df])
-    bartdata.to_csv('Python_Madness_2026/data/step04b_bart0826.csv', index=False)
+    bartdata.to_csv('Python_Madness_2026/data/step04b_bart.csv', index=False)
 
     driver.quit()
     st.write('Bart Data updated!')
