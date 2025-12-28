@@ -380,5 +380,5 @@ if st.button("Update Data"):
     #kenpom_code()
     #espnbpi_code()
     #scrapeBR()
-    bartdata()
-    #combined()
+    #bartdata()
+    combined()
