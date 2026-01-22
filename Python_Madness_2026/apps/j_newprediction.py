@@ -13,7 +13,7 @@ fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
 fup = fup[fup['Year'] <= 2025][fup['Game'] >= 1]
 fup['Round'] = fup['Round'].astype('int32')
 
-st.write(columns(fup))
+st.write(fup.columns.tolist())
 
 # Feature engineering
 def create_advanced_features(df):
