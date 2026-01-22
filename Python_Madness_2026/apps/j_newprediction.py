@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 import plotly.express as px
 
-# Title of the app
+# Title of the app v1.0
 st.markdown('Use Machine Learning to Predict NCAA Tournament Outcomes')
 
 # Load data
@@ -14,10 +14,11 @@ fup['Round'] = fup['Round'].astype('int32')
 
 # Feature engineering
 def create_advanced_features(df):
-    df['scoring_margin'] = df['points_per_game'] - df['opp_points_per_game']
-    df['efficiency_ratio'] = df['field_goal_pct'] / df['opp_field_goal_pct']
-    df['turnover_ratio'] = df['opp_turnovers'] / df['turnovers']
-    df['strength_of_schedule_adj'] = df['sos'] * df['wins'] / df['games_played']
+    # Use correct column names from your dataset
+    df['scoring_margin'] = df['Pts_x'] - df['Pts_y']  # Scoring margin differential
+    df['efficiency_ratio'] = df['NetRtg_x'] / df['NetRtg_y']  # Efficiency ratio
+    df['turnover_ratio'] = df['TOV%_y'] / df['TOV%_x']  # Turnover ratio
+    df['strength_of_schedule_adj'] = df['SOS_x'] * df['Wins_x'] / df['Games_x']  # Adjusted strength of schedule
     return df
 
 fup = create_advanced_features(fup)
