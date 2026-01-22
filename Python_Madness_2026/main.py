@@ -16,7 +16,8 @@ sub_app_names = {
     'f_backpredict.py': 'Back Predict',
     'g_fullpredict.py': 'Full Predict',
     'h_update.py': 'Update Data',
-    'i_bracketmaker.py': 'Bracket Maker'
+    'i_bracketmaker.py': 'Bracket Maker',
+    'j_newprediction.py': 'New Full Prediction'
 }
 
 # Get a list of .py files from the SubApps folder
