@@ -2,18 +2,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import cross_val_score
 import plotly.express as px
 
 # Title of the app
-st.markdown('Use Enhanced Machine Learning to Predict NCAA Tournament Outcomes')
+st.markdown('Use Machine Learning to Predict NCAA Tournament Outcomes')
 
 # Load data
 fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
 fup = fup[fup['Year'] <= 2025][fup['Game'] >= 1]
 fup['Round'] = fup['Round'].astype('int32')
-
-st.write(fup.columns.tolist())
 
 # Feature engineering
 def create_advanced_features(df):
@@ -27,8 +24,8 @@ fup = create_advanced_features(fup)
 
 # Add seed-based features
 def add_seed_features(matchup_data):
-    matchup_data['seed_diff'] = abs(matchup_data['PFSeed'] - matchup_data['PUSeed'])
-    matchup_data['higher_seed'] = np.minimum(matchup_data['PFSeed'], matchup_data['PUSeed'])
+    matchup_data['seed_diff'] = abs(matchup_data['AFSeed'] - matchup_data['AUSeed'])
+    matchup_data['higher_seed'] = np.minimum(matchup_data['AFSeed'], matchup_data['AUSeed'])
     return matchup_data
 
 fup = add_seed_features(fup)
@@ -39,22 +36,18 @@ py = st.slider('Year: ', 2008, 2025)
 if py == 2020:
     st.markdown("No Bracket in 2020")
 else:
-    # Prepare training data
+    # Prepare data for modeling
     fupn = fup.select_dtypes(exclude=['object'])
-    MX = fupn[fupn['Year'] != py].drop(['AFScore', 'AUScore', 'AFSeed', 'AUSeed', 'PFScore', 'PUScore', 'Fti', 'Uti'], axis=1)
+    MX = fupn.drop(['AFScore', 'AUScore', 'AFSeed', 'AUSeed', 'PFScore', 'PUScore', 'Fti', 'Uti'], axis=1)
     xcol = MX.columns
-    MFY = fupn[fupn['Year'] != py]['PFScore']
-    MUY = fupn[fupn['Year'] != py]['PUScore']
+    MFY = fupn['PFScore']
+    MUY = fupn['PUScore']
 
-    # Train Random Forest models
+    # Train Random Forest models on the entire dataset
     LRF = RandomForestRegressor(n_estimators=100, random_state=42)
     RFU = RandomForestRegressor(n_estimators=100, random_state=42)
     LRF.fit(MX, MFY)
     RFU.fit(MX, MUY)
-
-    # Cross-validation for model evaluation
-    cv_scores = cross_val_score(LRF, MX, MFY, cv=5, scoring='neg_mean_squared_error')
-    st.write(f"Cross-Validation RMSE: {np.sqrt(-cv_scores.mean()):.2f}")
 
     # Initialize bracket for the selected year
     BB = fup[fup['Year'] == py]
@@ -105,19 +98,6 @@ else:
         st.plotly_chart(fig)
 
     plot_prediction_confidence(BB[BB['Round'] == 1], BB[BB['Round'] == 1]['PFScore'])
-
-    # Validation metrics
-    def calculate_bracket_metrics(predictions, actuals):
-        metrics = {
-            'correct_picks': (predictions == actuals).sum(),
-            'total_games': len(predictions),
-            'accuracy': (predictions == actuals).mean(),
-            'upset_prediction_rate': ((predictions > actuals) & (actuals != predictions)).mean()
-        }
-        return metrics
-
-    metrics = calculate_bracket_metrics(BB['PWTeam'], BB['AWTeam'])
-    st.write(metrics)
 
     # Display the bracket
     BB['Year'] = BB['Year'].astype('str')
