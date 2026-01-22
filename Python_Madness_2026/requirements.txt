@@ -1,6 +1,7 @@
 # pip install -r requirements.txt
 html5lib
 polars
+scikit-learn
 selenium
 streamlit
 streamlit_aggrid
