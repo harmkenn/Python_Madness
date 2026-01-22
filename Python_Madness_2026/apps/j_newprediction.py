@@ -4,7 +4,8 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 import plotly.express as px
 
-# Title of the app v1.0
+# v1.2
+# Title of the app
 st.markdown('Use Machine Learning to Predict NCAA Tournament Outcomes')
 
 # Load data
@@ -39,10 +40,11 @@ if py == 2020:
 else:
     # Prepare data for modeling
     fupn = fup.select_dtypes(exclude=['object'])
-    MX = fupn.drop(['AFScore', 'AUScore', 'AFSeed', 'AUSeed', 'PFScore', 'PUScore', 'Fti', 'Uti'], axis=1)
+    # Remove columns that are not relevant for modeling
+    MX = fupn.drop(['AFScore', 'AUScore', 'AFSeed', 'AUSeed', 'Fti', 'Uti'], axis=1)
     xcol = MX.columns
-    MFY = fupn['PFScore']
-    MUY = fupn['PUScore']
+    MFY = fupn['Pts_x']  # Use points per game for favored team as target
+    MUY = fupn['Pts_y']  # Use points per game for underdog team as target
 
     # Train Random Forest models on the entire dataset
     LRF = RandomForestRegressor(n_estimators=100, random_state=42)
@@ -62,8 +64,8 @@ else:
         pus = RFU.predict(round_games[xcol])
 
         for x in round_games.index:
-            BB.loc[x, 'PFScore'] = pfs[x - round_games.index[0]]
-            BB.loc[x, 'PUScore'] = pus[x - round_games.index[0]]
+            BB.loc[x, 'PFScore'] = pfs[x - round_games.index[0]]  # Predicted favored team score
+            BB.loc[x, 'PUScore'] = pus[x - round_games.index[0]]  # Predicted underdog team score
             BB.loc[x, 'PWSeed'] = np.where(BB.loc[x, 'PFScore'] >= BB.loc[x, 'PUScore'], BB.loc[x, 'PFSeed'], BB.loc[x, 'PUSeed'])
             BB.loc[x, 'PWTeam'] = str(np.where(BB.loc[x, 'PFScore'] >= BB.loc[x, 'PUScore'], BB.loc[x, 'PFTeam'], BB.loc[x, 'PUTeam']))
             BB.loc[x, 'ESPN'] = np.where(BB.loc[x, 'AWTeam'] == BB.loc[x, 'PWTeam'], 10 * (2 ** (round_num - 1)), 0)
