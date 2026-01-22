@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 import plotly.express as px
 
-# v1.2
+# v1.3
 # Title of the app
 st.markdown('Use Machine Learning to Predict NCAA Tournament Outcomes')
 
@@ -57,9 +57,17 @@ else:
     BB = BB.iloc[:, 0:10]
     BB.index = BB.Game
 
+    # Function to ensure all required columns are present in the DataFrame
+    def ensure_columns(df, required_columns):
+        for col in required_columns:
+            if col not in df.columns:
+                df[col] = 0  # Add missing columns with default values
+        return df
+
     # Function to predict a single round
     def predict_round(round_num, BB, LRF, RFU, xcol):
         round_games = BB[BB['Round'] == round_num]
+        round_games = ensure_columns(round_games, xcol)  # Ensure all required columns are present
         pfs = LRF.predict(round_games[xcol])
         pus = RFU.predict(round_games[xcol])
 
