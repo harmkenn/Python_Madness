@@ -1,5 +1,6 @@
 # pip install -r requirements.txt
 html5lib
+plotly
 polars
 scikit-learn
 selenium
