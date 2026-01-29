@@ -3,113 +3,145 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 import plotly.express as px
+import os
 
-# v1.3
-# Title of the app
-st.markdown('Use Machine Learning to Predict NCAA Tournament Outcomes')
+# v1.5 - Deployment Ready & Path Optimized
+def run():
+    st.title('NCAA Tournament Prediction Engine')
 
-# Load data
-fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
-fup = fup[fup['Year'] <= 2025][fup['Game'] >= 1]
-fup['Round'] = fup['Round'].astype('int32')
+    # --- 1. SECURE DATA LOADING ---
+    @st.cache_data
+    def load_data():
+        # Get the path relative to THIS file's location
+        base_path = os.path.dirname(__file__)
+        data_path = os.path.join(base_path, "..", "data", "step05g_FUStats.csv")
+        
+        if not os.path.exists(data_path):
+            st.error(f"Error: Data file not found at {data_path}")
+            return pd.DataFrame()
 
-# Feature engineering
-def create_advanced_features(df):
-    # Use correct column names from your dataset
-    df['scoring_margin'] = df['Pts_x'] - df['Pts_y']  # Scoring margin differential
-    df['efficiency_ratio'] = df['NetRtg_x'] / df['NetRtg_y']  # Efficiency ratio
-    df['turnover_ratio'] = df['TOV%_y'] / df['TOV%_x']  # Turnover ratio
-    df['strength_of_schedule_adj'] = df['SOS_x'] * df['Wins_x'] / df['Games_x']  # Adjusted strength of schedule
-    return df
-
-fup = create_advanced_features(fup)
-
-# Add seed-based features
-def add_seed_features(matchup_data):
-    matchup_data['seed_diff'] = abs(matchup_data['AFSeed'] - matchup_data['AUSeed'])
-    matchup_data['higher_seed'] = np.minimum(matchup_data['AFSeed'], matchup_data['AUSeed'])
-    return matchup_data
-
-fup = add_seed_features(fup)
-
-# Year selection slider
-py = st.slider('Year: ', 2008, 2025)
-
-if py == 2020:
-    st.markdown("No Bracket in 2020")
-else:
-    # Prepare data for modeling
-    fupn = fup.select_dtypes(exclude=['object'])
-    # Remove columns that are not relevant for modeling
-    MX = fupn.drop(['AFScore', 'AUScore', 'AFSeed', 'AUSeed', 'Fti', 'Uti'], axis=1)
-    xcol = MX.columns
-    MFY = fupn['Pts_x']  # Use points per game for favored team as target
-    MUY = fupn['Pts_y']  # Use points per game for underdog team as target
-
-    # Train Random Forest models on the entire dataset
-    LRF = RandomForestRegressor(n_estimators=100, random_state=42)
-    RFU = RandomForestRegressor(n_estimators=100, random_state=42)
-    LRF.fit(MX, MFY)
-    RFU.fit(MX, MUY)
-
-    # Initialize bracket for the selected year
-    BB = fup[fup['Year'] == py]
-    BB = BB.iloc[:, 0:10]
-    BB.index = BB.Game
-
-    # Function to ensure all required columns are present in the DataFrame
-    def ensure_columns(df, required_columns):
-        for col in required_columns:
-            if col not in df.columns:
-                df[col] = 0  # Add missing columns with default values
+        df = pd.read_csv(data_path).fillna(0)
+        
+        # Standardize names immediately to prevent KeyError: 'PFSeed'
+        # We map "Actual" column names to "Predicted" column names
+        rename_map = {
+            'AFSeed': 'PFSeed', 'AUSeed': 'PUSeed', 
+            'AFTeam': 'PFTeam', 'AUTeam': 'PUTeam',
+            'AFScore': 'PFScore', 'AUScore': 'PUScore'
+        }
+        df = df.rename(columns=rename_map)
+        
+        # Ensure correct data types
+        df['Year'] = df['Year'].astype(int)
+        df['Round'] = df['Round'].astype(int)
         return df
 
-    # Function to predict a single round
-    def predict_round(round_num, BB, LRF, RFU, xcol):
-        round_games = BB[BB['Round'] == round_num]
-        round_games = ensure_columns(round_games, xcol)  # Ensure all required columns are present
-        pfs = LRF.predict(round_games[xcol])
-        pus = RFU.predict(round_games[xcol])
+    fup = load_data()
+    if fup.empty:
+        return
 
-        for x in round_games.index:
-            BB.loc[x, 'PFScore'] = pfs[x - round_games.index[0]]  # Predicted favored team score
-            BB.loc[x, 'PUScore'] = pus[x - round_games.index[0]]  # Predicted underdog team score
-            BB.loc[x, 'PWSeed'] = np.where(BB.loc[x, 'PFScore'] >= BB.loc[x, 'PUScore'], BB.loc[x, 'PFSeed'], BB.loc[x, 'PUSeed'])
-            BB.loc[x, 'PWTeam'] = str(np.where(BB.loc[x, 'PFScore'] >= BB.loc[x, 'PUScore'], BB.loc[x, 'PFTeam'], BB.loc[x, 'PUTeam']))
-            BB.loc[x, 'ESPN'] = np.where(BB.loc[x, 'AWTeam'] == BB.loc[x, 'PWTeam'], 10 * (2 ** (round_num - 1)), 0)
+    # --- 2. FEATURE ENGINEERING ---
+    def create_advanced_features(df):
+        # Using .get() or checking existence to prevent crashes on generated next-rounds
+        if 'Pts_x' in df.columns and 'Pts_y' in df.columns:
+            df['scoring_margin'] = df['Pts_x'] - df['Pts_y']
+        else:
+            df['scoring_margin'] = 0
+            
+        df['seed_diff'] = abs(df['PFSeed'] - df['PUSeed'])
+        df['higher_seed'] = np.minimum(df['PFSeed'], df['PUSeed'])
+        return df
 
-        return BB
+    fup = create_advanced_features(fup)
 
-    # Predict all rounds dynamically
-    for round_num in range(1, 7):  # NCAA tournament has 6 rounds
-        BB = predict_round(round_num, BB, LRF, RFU, xcol)
+    # --- 3. MODEL TRAINING ---
+    py = st.slider('Select Tournament Year: ', 2008, 2025, 2024)
 
-        # Prepare matchups for the next round
-        if round_num < 6:  # Skip for the final round
-            next_round_games = []
-            for i in range(0, len(BB[BB['Round'] == round_num]), 2):
-                game1 = BB.iloc[i]
-                game2 = BB.iloc[i + 1]
-                next_game = {
-                    'Year': py,
-                    'Round': round_num + 1,
-                    'PFSeed': min(game1['PWSeed'], game2['PWSeed']),
-                    'PUSeed': max(game1['PWSeed'], game2['PWSeed']),
-                    'PFTeam': game1['PWTeam'] if game1['PWSeed'] < game2['PWSeed'] else game2['PWTeam'],
-                    'PUTeam': game1['PWTeam'] if game1['PWSeed'] > game2['PWSeed'] else game2['PWTeam']
-                }
-                next_round_games.append(next_game)
+    if py == 2020:
+        st.warning("2020 Tournament was cancelled.")
+    else:
+        # Prepare training data (all years EXCEPT the one we are predicting)
+        train_df = fup[fup['Year'] != py].select_dtypes(exclude=['object'])
+        
+        # Define features and targets
+        # We drop anything that wouldn't be known BEFORE a game starts
+        drop_list = ['PFScore', 'PUScore', 'Year', 'Round', 'Game', 'AWTeam', 'Fti', 'Uti']
+        targets = ['Pts_x', 'Pts_y']
+        
+        X = train_df.drop(columns=[c for c in drop_list + targets if c in train_df.columns])
+        xcol = X.columns
+        y_fav = train_df['Pts_x']
+        y_und = train_df['Pts_y']
 
-            next_round_df = pd.DataFrame(next_round_games)
-            BB = pd.concat([BB, next_round_df], ignore_index=True)
+        # Train Random Forest
+        rf_fav = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_fav)
+        rf_und = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_und)
 
-    # Visualization of predictions
-    def plot_prediction_confidence(team_stats, predictions):
-        fig = px.scatter(x=team_stats['seed_diff'], y=predictions, title='Predicted Performance by Seed Differential')
+        # --- 4. BRACKET SIMULATION ---
+        # Start with only Round 1 for the selected year
+        BB = fup[(fup['Year'] == py) & (fup['Round'] == 1)].copy()
+
+        def predict_round(round_num, bracket_df, model_f, model_u, features):
+            mask = (bracket_df['Round'] == round_num)
+            if not mask.any(): return bracket_df
+            
+            # Predict
+            round_X = bracket_df.loc[mask, features]
+            p_fav = model_f.predict(round_X)
+            p_und = model_u.predict(round_X)
+            
+            # Assign results
+            bracket_df.loc[mask, 'PFScore'] = p_fav
+            bracket_df.loc[mask, 'PUScore'] = p_und
+            
+            # Determine winners
+            winner_mask = (p_fav >= p_und)
+            bracket_df.loc[mask, 'PWSeed'] = np.where(winner_mask, bracket_df.loc[mask, 'PFSeed'], bracket_df.loc[mask, 'PUSeed'])
+            bracket_df.loc[mask, 'PWTeam'] = np.where(winner_mask, bracket_df.loc[mask, 'PFTeam'], bracket_df.loc[mask, 'PUTeam'])
+            
+            return bracket_df
+
+        # Run 6 Rounds
+        for r in range(1, 7):
+            BB = predict_round(r, BB, rf_fav, rf_und, xcol)
+            
+            if r < 6:
+                winners = BB[BB['Round'] == r]
+                next_gen = []
+                # Pair up winners for the next round
+                for i in range(0, len(winners), 2):
+                    if i + 1 < len(winners):
+                        g1, g2 = winners.iloc[i], winners.iloc[i+1]
+                        
+                        # Set "Favored" as the better (lower) seed
+                        if g1['PWSeed'] <= g2['PWSeed']:
+                            pf_s, pf_t = g1['PWSeed'], g1['PWTeam']
+                            pu_s, pu_t = g2['PWSeed'], g2['PWTeam']
+                        else:
+                            pf_s, pf_t = g2['PWSeed'], g2['PWTeam']
+                            pu_s, pu_t = g1['PWSeed'], g1['PWTeam']
+                            
+                        next_gen.append({
+                            'Year': py, 'Round': r+1,
+                            'PFSeed': pf_s, 'PFTeam': pf_t,
+                            'PUSeed': pu_s, 'PUTeam': pu_t
+                        })
+                
+                if next_gen:
+                    next_df = pd.DataFrame(next_gen)
+                    next_df = create_advanced_features(next_df)
+                    # Fill missing feature columns with 0 for the model
+                    for col in xcol:
+                        if col not in next_df.columns: next_df[col] = 0
+                    BB = pd.concat([BB, next_df], ignore_index=True)
+
+        # --- 5. VISUALIZATION ---
+        st.subheader(f"Final Prediction for {py}")
+        st.dataframe(BB[['Round', 'PFTeam', 'PFSeed', 'PFScore', 'PUTeam', 'PUSeed', 'PUScore', 'PWTeam']], use_container_width=True)
+        
+        fig = px.scatter(BB, x="PFScore", y="PUScore", color="Round", hover_data=["PFTeam", "PUTeam"],
+                         title="Matchup Intensity: Favored vs Underdog Predicted Scores")
         st.plotly_chart(fig)
 
-    plot_prediction_confidence(BB[BB['Round'] == 1], BB[BB['Round'] == 1]['PFScore'])
-
-    # Display the bracket
-    BB['Year'] = BB['Year'].astype('str')
-    st.dataframe(BB, height=500)
+# Streamlit apps often use a 'run' pattern when called from a main file
+run()
