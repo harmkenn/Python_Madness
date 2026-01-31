@@ -61,7 +61,7 @@ def run():
     fup = create_advanced_features(fup)
 
     # --- 3. MODEL TRAINING ---
-    py = st.slider('Select Tournament Year: ', 2008, 2025, 2024)
+    py = st.slider('Select Tournament Year: ', 2008, 2025, 2025)
 
     if py == 2020:
         st.warning("2020 Tournament was cancelled.")

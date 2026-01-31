@@ -194,7 +194,7 @@ def bartdata():
         df = pd.read_html(f)[0]
 
     df['Year'] = YEAR
-    bartdata = pd.concat([bartdata, df])
+    bartdata = pd.concat([bartdata, df], ignore_index=True) if not bartdata.empty else df
     bartdata.to_csv('Python_Madness_2026/data/step04b_bart.csv', index=False)
 
     driver.quit()
@@ -394,7 +394,7 @@ def combined():
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    kenpom_code()
+    #kenpom_code()
     #espnbpi_code()
     #scrapeBR()
     #bartdata()

@@ -36,13 +36,15 @@ RFU = LinearRegression()
 RFU.fit(MX,MUY)
 
 BB = pd.read_csv('Python_Madness_2025/data/step05c_FUHistory.csv')
-BB = BB[BB['Year']==py][BB['Game']>=1][BB['Game']<=32]
+BB = BB[(BB['Year']==py) & (BB['Game']>=1) & (BB['Game']<=32)]
 
 BB['Round']=BB['Round'].astype('int32')
 BB.index = BB.Game
 BB = BB.iloc[:,0:10]
 BBcol = ['Year','Round','Region','Game','PFSeed','PFTeam','PFScore','PUSeed','PUTeam','PUScore']
 BB.columns = BBcol
+BB['PFScore'] = BB['PFScore'].astype(float)
+BB['PUScore'] = BB['PUScore'].astype(float)
 
 KBBP = pd.read_csv("Python_Madness_2025/data/step05f_AllStats.csv").fillna(0)
 KBBP = KBBP[KBBP['Year']==py]
@@ -185,7 +187,7 @@ def highlight_html(df):
     html = "<style>table {border-collapse: collapse; width: 100%;} th, td {padding: 4px; text-align: left;} </style><table border='1'>"
     html += "<tr><th>Game</th><th>Round</th><th>Seed</th><th>Team</th></tr>"  # Table headers
     for i, row in df.iterrows():
-        color = "#FFFFFF" if ((i-1) // 4) % 2 == 0 else "#ADD8E6"
+        color = "#333333" if ((i-1) // 4) % 2 == 0 else "#444444"
         html += f"<tr style='background-color: {color};'><td>{row['Game']}</td><td>{row['Round']}</td><td>{row['PWSeed']}</td><td>{row['PWTeam']}</td></tr>"
     html += "</table>"
     return html
@@ -193,4 +195,3 @@ def highlight_html(df):
 st.markdown(highlight_html(BB), unsafe_allow_html=True)
 
 st.dataframe(BB[BB['Game']<=63],height=500)
-

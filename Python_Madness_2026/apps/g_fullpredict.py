@@ -11,6 +11,7 @@ st.markdown('Use Linear Regression to do a Full Bracket Prediction')
 
 fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
 fup = fup[(fup['Year']<=2025) & (fup['Game']>=1)]
+fup = fup.drop_duplicates(subset=['Year', 'Game'])
 fup['Round'] = fup['Round'].astype('int32')
 fup['PFSeed']=fup['AFSeed']
 fup['PFTeam']=fup['AFTeam']
@@ -20,7 +21,7 @@ fup['PUTeam']=fup['AUTeam']
 fup['PUScore']=fup['AUScore']
 
     
-py = st.slider('Year: ', 2008,2025)
+py = st.slider('Year: ', 2008,2025,2025)
 if py == 2020:
     st.markdown("No Bracket in 2020")
 if py != 2020:
@@ -38,7 +39,7 @@ if py != 2020:
     RFU = LinearRegression()
     RFU.fit(MX,MUY)
     
-    BB = fup[fup['Year']==py]
+    BB = fup[fup['Year']==py].copy()
     BB = BB.iloc[:,0:10]
     BB.index = BB.Game
     
