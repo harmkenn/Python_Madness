@@ -23,10 +23,10 @@ sub_app_names = {
 # Get a list of .py files from the SubApps folder
 sub_apps_folder = os.path.join(os.path.dirname(__file__), 'apps')
 sub_apps = [f for f in os.listdir(sub_apps_folder) if f.endswith('.py')]
-st.sidebar.title("Python Madness v2026.1")
+st.sidebar.title("Python Madness v2026.2")
 st.sidebar.subheader("by Ken Harmon")
 # Create radio buttons in the sidebar using the user-friendly names
-selected_sub_app_name = st.sidebar.radio('', list(sub_app_names.values()))
+selected_sub_app_name = st.sidebar.radio('Navigation', list(sub_app_names.values()), label_visibility="collapsed")
 
 # Get the corresponding .py filename from the selected name
 selected_sub_app = [k for k, v in sub_app_names.items() if v == selected_sub_app_name][0]

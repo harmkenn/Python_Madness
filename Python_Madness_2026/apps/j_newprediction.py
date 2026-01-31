@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
 import plotly.express as px
 import os
 
@@ -69,17 +69,19 @@ def run():
         
         # Define features and targets
         # We drop anything that wouldn't be known BEFORE a game starts
-        drop_list = ['PFScore', 'PUScore', 'Year', 'Round', 'Game', 'AWTeam', 'Fti', 'Uti']
-        targets = ['Pts_x', 'Pts_y']
+        drop_list = ['PFScore', 'PUScore', 'Year', 'Round', 'Game', 'AWTeam', 'Fti', 'Uti', 'Actual_Winner', 'ESPN_Score']
         
-        X = train_df.drop(columns=[c for c in drop_list + targets if c in train_df.columns])
+        # Filter garbage columns
+        garbage_cols = [c for c in train_df.columns if 'Unnamed' in c or 'Record' in c or 'Team.1' in c]
+        
+        X = train_df.drop(columns=[c for c in drop_list + garbage_cols if c in train_df.columns])
         xcol = X.columns
-        y_fav = train_df['Pts_x']
-        y_und = train_df['Pts_y']
+        y_fav = train_df['PFScore']
+        y_und = train_df['PUScore']
 
-        # Train Random Forest
-        rf_fav = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_fav)
-        rf_und = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_und)
+        # Train Linear Regression
+        rf_fav = LinearRegression().fit(X, y_fav)
+        rf_und = LinearRegression().fit(X, y_und)
 
         # --- 4. BRACKET SIMULATION & SCORING PREP ---
         # Create Actual Winners Lookup for Scoring
@@ -144,8 +146,9 @@ def run():
                     next_df = pd.DataFrame(next_gen)
                     next_df = create_advanced_features(next_df)
                     # Fill missing feature columns with 0 for the model
-                    for col in xcol:
-                        if col not in next_df.columns: next_df[col] = 0
+                    missing_cols = [c for c in xcol if c not in next_df.columns]
+                    if missing_cols:
+                        next_df = pd.concat([next_df, pd.DataFrame(0, index=next_df.index, columns=missing_cols)], axis=1)
                     BB = pd.concat([BB, next_df], ignore_index=True)
 
         # --- 5. SCORING ---
@@ -165,7 +168,7 @@ def run():
         # --- 6. VISUALIZATION ---
         st.subheader(f"Final Prediction for {py}")
         st.metric("Total ESPN Bracket Score", f"{int(total_score)}")
-        st.dataframe(BB[['Round', 'Game', 'PFTeam', 'PFSeed', 'PFScore', 'PUTeam', 'PUSeed', 'PUScore', 'PWTeam', 'ESPN_Score']], use_container_width=True)
+        st.dataframe(BB[['Round', 'Game', 'PFTeam', 'PFSeed', 'PFScore', 'PUTeam', 'PUSeed', 'PUScore', 'PWTeam', 'ESPN_Score']], width="stretch")
         
         fig = px.scatter(BB, x="PFScore", y="PUScore", color="Round", hover_data=["PFTeam", "PUTeam"],
                          title="Matchup Intensity: Favored vs Underdog Predicted Scores")
