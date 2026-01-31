@@ -2,13 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor, VotingRegressor
 import plotly.express as px
 import os
 
-# v2.0 - Random Forest & Full Stat Lookup
+# v2.1 - Ensemble (Linear + GBM) & Full Stat Lookup
 def run():
-    st.title('NCAA Tournament Prediction Engine (Random Forest)')
+    st.title('NCAA Tournament Prediction Engine (Ensemble)')
 
     # --- 1. SECURE DATA LOADING ---
     @st.cache_data
@@ -23,6 +23,9 @@ def run():
             return pd.DataFrame(), pd.DataFrame()
 
         df = pd.read_csv(data_path).fillna(0)
+        # Drop duplicates to prevent repeated games
+        if 'Game' in df.columns and 'Year' in df.columns:
+             df = df.drop_duplicates(subset=['Year', 'Game'])
         all_stats = pd.read_csv(stats_path).fillna(0)
         
         # Create Actual Winner column for scoring before renaming
@@ -66,27 +69,35 @@ def run():
     # --- 3. MODEL TRAINING ---
     py = st.slider('Select Tournament Year: ', 2008, 2025, 2025)
 
-    if py == 2020:
-        st.warning("2020 Tournament was cancelled.")
-    else:
+    @st.cache_resource
+    def train_ensemble_models(_df, year):
         # Prepare training data (all years EXCEPT the one we are predicting)
-        train_df = fup[fup['Year'] != py].select_dtypes(exclude=['object'])
+        train_df = _df[_df['Year'] != year].select_dtypes(exclude=['object'])
         
         # Define features and targets
         # We drop anything that wouldn't be known BEFORE a game starts
         drop_list = ['PFScore', 'PUScore', 'Year', 'Round', 'Game', 'AWTeam', 'Fti', 'Uti', 'Actual_Winner', 'ESPN_Score']
-        
-        # Filter garbage columns
         garbage_cols = [c for c in train_df.columns if 'Unnamed' in c or 'Record' in c or 'Team.1' in c]
         
         X = train_df.drop(columns=[c for c in drop_list + garbage_cols if c in train_df.columns])
-        xcol = X.columns
+        features = X.columns
         y_fav = train_df['PFScore']
         y_und = train_df['PUScore']
 
-        # Train Random Forest
-        rf_fav = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_fav)
-        rf_und = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_und)
+        # Train Ensemble (Linear Regression + Gradient Boosting)
+        model_f = VotingRegressor([('lr', LinearRegression()), ('gbm', GradientBoostingRegressor(n_estimators=100, random_state=42))])
+        model_f.fit(X, y_fav)
+        
+        model_u = VotingRegressor([('lr', LinearRegression()), ('gbm', GradientBoostingRegressor(n_estimators=100, random_state=42))])
+        model_u.fit(X, y_und)
+        
+        return model_f, model_u, features
+
+    if py == 2020:
+        st.warning("2020 Tournament was cancelled.")
+    else:
+        with st.spinner("Training Ensemble Models..."):
+            model_fav, model_und, xcol = train_ensemble_models(fup, py)
 
         # --- 4. BRACKET SIMULATION & SCORING PREP ---
         # Create Actual Winners Lookup for Scoring
@@ -121,7 +132,7 @@ def run():
 
         # Run 6 Rounds
         for r in range(1, 7):
-            BB = predict_round(r, BB, rf_fav, rf_und, xcol)
+            BB = predict_round(r, BB, model_fav, model_und, xcol)
             
             if r < 6:
                 winners = BB[BB['Round'] == r].sort_values('Game')
@@ -154,6 +165,7 @@ def run():
                     # Get stats for the current year
                     year_stats = all_stats[all_stats['Year'] == py].copy()
                     if 'Year' in year_stats.columns: year_stats = year_stats.drop(columns=['Year'])
+                    year_stats = year_stats.drop_duplicates(subset=['Team'])
                     
                     # Identify stat columns (everything except Team)
                     stat_cols = [c for c in year_stats.columns if c != 'Team']
@@ -199,6 +211,23 @@ def run():
         fig = px.scatter(BB, x="PFScore", y="PUScore", color="Round", hover_data=["PFTeam", "PUTeam"],
                          title="Matchup Intensity: Favored vs Underdog Predicted Scores")
         st.plotly_chart(fig)
+
+        # --- 7. EXTRAS ---
+        # Feature Importance (Extracting from the GBM component of the Ensemble)
+        # model_fav.estimators_[1] corresponds to the GradientBoostingRegressor defined in the VotingRegressor
+        if hasattr(model_fav, 'estimators_'):
+            gbm_part = model_fav.estimators_[1]
+            if hasattr(gbm_part, 'feature_importances_'):
+                fi_df = pd.DataFrame({'Feature': xcol, 'Importance': gbm_part.feature_importances_})
+                fi_df = fi_df.sort_values(by='Importance', ascending=False).head(12)
+                fig_imp = px.bar(fi_df, x='Importance', y='Feature', orientation='h', 
+                                 title="Top Factors Driving Predictions (GBM Component)")
+                fig_imp.update_layout(yaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig_imp)
+
+        # Download Button
+        csv = BB.to_csv(index=False).encode('utf-8')
+        st.download_button("Download Bracket CSV", csv, f"bracket_prediction_{py}.csv", "text/csv")
 
 # Streamlit apps often use a 'run' pattern when called from a main file
 run()
