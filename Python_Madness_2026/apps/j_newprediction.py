@@ -38,6 +38,8 @@ def run():
         # Ensure correct data types
         df['Year'] = df['Year'].astype(int)
         df['Round'] = df['Round'].astype(int)
+        df['PFScore'] = df['PFScore'].astype(float)
+        df['PUScore'] = df['PUScore'].astype(float)
         return df
 
     fup = load_data()

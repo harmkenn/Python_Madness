@@ -11,7 +11,4 @@ pase = pd.read_csv('Python_Madness_2026/data/step05e_PASE.csv')
 
 
             
-st.dataframe(pase, height=600, use_container_width=False)
-
-
-
+st.dataframe(pase, height=600, width='content')

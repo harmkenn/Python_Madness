@@ -14,4 +14,4 @@ if team != "":
 
 TRP.round(decimals=2)
 TRP['Year'] = TRP['Year'].astype('str')         
-st.dataframe(TRP, height=600, use_container_width=False)
+st.dataframe(TRP, height=600, width='content')

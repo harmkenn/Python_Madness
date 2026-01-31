@@ -7,7 +7,7 @@ st.markdown('Team Wins Since 2008')
 AG = pd.read_csv('Python_Madness_2026/data/step05c_FUHistory.csv')
 py = 2026
 AG = AG[AG['Year']<py]
-champs = AG[AG['Round']== 6]
+champs = AG[AG['Round']== 6].copy()
 champs.index = champs["Year"]
 
 for year in champs['Year']:
@@ -30,6 +30,4 @@ if team != "":
     cw = cw[cw.index.str.contains(team)]
 
         
-st.dataframe(cw, height=600, use_container_width=False)
-
-
+st.dataframe(cw, height=600, width='content')

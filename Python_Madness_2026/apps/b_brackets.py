@@ -84,4 +84,4 @@ if p_year != 2020:
 
     # Display in Streamlit
     st.checkbox("Use container width", value=True, key="use_container_width")
-    st.dataframe(df, height=1200, use_container_width=st.session_state.use_container_width)
+    st.dataframe(df, height=1200, width="stretch" if st.session_state.use_container_width else "content")

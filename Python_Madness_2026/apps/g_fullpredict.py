@@ -10,7 +10,7 @@ import numpy as np
 st.markdown('Use Linear Regression to do a Full Bracket Prediction')
 
 fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
-fup = fup[fup['Year']<=2025][fup['Game']>=1]
+fup = fup[(fup['Year']<=2025) & (fup['Game']>=1)]
 fup['Round'] = fup['Round'].astype('int32')
 fup['PFSeed']=fup['AFSeed']
 fup['PFTeam']=fup['AFTeam']
@@ -44,7 +44,7 @@ if py != 2020:
     
     # Predict Round 1
     
-    r1p = fup[fup['Year']==py][fup['Round']==1]
+    r1p = fup[(fup['Year']==py) & (fup['Round']==1)]
     
     pfs = LRF.predict(r1p[xcol])
     pus = RFU.predict(r1p[xcol])

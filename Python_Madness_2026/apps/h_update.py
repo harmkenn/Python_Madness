@@ -7,20 +7,16 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import streamlit as st
 import pandas as pd
-<<<<<<< HEAD
 import io
 import time
 import requests
 import numpy as np
 import re
-=======
->>>>>>> 6b192ff (sync)
 
 YEAR = 2026
 
 def kenpom_code():
 
-<<<<<<< HEAD
     CSV_PATH = "Python_Madness_2026/data/step01b_kenpom.csv"
 
     # ---------------- Chrome ----------------
@@ -56,7 +52,7 @@ def kenpom_code():
         EC.presence_of_element_located((By.ID, "ratings-table"))
     )
 
-    df = pd.read_html(table.get_attribute("outerHTML"))[0]
+    df = pd.read_html(io.StringIO(table.get_attribute("outerHTML")))[0]
 
     # ---------------- Flatten headers ----------------
     if isinstance(df.columns, pd.MultiIndex):
@@ -79,53 +75,6 @@ def kenpom_code():
     col_net = cols[i - 5]  # AdjEM
     col_o   = cols[i - 4]  # AdjO
     col_d   = cols[i - 2]  # AdjD
-=======
-    def clean_team(name):
-        """Remove trailing digits or spaces from team names"""
-        name = str(name)
-        while name and (name[-1].isdigit() or name[-1].isspace()):
-            name = name[:-1]
-        return name
-
-    kenpom_path = 'Python_Madness_2026/data/step01b_kenpom.csv'
-
-    # ================= READ EXISTING DATA =================
-    kenpom = pd.read_csv(kenpom_path)
-    kenpom = kenpom.loc[:, ~kenpom.columns.duplicated()]
-    kenpom = kenpom[kenpom['Year'] < b]
-
-    # ================= SCRAPE NEW YEAR =================
-    driver.get(f'https://kenpom.com/index.php?y={b}')
-    driver.maximize_window()
-
-    # Wait until table rows are loaded
-    WebDriverWait(driver, 30).until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table#ratings-table tbody tr"))
-    )
-
-    # Extract table rows
-    rows = driver.find_elements(By.CSS_SELECTOR, "table#ratings-table tbody tr")
-    data = []
-    for row in rows:
-        cells = row.find_elements(By.TAG_NAME, "td")
-        data.append([c.text for c in cells])
-
-    # Convert to DataFrame
-    df = pd.DataFrame(data)
-    st.write("Raw table shape:", df.shape)
-    st.write("Raw table preview:", df.head())
-
-    # ================= ADD COLUMN NAMES =================
-    columns = [
-        "Rk","Team","Conf","W-L","NetRtg","ORtg","DRtg","AdjT","Luck",
-        "SOS_NetRtg","SOS_ORtg","SOS_DRtg","SOS_AdjT","NCSOS_NetRtg"
-    ]
-    # If table has extra columns, fill remaining names with dummy
-    while len(columns) < df.shape[1]:
-        columns.append(f"Extra_{len(columns)}")
-
-    df.columns = columns
->>>>>>> 6b192ff (sync)
 
     df = df.rename(columns={
         col_team: "Team",
@@ -136,7 +85,6 @@ def kenpom_code():
         col_adjt: "AdjT"
     })
 
-<<<<<<< HEAD
     # ---------------- Keep only needed columns ----------------
     df = df[["Team", "Conf", "NetRtg", "ORtg", "DRtg", "AdjT"]]
 
@@ -165,28 +113,6 @@ def kenpom_code():
                    ["Year", "Team", "Conf", "NetRtg", "ORtg", "DRtg", "AdjT"]]
         .head(15)
     )
-=======
-    # ================= CONCAT =================
-    # Align columns with existing kenpom
-    for col in kenpom.columns:
-        if col not in df.columns:
-            df[col] = pd.NA
-    for col in df.columns:
-        if col not in kenpom.columns:
-            kenpom[col] = pd.NA
-
-    df = df[kenpom.columns]  # Reorder to match kenpom
-    kenpom = pd.concat([kenpom, df], ignore_index=True)
-
-    # ================= SAVE =================
-    kenpom.to_csv(kenpom_path, index=False)
-
-    driver.quit()
-
-    st.write(f'KenPom updated for {b}!')
-    st.dataframe(kenpom[kenpom['Year'] == b].head())
-    st.write("Columns:", kenpom.columns)
->>>>>>> 6b192ff (sync)
 
 def espnbpi_code():
     service = Service(ChromeDriverManager().install())
@@ -277,6 +203,23 @@ def bartdata():
 
 def combined():
     # Fix KenPom
+    kp_path = 'Python_Madness_2026/data/step01b_kenpom.csv'
+    try:
+        with open(kp_path, 'r') as f:
+            lines = f.readlines()
+        
+        cleaned_lines = []
+        skip = False
+        for line in lines:
+            if line.startswith('<<<<<<<'): continue
+            if line.startswith('======='): skip = True; continue
+            if line.startswith('>>>>>>>'): skip = False; continue
+            if not skip: cleaned_lines.append(line)
+            
+        with open(kp_path, 'w') as f:
+            f.writelines(cleaned_lines)
+    except Exception: pass
+
     KP = pd.read_csv('Python_Madness_2026/data/step01b_kenpom.csv').dropna()
     KP['Year'] = pd.to_numeric(KP['Year'], errors='coerce').astype('Int32')
     repair = pd.read_csv('Python_Madness_2026/data/step05b_repair.csv', encoding='latin1')
@@ -451,7 +394,7 @@ def combined():
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    #kenpom_code()
+    kenpom_code()
     #espnbpi_code()
     #scrapeBR()
     #bartdata()
