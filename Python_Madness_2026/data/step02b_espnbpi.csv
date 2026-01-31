@@ -5517,6 +5517,7 @@ Year,Team,BPI(O),BPI(D)
 2023,IU Indy,-7.5,-7.7
 2023,LIU,-9.4,-6.3
 2023,Green Bay,-9.6,-7.4
+<<<<<<< HEAD
 2024,Houston,9.1,13.9
 2024,Connecticut,13.8,8.9
 2024,Purdue,13.1,7.2
@@ -6587,3 +6588,105 @@ Year,Team,BPI(O),BPI(D)
 2026,Jackson St.,-9.0,-3.3
 2026,Rider,-9.3,-3.6
 2026,Saint Francis,-8.2,-4.8
+=======
+2024,Houston Cougars,9.1,13.9
+2024,UConn Huskies,13.8,8.9
+2024,Purdue Boilermakers,13.1,7.2
+2024,Auburn Tigers,9.9,8.6
+2024,Iowa State Cyclones,6.7,11.5
+2024,Arizona Wildcats,10.0,8.1
+2024,Tennessee Volunteers,7.6,10.5
+2024,Duke Blue Devils,10.9,7.0
+2024,North Carolina Tar Heels,9.3,7.7
+2024,Creighton Bluejays,10.9,5.9
+2024,Illinois Fighting Illini,11.7,4.5
+2024,Alabama Crimson Tide,13.4,2.8
+2024,Marquette Golden Eagles,8.6,6.7
+2024,Baylor Bears,11.8,3.3
+2024,Gonzaga Bulldogs,10.9,4.0
+2024,Saint Mary's Gaels,5.6,8.4
+2024,Michigan State Spartans,5.6,8.3
+2024,BYU Cougars,9.0,4.5
+2024,Wisconsin Badgers,8.6,4.7
+2024,Clemson Tigers,7.9,4.9
+2024,Kansas Jayhawks,5.9,6.8
+2024,Texas Longhorns,6.7,5.9
+2024,St. John's Red Storm,7.9,4.7
+2024,Kentucky Wildcats,10.3,2.3
+2024,Florida Gators,8.9,3.2
+2024,Texas Tech Red Raiders,7.6,4.2
+2024,Pittsburgh Panthers,6.6,5.0
+2024,Texas A&M Aggies,7.3,4.2
+2024,Dayton Flyers,7.5,4.0
+2024,Cincinnati Bearcats,4.6,6.9
+2024,Wake Forest Demon Deacons,7.4,4.0
+2024,Villanova Wildcats,4.2,7.1
+2024,TCU Horned Frogs,5.8,5.6
+2024,Mississippi State Bulldogs,4.3,6.9
+2024,San Diego State Aztecs,3.7,7.3
+2024,Florida Atlantic Owls,8.8,2.2
+2024,Nebraska Cornhuskers,5.9,4.8
+2024,Oklahoma Sooners,5.6,5.0
+2024,Northwestern Wildcats,6.4,3.9
+2024,Indiana State Sycamores,8.6,1.5
+2024,NC State Wolfpack,5.8,4.3
+2024,Washington State Cougars,4.7,5.4
+2024,Ohio State Buckeyes,6.0,3.9
+2024,Virginia Tech Hokies,6.9,2.9
+2024,Colorado Buffaloes,6.7,3.0
+2024,Providence Friars,2.2,7.2
+2024,Iowa Hawkeyes,8.7,0.5
+2024,Boise State Broncos,5.2,4.0
+2024,New Mexico Lobos,3.7,5.4
+2024,Utah Utes,4.8,4.3
+2025,Duke Blue Devils,13.9,10.8
+2025,Houston Cougars,10.6,13.3
+2025,Auburn Tigers,12.2,9.7
+2025,Florida Gators,11.8,8.8
+2025,Tennessee Volunteers,8.9,10.3
+2025,Alabama Crimson Tide,12.2,6.8
+2025,Iowa State Cyclones,8.2,10.2
+2025,Gonzaga Bulldogs,11.2,7.1
+2025,Arizona Wildcats,10.5,7.6
+2025,Texas Tech Red Raiders,11.0,6.9
+2025,Michigan State Spartans,7.2,10.3
+2025,Maryland Terrapins,7.0,10.1
+2025,St. John's Red Storm,5.5,11.3
+2025,Kansas Jayhawks,7.3,9.2
+2025,UConn Huskies,10.4,6.1
+2025,Purdue Boilermakers,10.4,5.7
+2025,Kentucky Wildcats,10.3,5.8
+2025,Clemson Tigers,7.9,8.1
+2025,Wisconsin Badgers,9.2,6.7
+2025,Baylor Bears,10.1,5.5
+2025,Illinois Fighting Illini,9.0,6.4
+2025,Marquette Golden Eagles,7.3,8.1
+2025,Texas A&M Aggies,6.5,8.8
+2025,North Carolina Tar Heels,8.6,6.3
+2025,UCLA Bruins,6.6,8.4
+2025,BYU Cougars,9.8,5.2
+2025,Creighton Bluejays,8.0,6.9
+2025,Michigan Wolverines,6.2,7.9
+2025,Ole Miss Rebels,7.4,6.7
+2025,Oregon Ducks,6.7,7.2
+2025,Louisville Cardinals,6.6,7.1
+2025,Saint Mary's Gaels,4.9,8.8
+2025,Missouri Tigers,9.2,4.1
+2025,Texas Longhorns,7.8,5.4
+2025,Mississippi State Bulldogs,7.3,5.9
+2025,VCU Rams,5.5,7.6
+2025,Ohio State Buckeyes,7.1,5.7
+2025,Xavier Musketeers,6.8,5.8
+2025,Arkansas Razorbacks,5.0,7.6
+2025,Georgia Bulldogs,5.3,6.9
+2025,Cincinnati Bearcats,3.9,8.2
+2025,Villanova Wildcats,8.1,4.0
+2025,Oklahoma Sooners,6.8,4.7
+2025,Northwestern Wildcats,5.0,6.3
+2025,New Mexico Lobos,3.9,7.3
+2025,SMU Mustangs,6.4,4.7
+2025,Nebraska Cornhuskers,5.0,6.0
+2025,Utah State Aggies,8.5,2.6
+2025,Memphis Tigers,4.8,6.2
+2025,Boise State Broncos,6.1,4.9
+>>>>>>> 6b192ff (sync)
