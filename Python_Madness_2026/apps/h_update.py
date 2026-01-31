@@ -307,7 +307,7 @@ def combined():
     st.write('Seed History Updated!')
 
     # Make the history Favored team names match Ken Pom
-    AG = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
+    #AG = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
     AG['AFTeam'] = AG['AFTeam'].replace(LF,LR)
     AG = AG[AG['AFTeam']!='out']
     AGN = AG['AFTeam'].unique()
@@ -321,7 +321,7 @@ def combined():
     AG2fix = list(set(AGN) - set(sn))
     st.write(AG2fix)
     st.write('Underdogs Checked!')
-
+    
     AG.to_csv('Python_Madness_2026/data/step05c_FUHistory.csv',index=False) 
     
 
