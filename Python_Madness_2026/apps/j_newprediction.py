@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 import plotly.express as px
 import os
 
-# v1.5 - Deployment Ready & Path Optimized
+# v2.0 - Random Forest & Full Stat Lookup
 def run():
-    st.title('NCAA Tournament Prediction Engine')
+    st.title('NCAA Tournament Prediction Engine (Random Forest)')
 
     # --- 1. SECURE DATA LOADING ---
     @st.cache_data
@@ -15,12 +16,14 @@ def run():
         # Get the path relative to THIS file's location
         base_path = os.path.dirname(__file__)
         data_path = os.path.join(base_path, "..", "data", "step05g_FUStats.csv")
+        stats_path = os.path.join(base_path, "..", "data", "step05f_AllStats.csv")
         
-        if not os.path.exists(data_path):
-            st.error(f"Error: Data file not found at {data_path}")
-            return pd.DataFrame()
+        if not os.path.exists(data_path) or not os.path.exists(stats_path):
+            st.error(f"Error: Data files not found.")
+            return pd.DataFrame(), pd.DataFrame()
 
         df = pd.read_csv(data_path).fillna(0)
+        all_stats = pd.read_csv(stats_path).fillna(0)
         
         # Create Actual Winner column for scoring before renaming
         if 'AFScore' in df.columns and 'AUScore' in df.columns:
@@ -40,9 +43,9 @@ def run():
         df['Round'] = df['Round'].astype(int)
         df['PFScore'] = df['PFScore'].astype(float)
         df['PUScore'] = df['PUScore'].astype(float)
-        return df
+        return df, all_stats
 
-    fup = load_data()
+    fup, all_stats = load_data()
     if fup.empty:
         return
 
@@ -81,9 +84,9 @@ def run():
         y_fav = train_df['PFScore']
         y_und = train_df['PUScore']
 
-        # Train Linear Regression
-        rf_fav = LinearRegression().fit(X, y_fav)
-        rf_und = LinearRegression().fit(X, y_und)
+        # Train Random Forest
+        rf_fav = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_fav)
+        rf_und = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_und)
 
         # --- 4. BRACKET SIMULATION & SCORING PREP ---
         # Create Actual Winners Lookup for Scoring
@@ -146,11 +149,32 @@ def run():
                 
                 if next_gen:
                     next_df = pd.DataFrame(next_gen)
+                    
+                    # --- CRITICAL FIX: Merge Stats for Next Round Teams ---
+                    # Get stats for the current year
+                    year_stats = all_stats[all_stats['Year'] == py].copy()
+                    if 'Year' in year_stats.columns: year_stats = year_stats.drop(columns=['Year'])
+                    
+                    # Identify stat columns (everything except Team)
+                    stat_cols = [c for c in year_stats.columns if c != 'Team']
+                    
+                    # Merge for PFTeam (Favored) -> suffix _x
+                    next_df = next_df.merge(year_stats, left_on='PFTeam', right_on='Team', how='left')
+                    rename_x = {c: f"{c}_x" for c in stat_cols}
+                    next_df = next_df.rename(columns=rename_x).drop(columns=['Team'], errors='ignore')
+                    
+                    # Merge for PUTeam (Underdog) -> suffix _y
+                    next_df = next_df.merge(year_stats, left_on='PUTeam', right_on='Team', how='left')
+                    rename_y = {c: f"{c}_y" for c in stat_cols}
+                    next_df = next_df.rename(columns=rename_y).drop(columns=['Team'], errors='ignore')
+                    
                     next_df = create_advanced_features(next_df)
+                    
                     # Fill missing feature columns with 0 for the model
                     missing_cols = [c for c in xcol if c not in next_df.columns]
                     if missing_cols:
                         next_df = pd.concat([next_df, pd.DataFrame(0, index=next_df.index, columns=missing_cols)], axis=1)
+                        
                     BB = pd.concat([BB, next_df], ignore_index=True)
 
         # --- 5. SCORING ---
