@@ -26,7 +26,9 @@ if py == 2020:
 if py != 2020:
     # Build the linear model
     fupn = fup.select_dtypes(exclude=['object'])
-    MX = fupn[fupn['Year']!=py].drop(['AFScore','AUScore','AFSeed','AUSeed','PFScore','PUScore','Fti','Uti'],axis=1)
+    drop_cols = ['AFScore','AUScore','AFSeed','AUSeed','PFScore','PUScore','Fti','Uti']
+    garbage_cols = [c for c in fupn.columns if 'Unnamed' in c or 'Record' in c or 'Team.1' in c]
+    MX = fupn[fupn['Year']!=py].drop([c for c in drop_cols + garbage_cols if c in fupn.columns], axis=1)
     xcol = MX.columns
 
     MFY = fupn[fupn['Year']!=py]['PFScore']
@@ -69,7 +71,7 @@ if py != 2020:
         BB.loc[x,'AWTeam'] = str(np.where(BB.loc[x,'AFScore']>=BB.loc[x,'AUScore'],BB.loc[x,'AFTeam'],BB.loc[x,'AUTeam']))
         
     
-    KBBP = pd.read_csv("Python_Madness_2025/data/step05f_AllStats.csv").fillna(0)
+    KBBP = pd.read_csv("Python_Madness_2026/data/step05f_AllStats.csv").fillna(0)
     #Predict Round 2
     BBstats = BB[BB['Round']==2].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
     BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')

@@ -22,6 +22,10 @@ def run():
 
         df = pd.read_csv(data_path).fillna(0)
         
+        # Create Actual Winner column for scoring before renaming
+        if 'AFScore' in df.columns and 'AUScore' in df.columns:
+            df['Actual_Winner'] = np.where(df['AFScore'] >= df['AUScore'], df['AFTeam'], df['AUTeam'])
+
         # Standardize names immediately to prevent KeyError: 'PFSeed'
         # We map "Actual" column names to "Predicted" column names
         rename_map = {
@@ -77,9 +81,13 @@ def run():
         rf_fav = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_fav)
         rf_und = RandomForestRegressor(n_estimators=100, random_state=42).fit(X, y_und)
 
-        # --- 4. BRACKET SIMULATION ---
+        # --- 4. BRACKET SIMULATION & SCORING PREP ---
+        # Create Actual Winners Lookup for Scoring
+        actual_winners = fup[fup['Year'] == py].set_index('Game')['Actual_Winner'].to_dict()
+
         # Start with only Round 1 for the selected year
         BB = fup[(fup['Year'] == py) & (fup['Round'] == 1)].copy()
+        BB = BB.sort_values('Game')
 
         def predict_round(round_num, bracket_df, model_f, model_u, features):
             mask = (bracket_df['Round'] == round_num)
@@ -101,12 +109,15 @@ def run():
             
             return bracket_df
 
+        # Initialize Game Counter for next rounds
+        next_game_idx = 33
+
         # Run 6 Rounds
         for r in range(1, 7):
             BB = predict_round(r, BB, rf_fav, rf_und, xcol)
             
             if r < 6:
-                winners = BB[BB['Round'] == r]
+                winners = BB[BB['Round'] == r].sort_values('Game')
                 next_gen = []
                 # Pair up winners for the next round
                 for i in range(0, len(winners), 2):
@@ -123,9 +134,11 @@ def run():
                             
                         next_gen.append({
                             'Year': py, 'Round': r+1,
+                            'Game': next_game_idx,
                             'PFSeed': pf_s, 'PFTeam': pf_t,
                             'PUSeed': pu_s, 'PUTeam': pu_t
                         })
+                        next_game_idx += 1
                 
                 if next_gen:
                     next_df = pd.DataFrame(next_gen)
@@ -135,9 +148,24 @@ def run():
                         if col not in next_df.columns: next_df[col] = 0
                     BB = pd.concat([BB, next_df], ignore_index=True)
 
-        # --- 5. VISUALIZATION ---
+        # --- 5. SCORING ---
+        def calculate_score(row):
+            game_id = row.get('Game')
+            predicted = row.get('PWTeam')
+            actual = actual_winners.get(game_id)
+            round_num = row.get('Round')
+            
+            if predicted == actual and actual:
+                return 10 * (2 ** (round_num - 1))
+            return 0
+
+        BB['ESPN_Score'] = BB.apply(calculate_score, axis=1)
+        total_score = BB['ESPN_Score'].sum()
+
+        # --- 6. VISUALIZATION ---
         st.subheader(f"Final Prediction for {py}")
-        st.dataframe(BB[['Round', 'PFTeam', 'PFSeed', 'PFScore', 'PUTeam', 'PUSeed', 'PUScore', 'PWTeam']], use_container_width=True)
+        st.metric("Total ESPN Bracket Score", f"{int(total_score)}")
+        st.dataframe(BB[['Round', 'Game', 'PFTeam', 'PFSeed', 'PFScore', 'PUTeam', 'PUSeed', 'PUScore', 'PWTeam', 'ESPN_Score']], use_container_width=True)
         
         fig = px.scatter(BB, x="PFScore", y="PUScore", color="Round", hover_data=["PFTeam", "PUTeam"],
                          title="Matchup Intensity: Favored vs Underdog Predicted Scores")
