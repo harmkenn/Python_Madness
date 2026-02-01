@@ -118,6 +118,8 @@ def run():
                     'AFScore': 'PFScore', 'AUScore': 'PUScore'
                 }
                 BB = BB.rename(columns=rename_map_hist)
+                BB['PFScore'] = BB['PFScore'].astype(float)
+                BB['PUScore'] = BB['PUScore'].astype(float)
                 
                 year_stats = all_stats[all_stats['Year'] == py].copy()
                 if 'Year' in year_stats.columns: year_stats = year_stats.drop(columns=['Year'])
