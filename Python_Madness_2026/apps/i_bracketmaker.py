@@ -6,7 +6,7 @@ import random
 
 
 # title of the app
-py = 2025
+py = 2026
 st.markdown('Predicting ' + str(py))
     
 fup = pd.read_csv("Python_Madness_2025/data/step05g_FUStats.csv").fillna(0)
