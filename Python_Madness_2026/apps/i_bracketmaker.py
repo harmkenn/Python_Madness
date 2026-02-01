@@ -9,7 +9,7 @@ import random
 py = 2026
 st.markdown('Predicting ' + str(py))
     
-fup = pd.read_csv("Python_Madness_2025/data/step05g_FUStats.csv").fillna(0)
+fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
 fup['Year'] = pd.to_numeric(fup['Year'], errors='coerce').astype('Int32')
 
 fup = fup[fup['Game']>=1]
@@ -35,7 +35,7 @@ LRF.fit(MX,MFY)
 RFU = LinearRegression()
 RFU.fit(MX,MUY)
 
-BB = pd.read_csv('Python_Madness_2025/data/step05c_FUHistory.csv')
+BB = pd.read_csv('Python_Madness_2026/data/step05c_FUHistory.csv')
 BB = BB[(BB['Year']==py) & (BB['Game']>=1) & (BB['Game']<=32)]
 
 BB['Round']=BB['Round'].astype('int32')
@@ -46,7 +46,7 @@ BB.columns = BBcol
 BB['PFScore'] = BB['PFScore'].astype(float)
 BB['PUScore'] = BB['PUScore'].astype(float)
 
-KBBP = pd.read_csv("Python_Madness_2025/data/step05f_AllStats.csv").fillna(0)
+KBBP = pd.read_csv("Python_Madness_2026/data/step05f_AllStats.csv").fillna(0)
 KBBP = KBBP[KBBP['Year']==py]
 BB['Year'] = pd.to_numeric(BB['Year'], errors='coerce').astype('Int64')
 
@@ -55,6 +55,10 @@ BBstats = BB.merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how=
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
  
 r1p = BBstats
+
+if r1p.empty:
+    st.warning(f"No Round 1 games found for {py}. Please ensure data is updated.")
+    st.stop()
 
 pfs = LRF.predict(r1p[xcol]) + [random.randint(-11, 11) for _ in range(32)]
 pus = RFU.predict(r1p[xcol]) 

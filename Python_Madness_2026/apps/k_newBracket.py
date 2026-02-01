@@ -71,7 +71,7 @@ def run():
     fup = create_advanced_features(fup)
 
     # --- 3. MODEL TRAINING (from j_newprediction.py) ---
-    py = st.slider('Select Tournament Year: ', 2008, 2026, 2025)
+    py = st.slider('Select Tournament Year: ', 2008, 2026, 2026)
     st.markdown('Predicting ' + str(py))
 
     @st.cache_resource
@@ -101,7 +101,44 @@ def run():
             model_fav, model_und, xcol = train_ensemble_models(fup, py)
 
         # --- 4. BRACKET SIMULATION (Adapted from j_newprediction.py) ---
-        BB = fup[(fup['Year'] == py) & (fup['Round'] == 1)].copy()
+        base_path = os.path.dirname(__file__)
+        history_path = os.path.join(base_path, "..", "data", "step05c_FUHistory.csv")
+        
+        if os.path.exists(history_path):
+            hist_df = pd.read_csv(history_path)
+            BB = hist_df[(hist_df['Year'] == py) & (hist_df['Round'] == 1) & (hist_df['Game'] >= 1) & (hist_df['Game'] <= 32)].copy()
+            
+            if BB.empty:
+                 BB = fup[(fup['Year'] == py) & (fup['Round'] == 1)].copy()
+            else:
+                rename_map_hist = {
+                    'AFSeed': 'PFSeed', 'AUSeed': 'PUSeed', 
+                    'AFTeam': 'PFTeam', 'AUTeam': 'PUTeam',
+                    'AFScore': 'PFScore', 'AUScore': 'PUScore'
+                }
+                BB = BB.rename(columns=rename_map_hist)
+                
+                year_stats = all_stats[all_stats['Year'] == py].copy()
+                if 'Year' in year_stats.columns: year_stats = year_stats.drop(columns=['Year'])
+                year_stats = year_stats.drop_duplicates(subset=['Team'])
+                stat_cols = [c for c in year_stats.columns if c != 'Team']
+                
+                BB = BB.merge(year_stats, left_on='PFTeam', right_on='Team', how='left')
+                rename_x = {c: f"{c}_x" for c in stat_cols}
+                BB = BB.rename(columns=rename_x).drop(columns=['Team'], errors='ignore')
+                
+                BB = BB.merge(year_stats, left_on='PUTeam', right_on='Team', how='left')
+                rename_y = {c: f"{c}_y" for c in stat_cols}
+                BB = BB.rename(columns=rename_y).drop(columns=['Team'], errors='ignore')
+                
+                BB = create_advanced_features(BB)
+                
+                missing_cols = [c for c in xcol if c not in BB.columns]
+                if missing_cols:
+                    BB = pd.concat([BB, pd.DataFrame(0, index=BB.index, columns=missing_cols)], axis=1)
+        else:
+            BB = fup[(fup['Year'] == py) & (fup['Round'] == 1)].copy()
+            
         BB = BB.sort_values('Game')
 
         def predict_round(round_num, bracket_df, model_f, model_u, features):
