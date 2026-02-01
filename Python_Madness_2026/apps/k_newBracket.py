@@ -71,7 +71,8 @@ def run():
     fup = create_advanced_features(fup)
 
     # --- 3. MODEL TRAINING (from j_newprediction.py) ---
-    py = st.slider('Select Tournament Year: ', 2008, 2026, 2026)
+    py = 2026
+    st.sidebar.button("Run New Simulation")
     st.markdown('Predicting ' + str(py))
 
     @st.cache_resource
