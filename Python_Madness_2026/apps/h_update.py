@@ -394,8 +394,8 @@ def combined():
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    #kenpom_code()
-    #espnbpi_code()
-    #scrapeBR()
-    #bartdata()
+    kenpom_code()
+    espnbpi_code()
+    scrapeBR()
+    bartdata()
     combined()

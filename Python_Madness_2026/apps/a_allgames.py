@@ -19,7 +19,7 @@ AG = AG.with_columns(
 AG = AG.drop(["Fti", "Uti"])
 
 # Filter by year
-AG = AG.filter(pl.col("Year") < py)
+AG = AG.filter(pl.col("Year") < py + 1)
 
 # Cast Year to string
 AG = AG.with_columns(
