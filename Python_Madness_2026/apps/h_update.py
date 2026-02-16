@@ -391,11 +391,89 @@ def combined():
     st.write('Tournament Stats Updated!')
 
 
+def bracketology_to_matchups():
+    """
+    Parse bracketology data and create first-round matchups.
+    Takes pasted data with format: Seed | Rank | Team (Record) | Stats
+    """
+    st.subheader("Bracketology to First Round Matchups")
+    
+    pasted_data = st.text_area(
+        "Paste bracketology data (68 teams):",
+        height=400,
+        placeholder="Seed | Rank | Team (Record) | Stats..."
+    )
+    
+    if st.button("Generate Matchups"):
+        if not pasted_data.strip():
+            st.error("Please paste bracketology data first")
+            return
+        
+        # Parse the pasted data
+        lines = pasted_data.strip().split('\n')
+        teams_by_seed = {}
+        
+        for line in lines:
+            if not line.strip() or line[0].isalpha():  # Skip empty lines and headers
+                continue
+            
+            parts = line.split('\t')
+            if len(parts) >= 2:
+                try:
+                    seed = int(parts[0].strip())
+                    # Extract team name (second column has rank | team)
+                    rank_team = parts[1].strip()
+                    # The team name usually starts after the rank number
+                    team_part = ' '.join(rank_team.split()[1:])
+                    
+                    if seed not in teams_by_seed:
+                        teams_by_seed[seed] = []
+                    teams_by_seed[seed].append(team_part)
+                except (ValueError, IndexError):
+                    continue
+        
+        # Create matchups: 1v16, 2v15, 3v14, 4v13, 5v12, 6v11, 7v10, 8v9
+        matchups = []
+        seed_pairings = [(1, 16), (2, 15), (3, 14), (4, 13), (5, 12), (6, 11), (7, 10), (8, 9)]
+        
+        for higher_seed, lower_seed in seed_pairings:
+            if higher_seed in teams_by_seed and lower_seed in teams_by_seed:
+                # Get the 4 teams for each seed (one per region)
+                higher_teams = teams_by_seed[higher_seed]
+                lower_teams = teams_by_seed[lower_seed]
+                
+                for i in range(min(len(higher_teams), len(lower_teams))):
+                    matchup = f"{higher_seed} seed: {higher_teams[i]} vs {lower_seed} seed: {lower_teams[i]}"
+                    matchups.append(matchup)
+        
+        if matchups:
+            # Show matchups
+            st.success(f"Generated {len(matchups)} matchups!")
+            
+            # Display as table
+            matchup_df = pd.DataFrame({
+                'Game #': range(1, len(matchups) + 1),
+                'Matchup': matchups
+            })
+            st.dataframe(matchup_df, use_container_width=True)
+            
+            # Save to CSV
+            if st.button("Save Matchups to CSV"):
+                output_path = 'Python_Madness_2026/data/first_round_matchups.csv'
+                matchup_df.to_csv(output_path, index=False)
+                st.success(f"Saved to {output_path}")
+        else:
+            st.error("Could not parse any valid teams. Please check the data format.")
+
+
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    kenpom_code()
-    espnbpi_code()
-    scrapeBR()
-    bartdata()
-    combined()
+    #kenpom_code()
+    #espnbpi_code()
+    #scrapeBR()
+    #bartdata()
+    #combined()
+
+    # Bracketology Matchup Generator
+    bracketology_to_matchups()
