@@ -16,7 +16,7 @@ AG = AG.with_columns(
 )
 
 # Drop unused columns
-AG = AG.drop(["Fti", "Uti"])
+#AG = AG.drop(["Fti", "Uti"])
 
 # Filter by year
 AG = AG.filter(pl.col("Year") < py + 1)
