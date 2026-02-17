@@ -28,17 +28,21 @@ if p_year != 2020:
     AGP = AG.filter((pl.col("Year") == p_year) & (pl.col("Game") >= 1))
 
     # Separate Favorite and Underdog views
-    AGPF = AGP.select(["Year","Game","Fti","AFSeed","AFTeam","AFScore"])
-    AGPU = AGP.select(["Year","Game","Uti","AUSeed","AUTeam","AUScore"])
+    AGPF = AGP.select(["Year","Game","AFSeed","AFTeam","AFScore"])
+    AGPU = AGP.select(["Year","Game","AUSeed","AUTeam","AUScore"])
 
     # Build STS string
-    AGPF = AGPF.with_columns(
-        (pl.col("AFSeed").cast(pl.Utf8) + " " + pl.col("AFTeam") + " " + pl.col("AFScore").cast(pl.Utf8)).alias("STS")
-    ).select(["Game","Fti","STS"]).rename({"Fti":"ti"})
+    AGPF = AGPF.with_columns([
+        (pl.col("AFSeed").cast(pl.Utf8) + " " + pl.col("AFTeam") + " " + pl.col("AFScore").cast(pl.Utf8)).alias("STS"),
+        pl.lit(0).alias("ti")   # Favorite first
+    ]).select(["Game","ti","STS"])
+    
+    AGPU = AGPU.with_columns([
+        (pl.col("AUSeed").cast(pl.Utf8) + " " + pl.col("AUTeam") + " " + pl.col("AUScore").cast(pl.Utf8)).alias("STS"),
+        pl.lit(1).alias("ti")   # Underdog second
+    ]).select(["Game","ti","STS"])
 
-    AGPU = AGPU.with_columns(
-        (pl.col("AUSeed").cast(pl.Utf8) + " " + pl.col("AUTeam") + " " + pl.col("AUScore").cast(pl.Utf8)).alias("STS")
-    ).select(["Game","Uti","STS"]).rename({"Uti":"ti"})
+
 
     # Combine and sort
     AGC = pl.concat([AGPF, AGPU]).sort(["Game","ti"]).to_pandas().reset_index(drop=True)
