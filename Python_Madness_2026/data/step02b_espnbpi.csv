@@ -264,7 +264,7 @@ Year,Team,BPI(O),BPI(D)
 2008,Central Arkansas,-5.7,-0.4
 2008,UMKC,-0.8,-5.4
 2008,Texas A&M Corpus Chris,-5.2,-1.0
-2008,San Jose St.,-2.8,-3.4
+2008,San JosÃ© St.,-2.8,-3.4
 2008,Morehead St.,-6.7,0.4
 2008,Oregon St.,-6.0,-0.2
 2008,Samford,-10.6,4.2
@@ -537,7 +537,7 @@ Year,Team,BPI(O),BPI(D)
 2009,Harvard,0.4,-2.5
 2009,Delaware,1.0,-3.1
 2009,DePaul,-0.5,-1.6
-2009,San Jose St.,-0.9,-1.2
+2009,San JosÃ© St.,-0.9,-1.2
 2009,Missouri St.,-5.4,3.2
 2009,Albany,-3.7,1.5
 2009,Appalachian St.,4.9,-7.2
@@ -880,7 +880,7 @@ Year,Team,BPI(O),BPI(D)
 2010,Valparaiso,4.1,-6.1
 2010,Portland St.,6.6,-8.6
 2010,South Dakota St.,3.5,-5.5
-2010,San Jose St.,3.3,-5.3
+2010,San JosÃ© St.,3.3,-5.3
 2010,Georgia St.,-5.2,3.1
 2010,Eastern Michigan,-2.6,0.5
 2010,Canisius,-1.1,-1.0
@@ -1204,7 +1204,7 @@ Year,Team,BPI(O),BPI(D)
 2011,Bradley,-1.2,0.1
 2011,San Francisco,0.0,-1.3
 2011,Sam Houston St.,-1.6,0.4
-2011,San Jose St.,3.0,-4.3
+2011,San JosÃ© St.,3.0,-4.3
 2011,Penn,-1.4,0.1
 2011,Western Kentucky,0.7,-2.1
 2011,McNeese St.,2.4,-3.8
@@ -1620,7 +1620,7 @@ Year,Team,BPI(O),BPI(D)
 2012,North Dakota,-3.5,-2.4
 2012,Troy,2.6,-8.5
 2012,Texas Southern,-6.6,0.7
-2012,San Jose St.,-0.8,-5.2
+2012,San JosÃ© St.,-0.8,-5.2
 2012,Samford,-3.1,-2.9
 2012,Bethune Cookman,-5.3,-0.9
 2012,Bradley,-3.3,-2.9
@@ -1965,7 +1965,7 @@ Year,Team,BPI(O),BPI(D)
 2013,Saint Peter's,-7.7,1.5
 2013,Central Michigan,0.6,-6.9
 2013,Jacksonville,-0.7,-5.6
-2013,San Jose St.,-4.6,-1.7
+2013,San JosÃ© St.,-4.6,-1.7
 2013,Colgate,-2.5,-3.9
 2013,Austin Peay,1.8,-8.2
 2013,Cleveland St.,-3.8,-2.7
@@ -2331,7 +2331,7 @@ Year,Team,BPI(O),BPI(D)
 2014,Eastern Illinois,-5.3,-3.1
 2014,Coppin St.,-2.1,-6.4
 2014,SIUE,-2.2,-6.2
-2014,San Jose St.,-6.1,-2.5
+2014,San JosÃ© St.,-6.1,-2.5
 2014,UNC Greensboro,-3.2,-5.4
 2014,Jacksonville St.,-7.8,-0.8
 2014,Nicholls St.,-5.1,-3.5
@@ -2720,7 +2720,7 @@ Year,Team,BPI(O),BPI(D)
 2015,Jacksonville,-6.1,-6.7
 2015,Central Connecticut,-8.2,-4.8
 2015,Maine,-5.1,-8.0
-2015,San Jose St.,-11.7,-3.5
+2015,San JosÃ© St.,-11.7,-3.5
 2015,Alcorn St.,-5.6,-10.3
 2015,Central Arkansas,-4.8,-12.4
 2015,Mississippi Valley St.,-3.9,-13.4
@@ -3008,7 +3008,7 @@ Year,Team,BPI(O),BPI(D)
 2016,Stetson,2.3,-9.2
 2016,Youngstown St.,2.4,-9.3
 2016,Kennesaw St.,-2.5,-4.4
-2016,San Jose St.,-4.1,-2.9
+2016,San JosÃ© St.,-4.1,-2.9
 2016,Quinnipiac,-7.2,0.2
 2016,Longwood,-2.7,-4.6
 2016,Saint Francis,-3.8,-3.4
@@ -3295,7 +3295,7 @@ Year,Team,BPI(O),BPI(D)
 2017,UC Davis,-3.4,0.5
 2017,Western Kentucky,-0.1,-2.8
 2017,North Florida,-0.3,-2.8
-2017,San Jose St.,-2.5,-0.6
+2017,San JosÃ© St.,-2.5,-0.6
 2017,Washington St.,-0.8,-2.3
 2017,Tennessee Martin,0.7,-3.9
 2017,Sam Houston St.,-4.1,0.9
@@ -3726,7 +3726,7 @@ Year,Team,BPI(O),BPI(D)
 2018,UMKC,-5.3,-2.8
 2018,Central Connecticut,-4.2,-3.9
 2018,Detroit Mercy,-1.1,-7.1
-2018,San Jose St.,-6.3,-2.0
+2018,San JosÃ© St.,-6.3,-2.0
 2018,Grambling St.,-6.9,-1.3
 2018,East Carolina,-5.4,-3.0
 2018,Norfolk St.,-6.2,-2.4
@@ -4105,7 +4105,7 @@ Year,Team,BPI(O),BPI(D)
 2019,Alcorn St.,-9.3,-5.0
 2019,Alabama A&M,-10.4,-4.1
 2019,Idaho,-6.2,-8.7
-2019,San Jose St.,-8.1,-7.0
+2019,San JosÃ© St.,-8.1,-7.0
 2019,Incarnate Word,-6.4,-9.3
 2019,Mississippi Valley St.,-8.8,-6.9
 2019,UNC Asheville,-8.5,-8.2
@@ -4432,7 +4432,7 @@ Year,Team,BPI(O),BPI(D)
 2020,Morgan St.,-6.7,-2.3
 2020,Denver,-5.0,-4.0
 2020,Maine,-6.9,-2.2
-2020,San Jose St.,-5.0,-4.4
+2020,San JosÃ© St.,-5.0,-4.4
 2020,Cleveland St.,-6.9,-2.5
 2020,Tennessee Martin,2.5,-12.0
 2020,Idaho,-5.3,-4.4
@@ -4795,7 +4795,7 @@ Year,Team,BPI(O),BPI(D)
 2021,Portland,-5.2,-8.1
 2021,Denver,-5.9,-7.6
 2021,Tennessee Martin,-5.4,-8.2
-2021,San Jose St.,-6.5,-7.1
+2021,San JosÃ© St.,-6.5,-7.1
 2021,Air Force,-5.7,-8.3
 2021,Alabama St.,-10.2,-4.3
 2021,Arkansas Pine Bluff,-8.0,-6.7
@@ -5105,7 +5105,7 @@ Year,Team,BPI(O),BPI(D)
 2022,Tennessee Martin,-5.0,-2.7
 2022,Pacific,-5.6,-2.3
 2022,Coppin St.,-6.6,-1.2
-2022,San Jose St.,-3.1,-4.8
+2022,San JosÃ© St.,-3.1,-4.8
 2022,South Carolina St.,-6.6,-1.5
 2022,Stetson,-4.0,-4.2
 2022,Lehigh,-3.8,-4.5
@@ -5277,7 +5277,7 @@ Year,Team,BPI(O),BPI(D)
 2023,Towson,2.4,0.6
 2023,Southern Miss,0.6,2.4
 2023,Belmont,3.8,-0.9
-2023,San Jose St.,2.4,0.5
+2023,San JosÃ© St.,2.4,0.5
 2023,Eastern Washington,4.2,-1.3
 2023,Stephen F. Austin,0.5,2.3
 2023,Butler,-1.0,3.9
@@ -5758,7 +5758,7 @@ Year,Team,BPI(O),BPI(D)
 2024,Ball St.,-1.6,-2.0
 2024,Tennessee Martin,-0.9,-2.8
 2024,Lehigh,-3.6,-0.1
-2024,San Jose St.,0.1,-3.8
+2024,San JosÃ© St.,0.1,-3.8
 2024,Binghamton,-1.9,-1.8
 2024,Miami OH,-3.3,-0.5
 2024,Pepperdine,-0.5,-3.4
@@ -6057,7 +6057,7 @@ Year,Team,BPI(O),BPI(D)
 2025,Nicholls St.,-1.7,0.4
 2025,Indiana St.,1.0,-2.3
 2025,Marshall,-1.6,0.3
-2025,San Jose St.,-0.4,-1.0
+2025,San JosÃ© St.,-0.4,-1.0
 2025,Massachusetts,-2.7,1.2
 2025,Kennesaw St.,-1.8,0.3
 2025,Maine,-4.0,2.5

@@ -179,19 +179,36 @@ def bartdata():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
-
-    bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart.csv')
-    bartdata = bartdata[bartdata['Year'] < YEAR]
+    try:
+        bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart.csv')
+        if 'Unnamed: 0' in bartdata.columns:
+            bartdata = bartdata.drop(columns=['Unnamed: 0'])
+        bartdata = bartdata[bartdata['Year'] < YEAR]
+    except Exception:
+        bartdata = pd.DataFrame()
 
     driver.get(f'https://barttorvik.com/team-tables_each.php?year={YEAR}&top=0&conlimit=All')
     driver.maximize_window()
 
     WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.XPATH, "//table"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "table tbody tr"))
     )
 
     with io.StringIO(driver.page_source) as f:
-        df = pd.read_html(f)[0]
+        tables = pd.read_html(f)
+
+    df = pd.DataFrame()
+    for t in tables:
+        # Look for a table that has data rows
+        if t.shape[0] > 10:
+            df = t
+            break
+    
+    if df.empty and len(tables) > 0:
+        df = tables[0]
+
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = [' '.join(map(str, col)).strip() for col in df.columns.values]
 
     df['Year'] = YEAR
     bartdata = pd.concat([bartdata, df], ignore_index=True) if not bartdata.empty else df
@@ -374,5 +391,5 @@ if st.button("Update Data"):
     #kenpom_code()
     #espnbpi_code()
     #scrapeBR()
-    #bartdata()
+    bartdata()
     combined()
