@@ -176,47 +176,66 @@ def scrapeBR():
 
 
 def bartdata():
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service)
+    options = Options()
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--start-maximized")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+
+    # Load existing data
     try:
         bartdata = pd.read_csv('Python_Madness_2026/data/step04b_bart.csv')
-        if 'Unnamed: 0' in bartdata.columns:
-            bartdata = bartdata.drop(columns=['Unnamed: 0'])
-        bartdata = bartdata[bartdata['Year'] < YEAR]
-    except Exception:
+        bartdata = bartdata.loc[:, ~bartdata.columns.str.contains('^Unnamed')]
+        bartdata = bartdata[bartdata['Year'] != YEAR]
+    except FileNotFoundError:
         bartdata = pd.DataFrame()
 
-    driver.get(f'https://barttorvik.com/team-tables_each.php?year={YEAR}&top=0&conlimit=All')
-    driver.maximize_window()
+    try:
+        driver.get(f'https://barttorvik.com/team-tables_each.php?year={YEAR}&top=0&conlimit=All')
+        
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "table tbody tr"))
+        )
+        
+        time.sleep(2) # Allow table to fully populate
+        
+        df = pd.DataFrame()
+        tables = driver.find_elements(By.CSS_SELECTOR, "table")
+        for t in tables:
+            rows = t.find_elements(By.TAG_NAME, "tr")
+            if len(rows) > 50:
+                table_html = t.get_attribute('outerHTML')
+                dfs = pd.read_html(io.StringIO(table_html))
+                if dfs:
+                    df = dfs[0]
+                    break
+        
+        if not df.empty:
+            if isinstance(df.columns, pd.MultiIndex):
+                df.columns = [' '.join(map(str, col)).strip() for col in df.columns.values]
+            
+            df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+            df['Year'] = YEAR
+            
+            # Reorder columns to put Year first
+            cols = ['Year'] + [col for col in df.columns if col != 'Year']
+            df = df[cols]
 
-    WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "table tbody tr"))
-    )
+            bartdata = pd.concat([bartdata, df], ignore_index=True)
+            
+            bartdata.to_csv('Python_Madness_2026/data/step04b_bart.csv', index=False)
+            st.write(f'Bart Data updated for {YEAR}!')
+            st.dataframe(bartdata.tail())
+        else:
+            st.warning(f"No data found for {YEAR}")
 
-    with io.StringIO(driver.page_source) as f:
-        tables = pd.read_html(f)
-
-    df = pd.DataFrame()
-    for t in tables:
-        # Look for a table that has data rows
-        if t.shape[0] > 10:
-            df = t
-            break
-    
-    if df.empty and len(tables) > 0:
-        df = tables[0]
-
-    if isinstance(df.columns, pd.MultiIndex):
-        df.columns = [' '.join(map(str, col)).strip() for col in df.columns.values]
-
-    df['Year'] = YEAR
-    bartdata = pd.concat([bartdata, df], ignore_index=True) if not bartdata.empty else df
-    bartdata.to_csv('Python_Madness_2026/data/step04b_bart.csv', index=False)
+    except Exception as e:
+        st.warning(f"Error scraping {YEAR}: {e}")
 
     driver.quit()
-    st.write('Bart Data updated!')
-    st.dataframe(bartdata[bartdata['Year'] == YEAR].head())
 
 def combined():
     # --- 0. SETUP ---
@@ -255,7 +274,8 @@ def combined():
         with open(kp_path, 'w') as f: f.writelines(cleaned_lines)
     except Exception: pass
     
-    KP = pd.read_csv(kp_path).dropna()
+    KP = pd.read_csv(kp_path)
+    KP = KP.dropna(subset=['Team'])
     KP['Year'] = pd.to_numeric(KP['Year'], errors='coerce').astype('Int32')
     KP['Team'] = KP['Team'].replace(LF,LR)
     KP = KP[KP['Team']!='out']
@@ -267,7 +287,8 @@ def combined():
     st.write('KenPom Fixed!')
 
     # --- 3. Standardize Basketball Reference ---
-    BR = pd.read_csv("Python_Madness_2026/data/step03b_br.csv").dropna()
+    BR = pd.read_csv("Python_Madness_2026/data/step03b_br.csv")
+    BR = BR.dropna(subset=['Team'])
     BR['Year'] = pd.to_numeric(BR['Year'], errors='coerce').astype('Int32')
     BR['Team'] = BR['Team'].replace({'State':'St.'}, regex=True)
     BR['Team'] = BR['Team'].replace(LF,LR)
@@ -279,7 +300,9 @@ def combined():
     st.write('Basketball Reference Fixed!')
 
     # --- 4. Standardize Bart Torvik ---
-    bartdata = pd.read_csv("Python_Madness_2026/data/step04b_bart.csv").dropna()
+    bartdata = pd.read_csv("Python_Madness_2026/data/step04b_bart.csv")
+    bartdata = bartdata.loc[:, ~bartdata.columns.str.contains('^Unnamed')]
+    bartdata = bartdata.dropna(subset=['Team'])
     bartdata['Year'] = pd.to_numeric(bartdata['Year'], errors='coerce').astype('Int32')
     bartdata['Team'] = bartdata['Team'].replace({'State':'St.'}, regex=True)
     bartdata['Team'] = bartdata['Team'].replace(LF,LR)
