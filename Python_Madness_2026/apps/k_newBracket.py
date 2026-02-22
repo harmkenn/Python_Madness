@@ -4,22 +4,188 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import GradientBoostingRegressor, VotingRegressor
 import os
+import webbrowser
 
-# Function to add alternating row colors in groups of 4 (from i_bracketmaker.py)
 def highlight_html(df):
-    html = "<style>table {border-collapse: collapse; width: 100%;} th, td {padding: 4px; text-align: left;} </style><table border='1'>"
-    html += "<tr><th>Game</th><th>Round</th><th>Seed</th><th>Team</th></tr>"  # Table headers
-    for i, row in df.iterrows():
-        # i is the index (Game number)
-        # Logic from i_bracketmaker: ((i-1) // 4) % 2 == 0
-        try:
-            idx_val = int(i)
-        except:
-            idx_val = 0
-        color = "#333333" if ((idx_val-1) // 4) % 2 == 0 else "#444444"
-        html += f"<tr style='background-color: {color};'><td>{row['Game']}</td><td>{row['Round']}</td><td>{row['PWSeed']}</td><td>{row['PWTeam']}</td></tr>"
-    html += "</table>"
+    html = """
+    <style>
+        .bracket {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 5px;
+        }
+        .round {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            min-width: 150px;
+            padding: 10px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+        }
+        .round.round1 {
+            gap: 5px;
+        }
+        .round.round2plus {
+            gap: 5px;
+            align-content: flex-start;
+        }
+        .round-title {
+            font-weight: bold;
+            text-align: center;
+            color: #FFC107;
+            font-size: 14px;
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .team {
+            padding: 2px 4px;
+            background-color: #333333;
+            border: 1px solid #555;
+            border-radius: 3px;
+            font-size: 13px;
+            white-space: nowrap;
+            color: #ffffff;
+        }
+        .team.group1 {
+            background-color: #1e3a8a;
+        }
+        .team.group2 {
+            background-color: #7f1d1d;
+        }
+        .team.group3 {
+            background-color: #1e3a8a;
+        }
+        .team.group4 {
+            background-color: #7f1d1d;
+        }
+        .team.group5 {
+            background-color: #1e3a8a;
+        }
+        .team.group6 {
+            background-color: #7f1d1d;
+        }
+        .team.group7 {
+            background-color: #1e5a3a;
+        }
+        .team.group8 {
+            background-color: #3a1e5a;
+        }
+        .team.group9 {
+            background-color: #1e3a8a;
+        }
+        .team.group10 {
+            background-color: #7f1d1d;
+        }
+        .team.group11 {
+            background-color: #1e5a3a;
+        }
+        .team.group12 {
+            background-color: #3a1e5a;
+        }
+        .team.group13 {
+            background-color: #1e3a8a;
+        }
+        .team.group14 {
+            background-color: #7f1d1d;
+        }
+        .team.group15 {
+            background-color: #1e5a3a;
+        }
+        .team.group16 {
+            background-color: #3a1e5a;
+        }
+        .team.group17 {
+            background-color: #1e5a3a;
+        }
+        .team.group18 {
+            background-color: #3a1e5a;
+        }
+        .team:hover {
+            background-color: #444444;
+        }
+    </style>
+    <div class="bracket">
+    """
+    
+    # Group by round
+    for round_num in sorted(df['Round'].unique()):
+        round_data = df[df['Round'] == round_num].sort_values('Game')
+        
+        # Round names
+        round_names = {
+            1: "Round 1",
+            2: "Round 2", 
+            3: "Sweet 16",
+            4: "Elite 8",
+            5: "Final 4",
+            6: "Championship"
+        }
+        
+        # Special handling for Round 1 - split into West and East
+        if round_num == 1:
+            html += f"<div style='display: flex; gap: 20px;'>"
+            
+            # Round 1 West (first 16 teams)
+            html += f"<div class='round round1'>"
+            html += f"<div class='round-title'>Round 1 West</div>"
+            for idx in range(min(16, len(round_data))):
+                row = round_data.iloc[idx]
+                seed = int(row['PWSeed'])
+                team = row['PWTeam']
+                team_display = f"({seed}) {team}"
+                group = (idx // 8) % 4
+                team_class = f"team group{group + 1}"
+                html += f"<div class='{team_class}'>{team_display}</div>"
+            html += "</div>"
+            
+            # Round 1 East (second 16 teams)
+            html += f"<div class='round round1'>"
+            html += f"<div class='round-title'>Round 1 East</div>"
+            for idx in range(16, min(32, len(round_data))):
+                row = round_data.iloc[idx]
+                seed = int(row['PWSeed'])
+                team = row['PWTeam']
+                team_display = f"({seed}) {team}"
+                group = ((idx - 16) // 8) % 2
+                team_class = f"team group{17 + group}"
+                html += f"<div class='{team_class}'>{team_display}</div>"
+            html += "</div>"
+            
+            html += "</div>"
+        else:
+            round_class = "round round2plus" if round_num >= 2 else "round"
+            html += f"<div class='{round_class}'>"
+            html += f"<div class='round-title'>{round_names.get(round_num, f'Round {round_num}')}</div>"
+            
+            for idx, (_, row) in enumerate(round_data.iterrows()):
+                seed = int(row['PWSeed'])
+                team = row['PWTeam']
+                team_display = f"({seed}) {team}"
+                
+                # Alternate colors for each round
+                team_class = "team"
+                if round_num == 2:
+                    group = (idx // 4) % 4
+                    team_class = f"team group{group + 5}"
+                elif round_num == 3:
+                    group = (idx // 2) % 4
+                    team_class = f"team group{group + 9}"
+                elif round_num == 4:
+                    group = idx % 4
+                    team_class = f"team group{group + 13}"
+                
+                html += f"<div class='{team_class}'>{team_display}</div>"
+            
+            html += "</div>"
+    
+    html += "</div>"
     return html
+
 
 def run():
     st.title('New Bracket Maker (Ensemble Model)')
@@ -216,7 +382,7 @@ def run():
         # --- 5. VISUALIZATION (Mimicking i_bracketmaker.py) ---
         BB_display = BB.copy()
         BB_display['Game'] = BB_display['Game'].astype(int)
-        BB_display = BB_display.set_index('Game', drop=False).sort_index()
+        BB_display = BB_display.sort_values('Game')
         
         # Ensure integer types for display
         cols_to_int = ['Round', 'PFSeed', 'PUSeed', 'PWSeed']
