@@ -202,12 +202,32 @@ def bartdata():
     st.dataframe(bartdata[bartdata['Year'] == YEAR].head())
 
 def combined():
-    # Fix KenPom
+    # --- 0. SETUP ---
+    repair = pd.read_csv('Python_Madness_2026/data/step05b_repair.csv', encoding='latin1')
+    LF = list(repair['tofix'])
+    LR = list(repair['replacewith'])
+
+    # --- 1. ESPN BPI: The new source of truth ---
+    BPI = pd.read_csv('Python_Madness_2026/data/step02b_espnbpi.csv').dropna()
+    BPI['Year'] = pd.to_numeric(BPI['Year'], errors='coerce').astype('Int32')
+    BPI['Team'] = BPI['Team'].replace({'State':'St.'}, regex=True)
+    BPI['Team'] = BPI['Team'].replace(LF,LR)
+    BPI = BPI[BPI['Team']!='out']
+
+    # 'sn' is the list of standard names from the current year's BPI data
+    sn = BPI[BPI['Year'] >= YEAR].sort_values('Team')['Team'].unique()
+    pd.DataFrame(sn).to_csv('Python_Madness_2026/data/asn.csv',index=False)
+
+    BPIN = BPI['Team'].unique()
+    BPI2fix = list(set(BPIN) - set(sn))
+    BPI.to_csv('Python_Madness_2026/data/step02b_espnbpi.csv',index=False)
+    st.write(BPI2fix)
+    st.write('ESPN BPI set as the standard!')
+
+    # --- 2. Standardize KenPom ---
     kp_path = 'Python_Madness_2026/data/step01b_kenpom.csv'
     try:
-        with open(kp_path, 'r') as f:
-            lines = f.readlines()
-        
+        with open(kp_path, 'r') as f: lines = f.readlines()
         cleaned_lines = []
         skip = False
         for line in lines:
@@ -215,151 +235,109 @@ def combined():
             if line.startswith('======='): skip = True; continue
             if line.startswith('>>>>>>>'): skip = False; continue
             if not skip: cleaned_lines.append(line)
-            
-        with open(kp_path, 'w') as f:
-            f.writelines(cleaned_lines)
+        with open(kp_path, 'w') as f: f.writelines(cleaned_lines)
     except Exception: pass
-
-    KP = pd.read_csv('Python_Madness_2026/data/step01b_kenpom.csv').dropna()
+    
+    KP = pd.read_csv(kp_path).dropna()
     KP['Year'] = pd.to_numeric(KP['Year'], errors='coerce').astype('Int32')
-    repair = pd.read_csv('Python_Madness_2026/data/step05b_repair.csv', encoding='latin1')
-    LF = list(repair['tofix'])
-    LR = list(repair['replacewith'])
     KP['Team'] = KP['Team'].replace(LF,LR)
     KP = KP[KP['Team']!='out']
     KP = KP[KP['Team']!='Team']
-    sn = KP[KP['Year']>2024].sort_values('Team')['Team'].unique()
-    KPN = KP.sort_values('Team')['Team'].unique()
-    pd.DataFrame(KPN).to_csv('Python_Madness_2026/data/kpn.csv', index=False)
+    KPN = KP['Team'].unique()
     KP2fix = list(set(KPN) - set(sn))
-    KP.to_csv('Python_Madness_2026/data/step01b_kenpom.csv',index=False)
-    pd.DataFrame(sn).to_csv('Python_Madness_2026/data/asn.csv',index=False)
+    KP.to_csv(kp_path, index=False)
     st.write(KP2fix)
     st.write('KenPom Fixed!')
 
-    # Make ESPN BPI Name match Kep Pom
-    BPI = pd.read_csv('Python_Madness_2026/data/step02b_espnbpi.csv').dropna()
-    BPI['Year'] = pd.to_numeric(BPI['Year'], errors='coerce').astype('Int32')
-    LF = list(repair['tofix'])
-    LR = list(repair['replacewith'])
-    BPI['Team'] = BPI['Team'].replace({'State':'St.'}, regex=True)
-    BPI['Team'] = BPI['Team'].replace(LF,LR)
-    BPI = BPI[BPI['Team']!='out']
-    BPIN = BPI['Team'].unique()
-    BPI2fix = list(set(BPIN) - set(sn))
-
-    BPI.to_csv('Python_Madness_2026/data/step02b_espnbpi.csv',index=False)
-    st.write(BPI2fix)
-    st.write('ESPNBPI Fixed!')
-
-    # Make Baskeball Reference Team Names match Ken Pom
+    # --- 3. Standardize Basketball Reference ---
     BR = pd.read_csv("Python_Madness_2026/data/step03b_br.csv").dropna()
     BR['Year'] = pd.to_numeric(BR['Year'], errors='coerce').astype('Int32')
-    LF = list(repair['tofix'])
-    LR = list(repair['replacewith'])
     BR['Team'] = BR['Team'].replace({'State':'St.'}, regex=True)
     BR['Team'] = BR['Team'].replace(LF,LR)
     BR = BR[BR['Team']!='out']
     BRN = BR['Team'].unique()
     BR2fix = list(set(BRN) - set(sn))
-    BR.to_csv('Python_Madness_2026/data/step03b_br.csv',index=False)
+    BR.to_csv('Python_Madness_2026/data/step03b_br.csv', index=False)
     st.write(BR2fix)
     st.write('Basketball Reference Fixed!')
 
-    # Make Bart Reference Team Names match Ken Pom
+    # --- 4. Standardize Bart Torvik ---
     bartdata = pd.read_csv("Python_Madness_2026/data/step04b_bart.csv").dropna()
-    LF = list(repair['tofix'])
-    LR = list(repair['replacewith'])
+    bartdata['Year'] = pd.to_numeric(bartdata['Year'], errors='coerce').astype('Int32')
     bartdata['Team'] = bartdata['Team'].replace({'State':'St.'}, regex=True)
     bartdata['Team'] = bartdata['Team'].replace(LF,LR)
     bartdata = bartdata[bartdata['Team']!='out']
     bartdataN = bartdata['Team'].unique()
     bart2fix = list(set(bartdataN) - set(sn))
-    bartdata.to_csv('Python_Madness_2026/data/step04b_bart.csv',index=False)
+    bartdata.to_csv('Python_Madness_2026/data/step04b_bart.csv', index=False)
     st.write(bart2fix)
     st.write('Bart Fixed!')
 
-    # Compute Seed History
-    AG = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
-    AG = AG[AG['Year']<YEAR]
+    # --- 5. Compute Seed History ---
+    AG_hist = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
+    AG_hist = AG_hist[AG_hist['Year'] < YEAR]
 
-    LG = AG[AG['Round']==6]
+    LG = AG_hist[AG_hist['Round']==6]
     CS = pd.DataFrame({'Round','Seed'})
-
     for row in range(len(LG)):
         if LG.iloc[row]["AFScore"]>LG.iloc[row]["AUScore"]:
             ws = LG.iloc[row]["AFSeed"]
-
         else:
             ws = LG.iloc[row]["AUSeed"]
         CS.loc[row,'Round'] = 'W'
         CS.loc[row,'Seed'] = ws
 
-    cs = pd.crosstab(index=CS['Seed'],columns=CS['Round'])
-    fs = pd.crosstab(index=AG['AFSeed'],columns=AG['Round'])
-    us = pd.crosstab(index=AG['AUSeed'],columns=AG['Round'])
+    cs_crosstab = pd.crosstab(index=CS['Seed'],columns=CS['Round'])
+    fs = pd.crosstab(index=AG_hist['AFSeed'],columns=AG_hist['Round'])
+    us = pd.crosstab(index=AG_hist['AUSeed'],columns=AG_hist['Round'])
     ufs = fs.add(us, fill_value=0).astype(int).drop([0],axis=1)
-    sh = ufs.add(cs, fill_value=0).fillna(0).astype(int)
+    sh = ufs.add(cs_crosstab, fill_value=0).fillna(0).astype(int)
     nos = sh.max().max()
     sh['Exp Wins'] = (sh.sum(axis=1)-nos)/nos
     sh.to_csv('Python_Madness_2026/data/step05d_SeedHistory.csv',index=False) 
-    
     st.write('Seed History Updated!')
 
-    # Make the history Favored team names match Ken Pom
-    #AG = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
+    # --- 6. Standardize Tournament History File ---
+    AG = pd.read_csv("Python_Madness_2026/data/step05c_FUHistory.csv").dropna()
     AG['AFTeam'] = AG['AFTeam'].replace(LF,LR)
     AG = AG[AG['AFTeam']!='out']
-    AGN = AG['AFTeam'].unique()
-    AG2fix = list(set(AGN) - set(sn))
-    st.write(AG2fix)
-    st.write('Favored Checked!')
-    # Make the history Underdog team names match Ken Pom
     AG['AUTeam'] = AG['AUTeam'].replace(LF,LR)
     AG = AG[AG['AUTeam']!='out']
-    AGN = AG['AUTeam'].unique()
-    AG2fix = list(set(AGN) - set(sn))
-    st.write(AG2fix)
+    
+    AGN_F = AG['AFTeam'].unique()
+    AG2fix_F = list(set(AGN_F) - set(sn))
+    st.write(AG2fix_F)
+    st.write('Favored Checked!')
+
+    AGN_U = AG['AUTeam'].unique()
+    AG2fix_U = list(set(AGN_U) - set(sn))
+    st.write(AG2fix_U)
     st.write('Underdogs Checked!')
     
     AG.to_csv('Python_Madness_2026/data/step05c_FUHistory.csv',index=False) 
     
-
-    #Build PASE
-
-    # table of wins
-    fw = pd.crosstab(index=AG['AFTeam'],columns=AG['Year'])
-    uw = pd.crosstab(index=AG['AUTeam'],columns=AG['Year'])
-
-    # How many wins did the team acutally get per year if they were in the tournament
+    # --- 7. Build PASE ---
+    AG_for_pase = AG[AG['Year'] < YEAR]
+    fw = pd.crosstab(index=AG_for_pase['AFTeam'],columns=AG_for_pase['Year'])
+    uw = pd.crosstab(index=AG_for_pase['AUTeam'],columns=AG_for_pase['Year'])
     cw = fw.add(uw, fill_value=0).fillna(0).astype(int) - 1
     cw = cw.replace(-1, '')
 
-    # table of seeds
-    AG1 = AG[AG['Round']==1]
+    AG1 = AG_for_pase[AG_for_pase['Round']==1]
     fs = AG1.pivot(index='AFTeam', columns='Year', values = 'AFSeed').fillna(0).astype(int)
     us = AG1.pivot(index='AUTeam', columns='Year', values = 'AUSeed').fillna(0).astype(int)
-
     cs = fs.add(us, fill_value=0).fillna(0).astype(int)
     cs = cs.replace(0, '')
 
-    # table of expected wins
     ew = pd.DataFrame({'Seed':np.arange(1,17),'Exp Wins':sh['Exp Wins']})
-
-    # ewty is expected number of wins by team and by year
     ewty = cs.replace(list(ew['Seed']),list(ew['Exp Wins']))
-    # fill in zeros into the blank spaces
     pd.set_option('future.no_silent_downcasting', True)
-
     ewz = (ewty * -1).replace(r'^\s*$', np.nan, regex=True).fillna(0)
-
     cwz = cw.replace(r'^\s*$', np.nan, regex=True).fillna(0)
     pase = cwz.add(ewz).replace(0, np.nan)
     pase['PASE']=pase.mean(axis=1)
     pase = pase.iloc[:,-1:]
 
-    
-    # Make sure PASE team names are matched to Ken Pom
     pase = pase.reset_index()
     pase = pase.rename(columns={'index': 'Team'})
     pase.columns = ['Team','PASE']
@@ -367,25 +345,22 @@ def combined():
     pase = pase[pase['Team']!='out']
     paseN = pase['Team'].unique()
     pase2fix = list(set(paseN) - set(sn))
-
     pase.to_csv('Python_Madness_2026/data/step05e_PASE.csv', index=False)  
-    pase2fix
+    st.write(pase2fix)
     st.write('PASE Checked and Updated!')
 
-    #Combine all the datframes
-    KP = KP.merge(BPI,how='left', on=['Year','Team'])
-    KP = KP.merge(BR, how = 'left', on=['Year','Team'])
-    KP = KP.merge(bartdata, how = 'left', on=['Year','Team'])
-    KPBPIBRP = KP.merge(pase, how = 'left', on = ['Team'])
-    KPBPIBRP.to_csv('Python_Madness_2026/data/step05f_AllStats.csv',index=False)
-
+    # --- 8. Combine all dataframes ---
+    AllStats = BPI.merge(KP, how='left', on=['Year','Team'])
+    AllStats = AllStats.merge(BR, how='left', on=['Year','Team'])
+    AllStats = AllStats.merge(bartdata, how='left', on=['Year','Team'])
+    AllStats = AllStats.merge(pase, how='left', on=['Team'])
+    AllStats.to_csv('Python_Madness_2026/data/step05f_AllStats.csv',index=False)
     st.write('All Stats Updated!')
 
-    #Attach stats to Tournament Games
-
-    AG = AG[AG['Year']>=2008]
-    AGstats = AG.merge(KPBPIBRP, left_on = ['Year','AFTeam'], right_on = ['Year','Team'], how = 'left')
-    AGstatsandU = AGstats.merge(KPBPIBRP, left_on = ['Year','AUTeam'], right_on = ['Year','Team'], how = 'left')
+    # --- 9. Attach stats to Tournament Games ---
+    AG_to_merge = AG[AG['Year']>=2008].copy()
+    AGstats = AG_to_merge.merge(AllStats, left_on = ['Year','AFTeam'], right_on = ['Year','Team'], how = 'left')
+    AGstatsandU = AGstats.merge(AllStats, left_on = ['Year','AUTeam'], right_on = ['Year','Team'], how = 'left')
     AGstatsandU = AGstatsandU.drop(['Team_x','Team_y'],axis=1)
     AGstatsandU.to_csv('Python_Madness_2026/data/step05g_FUStats.csv',index=False)
     st.write('Tournament Stats Updated!')
@@ -396,9 +371,8 @@ def combined():
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    kenpom_code()
-    espnbpi_code()
-    scrapeBR()
-    bartdata()
+    #kenpom_code()
+    #espnbpi_code()
+    #scrapeBR()
+    #bartdata()
     combined()
-
