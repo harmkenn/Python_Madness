@@ -8,6 +8,7 @@ import random
 # title of the app
 py = 2026
 st.markdown('Predicting ' + str(py))
+variation = st.sidebar.slider('Randomness (Points)', 0, 25, 11)
     
 fup = pd.read_csv("Python_Madness_2026/data/step05g_FUStats.csv").fillna(0)
 fup['Year'] = pd.to_numeric(fup['Year'], errors='coerce').astype('Int32')
@@ -60,7 +61,7 @@ if r1p.empty:
     st.warning(f"No Round 1 games found for {py}. Please ensure data is updated.")
     st.stop()
 
-pfs = LRF.predict(r1p[xcol]) + [random.randint(-11, 11) for _ in range(32)]
+pfs = LRF.predict(r1p[xcol]) + [random.randint(-variation, variation) for _ in range(32)]
 pus = RFU.predict(r1p[xcol]) 
 
 
@@ -84,7 +85,7 @@ for x in range(33,49):
 BBstats = BB[BB['Round']==2].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 11) for _ in range(16)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-variation, variation) for _ in range(16)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(33,49):
     BB.loc[x,'PFScore']=pfs[x-33]
@@ -105,7 +106,7 @@ for x in range(49,57):
 BBstats = BB[BB['Round']==3].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 11) for _ in range(8)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-variation, variation) for _ in range(8)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(49,57):
     BB.loc[x,'PFScore']=pfs[x-49]
@@ -126,7 +127,7 @@ for x in range(57,61):
 BBstats = BB[BB['Round']==4].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 11) for _ in range(4)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-variation, variation) for _ in range(4)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(57,61):
     BB.loc[x,'PFScore']=pfs[x-57]
@@ -148,7 +149,7 @@ BB.loc[62,'Region'] = 'East'
 BBstats = BB[BB['Round']==5].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + [random.randint(-11, 11) for _ in range(2)]
+pfs = LRF.predict(BBstats[xcol]) + [random.randint(-variation, variation) for _ in range(2)]
 pus = RFU.predict(BBstats[xcol])  
 for x in range(61,63):
     BB.loc[x,'PFScore']=pfs[x-61]
@@ -169,7 +170,7 @@ BB.loc[x,'Region'] = 'Champ'
 BBstats = BB[BB['Round']==6].merge(KBBP, left_on=['Year','PFTeam'],right_on=['Year','Team'],how='left')
 BBstats = BBstats.merge(KBBP, left_on=['Year','PUTeam'],right_on=['Year','Team'],how='left')
 
-pfs = LRF.predict(BBstats[xcol]) + random.randint(-11, 11)
+pfs = LRF.predict(BBstats[xcol]) + random.randint(-variation, variation)
 pus = RFU.predict(BBstats[xcol])  
 for x in range(63,64):
     BB.loc[x,'PFScore']=pfs[x-63]

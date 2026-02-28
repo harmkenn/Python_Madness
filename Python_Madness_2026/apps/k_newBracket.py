@@ -240,6 +240,7 @@ def run():
     py = 2026
     st.sidebar.button("Run New Simulation")
     st.markdown('Predicting ' + str(py))
+    variation = st.sidebar.slider('Randomness (Points)', 0, 25, 11)
 
     @st.cache_resource
     def train_ensemble_models(_df, year):
@@ -319,7 +320,7 @@ def run():
             p_und = model_u.predict(round_X)
             
             # Add randomness to mimic i_bracketmaker.py (random integer between -11 and 11 added to favored score)
-            p_fav += np.random.randint(-11, 12, size=len(p_fav))
+            p_fav += np.random.randint(-variation, variation + 1, size=len(p_fav))
             
             bracket_df.loc[mask, 'PFScore'] = p_fav
             bracket_df.loc[mask, 'PUScore'] = p_und
