@@ -240,7 +240,7 @@ def run():
     py = 2026
     st.sidebar.button("Run New Simulation")
     st.markdown('Predicting ' + str(py))
-    variation = st.sidebar.slider('Randomness (Points)', 0, 25, 11)
+    variation = st.sidebar.slider('Randomness (Points)', 0, 15, 12)
 
     @st.cache_resource
     def train_ensemble_models(_df, year):

@@ -75,7 +75,7 @@ def run():
             default=[y for y in years_available if y >= 2021][-3:] # Default to last 3 played years
         )
     with col2:
-        max_variation = st.slider("Max Variation to Test", 0, 30, 20)
+        max_variation = st.slider("Max Variation to Test", 0, 15, 12)
         sims_per_setting = st.slider("Simulations per Setting", 1, 50, 10, help="More simulations = more accurate average, but slower.")
     
     if st.button("Run Optimization"):
