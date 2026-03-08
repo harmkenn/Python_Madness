@@ -67,7 +67,7 @@ def run():
     fup = create_advanced_features(fup)
 
     # --- 3. MODEL TRAINING ---
-    py = st.slider('Select Tournament Year: ', 2008, 2025, 2025)
+    py = st.slider('Select Tournament Year: ', 2008, 2026, 2025)
 
     @st.cache_resource
     def train_ensemble_models(_df, year):

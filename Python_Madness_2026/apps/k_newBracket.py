@@ -301,6 +301,7 @@ def run():
                 rename_y = {c: f"{c}_y" for c in stat_cols}
                 BB = BB.rename(columns=rename_y).drop(columns=['Team'], errors='ignore')
                 
+                BB = BB.fillna(0)
                 BB = create_advanced_features(BB)
                 
                 missing_cols = [c for c in xcol if c not in BB.columns]
@@ -372,6 +373,7 @@ def run():
                     rename_y = {c: f"{c}_y" for c in stat_cols}
                     next_df = next_df.rename(columns=rename_y).drop(columns=['Team'], errors='ignore')
                     
+                    next_df = next_df.fillna(0)
                     next_df = create_advanced_features(next_df)
                     
                     missing_cols = [c for c in xcol if c not in next_df.columns]

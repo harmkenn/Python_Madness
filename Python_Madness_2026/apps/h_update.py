@@ -15,6 +15,89 @@ import re
 
 YEAR = 2026
 
+# Master list of official ESPN team names. This should be the single source of truth.
+ESPN_OFFICIAL_NAMES = {
+    'Abilene Christian', 'Air Force', 'Akron', 'Alabama', 'Alabama A&M', 'Alabama St.',
+    'Albany', 'Alcorn St.', 'American', 'Appalachian St.', 'Arizona', 'Arizona St.',
+    'Arkansas', 'Arkansas Pine Bluff', 'Arkansas St.', 'Army', 'Auburn', 'Austin Peay',
+    'BYU', 'Ball St.', 'Baylor', 'Bellarmine', 'Belmont', 'Bethune Cookman',
+    'Binghamton', 'Boise St.', 'Boston College', 'Boston University', 'Bowling Green',
+    'Bradley', 'Brown', 'Bryant', 'Bucknell', 'Buffalo', 'Butler',
+    'CSUN', 'Cal Baptist', 'Cal Poly', 'Cal St. Bakersfield', 'Cal St. Fullerton',
+    'California', 'Campbell', 'Canisius', 'Central Arkansas', 'Central Connecticut',
+    'Central Michigan', 'Charleston', 'Charleston Southern', 'Charlotte', 'Chattanooga',
+    'Chicago St.', 'Cincinnati', 'Clemson', 'Cleveland St.', 'Coastal Carolina',
+    'Colgate', 'Colorado', 'Colorado St.', 'Columbia', 'Connecticut', 'Coppin St.',
+    'Cornell', 'Creighton',
+    'Dartmouth', 'Davidson', 'Dayton', 'DePaul', 'Delaware', 'Delaware St.',
+    'Denver', 'Detroit Mercy', 'Drake', 'Drexel', 'Duke', 'Duquesne',
+    'East Carolina', 'East Tennessee St.', 'East Texas A&M', 'Eastern Illinois',
+    'Eastern Kentucky', 'Eastern Michigan', 'Eastern Washington', 'Elon', 'Evansville',
+    'FIU', 'Fairfield', 'Fairleigh Dickinson', 'Florida', 'Florida A&M',
+    'Florida Atlantic', 'Florida Gulf Coast', 'Florida St.', 'Fordham', 'Fresno St.',
+    'Furman',
+    'Gardner Webb', 'George Mason', 'George Washington', 'Georgetown', 'Georgia',
+    'Georgia Southern', 'Georgia St.', 'Georgia Tech', 'Gonzaga', 'Grambling St.',
+    'Grand Canyon', 'Green Bay',
+    'Hampton', 'Hartford', 'Harvard', 'Hawaii', 'High Point', 'Hofstra', 'Holy Cross', 'Houston',
+    'Houston Christian', 'Howard',
+    'IU Indy', 'Idaho', 'Idaho St.', 'Illinois', 'Illinois Chicago', 'Illinois St.',
+    'Incarnate Word', 'Indiana', 'Indiana St.', 'Iona', 'Iowa', 'Iowa St.',
+    'Jackson St.', 'Jacksonville', 'Jacksonville St.', 'James Madison', 'Kansas',
+    'Kansas St.', 'Kennesaw St.', 'Kent St.', 'Kentucky',
+    'La Salle', 'Lafayette', 'Lamar', 'Le Moyne', 'Lehigh', 'Liberty',
+    'Lindenwood', 'Lipscomb', 'Little Rock', 'Long Beach St.', 'Longwood',
+    'Louisiana', 'Louisiana Monroe', 'Louisiana Tech', 'Louisville',
+    'Loyola Chicago', 'Loyola MD', 'Loyola Marymount', 'LSU',
+    'LIU', 'Maine', 'Manhattan', 'Marist', 'Marquette', 'Marshall',
+    'Maryland', 'Maryland Eastern Shore', 'Massachusetts', 'McNeese St.',
+    'Memphis', 'Mercer', 'Mercyhurst', 'Merrimack', 'Miami FL', 'Miami OH',
+    'Michigan', 'Michigan St.', 'Middle Tennessee', 'Milwaukee', 'Minnesota',
+    'Mississippi', 'Mississippi St.', 'Mississippi Valley St.', 'Missouri',
+    'Missouri St.', 'Monmouth', 'Montana', 'Montana St.', 'Morehead St.',
+    'Morgan St.', 'Mount St. Mary\'s', 'Murray St.',
+    'NJIT', 'Navy', 'Nebraska', 'Nebraska Omaha', 'Nevada', 'New Hampshire',
+    'New Mexico', 'New Mexico St.', 'New Orleans', 'Niagara', 'Nicholls St.',
+    'Norfolk St.', 'North Alabama', 'North Carolina', 'North Carolina A&T',
+    'North Carolina Central', 'North Carolina St.', 'North Dakota', 'North Dakota St.',
+    'North Florida', 'North Texas', 'Northeastern', 'Northern Arizona',
+    'Northern Colorado', 'Northern Illinois', 'Northern Iowa', 'Northern Kentucky',
+    'Northwestern', 'Northwestern St.', 'Notre Dame',
+    'Oakland', 'Ohio', 'Ohio St.', 'Oklahoma', 'Oklahoma St.', 'Old Dominion',
+    'Oral Roberts', 'Oregon', 'Oregon St.',
+    'Pacific', 'Penn', 'Penn St.', 'Pepperdine', 'Pittsburgh', 'Portland',
+    'Portland St.', 'Prairie View A&M', 'Presbyterian', 'Princeton', 'Providence',
+    'Purdue', 'Purdue Fort Wayne',
+    'Queens', 'Quinnipiac',
+    'Radford', 'Rhode Island', 'Rice', 'Richmond', 'Rider', 'Robert Morris',
+    'Rutgers',
+    'SMU', 'Sacramento St.', 'Sacred Heart', 'Saint Francis', 'Saint Joseph\'s',
+    'Saint Louis', 'Saint Mary\'s', 'Saint Peter\'s', 'Sam Houston St.', 'Samford',
+    'San Diego', 'San Diego St.', 'San Francisco', 'San Jose St.', 'Santa Clara',
+    'Seattle', 'Seton Hall', 'Siena', 'SIUE', 'South Alabama', 'South Carolina',
+    'South Carolina St.', 'South Dakota', 'South Dakota St.', 'South Florida',
+    'Southeast Missouri', 'Southeastern Louisiana', 'Southern', 'Southern Illinois',
+    'Southern Indiana', 'Southern Miss', 'Southern Utah', 'St. Bonaventure',
+    'St. John\'s', 'St. Thomas', 'Stanford', 'Stephen F. Austin', 'Stetson',
+    'Stonehill', 'Stony Brook', 'Syracuse',
+    'TCU', 'Tarleton St.', 'Temple', 'Tennessee', 'Tennessee Martin',
+    'Tennessee St.', 'Tennessee Tech', 'Texas', 'Texas A&M',
+    'Texas A&M Corpus Chris', 'Texas Southern', 'Texas St.', 'Texas Tech',
+    'The Citadel', 'Toledo', 'Towson', 'Troy', 'Tulane', 'Tulsa',
+    'UAB', 'UC Davis', 'UC Irvine', 'UC Riverside', 'UC San Diego',
+    'UC Santa Barbara', 'UCF', 'UCLA', 'UMBC', 'UMKC', 'UMass Lowell',
+    'UNC Asheville', 'UNC Greensboro', 'UNC Wilmington', 'UNLV', 'USC',
+    'USC Upstate', 'UT Arlington', 'UT Rio Grande Valley', 'UTEP', 'UTSA', 'Utah',
+    'Utah St.', 'Utah Tech', 'Utah Valley',
+    'VCU', 'VMI', 'Valparaiso', 'Vanderbilt', 'Vermont', 'Villanova',
+    'Virginia', 'Virginia Tech',
+    'Wagner', 'Wake Forest', 'Washington', 'Washington St.', 'Weber St.',
+    'West Georgia', 'West Virginia', 'Western Carolina', 'Western Illinois',
+    'Western Kentucky', 'Western Michigan', 'Wichita St.', 'William & Mary',
+    'Winthrop', 'Wisconsin', 'Wofford', 'Wright St.', 'Wyoming',
+    'Xavier', 'Yale', 'Youngstown St.'
+}
+
 def kenpom_code():
 
     CSV_PATH = "Python_Madness_2026/data/step01b_kenpom.csv"
@@ -250,9 +333,9 @@ def combined():
     BPI['Team'] = BPI['Team'].replace(LF,LR)
     BPI = BPI[BPI['Team']!='out']
 
-    # 'sn' is the list of standard names from the current year's BPI data
-    sn = BPI[BPI['Year'] >= YEAR].sort_values('Team')['Team'].unique()
-    pd.DataFrame(sn).to_csv('Python_Madness_2026/data/asn.csv',index=False)
+    # 'sn' is the master list of all valid ESPN names
+    sn = ESPN_OFFICIAL_NAMES
+    pd.DataFrame(sorted(list(sn)), columns=['Team']).to_csv('Python_Madness_2026/data/asn.csv',index=False)
 
     BPIN = BPI['Team'].unique()
     BPI2fix = list(set(BPIN) - set(sn))
@@ -411,8 +494,8 @@ def combined():
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    kenpom_code()
-    espnbpi_code()
-    scrapeBR()
-    bartdata()
+    #kenpom_code()
+    #espnbpi_code()
+    #scrapeBR()
+    #bartdata()
     combined()
