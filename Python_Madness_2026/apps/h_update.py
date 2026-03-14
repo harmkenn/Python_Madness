@@ -169,7 +169,7 @@ def kenpom_code():
     })
 
     # ---------------- Keep only needed columns ----------------
-    df = df[["Team", "Conf", "NetRtg", "ORtg", "DRtg", "AdjT"]]
+    df = df[["Team", "Conf", "NetRtg", "ORtg", "DRtg", "AdjT"]].copy()
 
     # ---------------- Final cleanup ----------------
     df["Team"] = df["Team"].apply(clean_team)
@@ -245,6 +245,7 @@ def scrapeBR():
     df.columns = [c[1] if isinstance(c, tuple) else c for c in df.columns]
 
     df = df.rename(columns={'School': 'Team'})
+    df = df.copy()
     df['Year'] = YEAR
 
     keep = ['Year', 'Team', 'W', 'L', 'Pts', 'Opp', 'MOV', 'SOS', 'OSRS', 'DSRS', 'SRS']
@@ -300,7 +301,7 @@ def bartdata():
             if isinstance(df.columns, pd.MultiIndex):
                 df.columns = [' '.join(map(str, col)).strip() for col in df.columns.values]
             
-            df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+            df = df.loc[:, ~df.columns.str.contains('^Unnamed')].copy()
             df['Year'] = YEAR
             
             # Reorder columns to put Year first
@@ -322,7 +323,7 @@ def bartdata():
 
 def combined():
     # --- 0. SETUP ---
-    repair = pd.read_csv('Python_Madness_2026/data/step05b_repair.csv', encoding='latin1')
+    repair = pd.read_csv('Python_Madness_2026/data/step05b_repair.csv', encoding='utf-8')
     LF = list(repair['tofix'])
     LR = list(repair['replacewith'])
 
@@ -494,8 +495,8 @@ def combined():
 # ================= STREAMLIT =================
 
 if st.button("Update Data"):
-    #kenpom_code()
-    #espnbpi_code()
-    #scrapeBR()
-    #bartdata()
+    kenpom_code()
+    espnbpi_code()
+    scrapeBR()
+    bartdata()
     combined()
