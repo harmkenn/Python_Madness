@@ -240,7 +240,8 @@ def run():
     py = 2026
     st.sidebar.button("Run New Simulation")
     st.markdown('Predicting ' + str(py))
-    variation = st.sidebar.slider('Randomness (Points)', 0, 15, 12)
+    variation = st.sidebar.slider('Randomness (Points)', 0, 10, 5)
+    progressive = st.sidebar.checkbox("Progressive Randomness (+1 per round)", value=False)
 
     @st.cache_resource
     def train_ensemble_models(_df, year):
@@ -320,8 +321,10 @@ def run():
             p_fav = model_f.predict(round_X)
             p_und = model_u.predict(round_X)
             
-            # Add randomness to mimic i_bracketmaker.py (random integer between -11 and 11 added to favored score)
-            p_fav += np.random.randint(-variation, variation + 1, size=len(p_fav))
+            # Add randomness (Progressive increases variation by 1 each round)
+            current_v = variation + (round_num - 1) if progressive else variation
+            if current_v > 0:
+                p_fav += np.random.randint(-current_v, current_v + 1, size=len(p_fav))
             
             bracket_df.loc[mask, 'PFScore'] = p_fav
             bracket_df.loc[mask, 'PUScore'] = p_und

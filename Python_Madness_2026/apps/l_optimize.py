@@ -75,8 +75,9 @@ def run():
             default=[y for y in years_available if y >= 2021][-3:] # Default to last 3 played years
         )
     with col2:
-        max_variation = st.slider("Max Variation to Test", 0, 15, 12)
-        sims_per_setting = st.slider("Simulations per Setting", 1, 50, 10, help="More simulations = more accurate average, but slower.")
+        max_variation = st.slider("Max Variation to Test", 0, 15, 5)
+        sims_per_setting = st.slider("Simulations per Setting", 1, 100, 50, help="More simulations = more accurate average, but slower.")
+        progressive_var = st.checkbox("Progressive Variation? (+1 per round)", value=False, help="Increase randomness by 1 point for each subsequent round (e.g. Base=5 -> R1=5, R2=6, R3=7...)")
     
     if st.button("Run Optimization"):
         if not selected_years:
@@ -126,6 +127,7 @@ def run():
             # --- Loop Variations ---
             for v in range(max_variation + 1):
                 scores = []
+                bracket_signatures = []
                 
                 for _ in range(sims_per_setting):
                     # --- Run Single Bracket Simulation ---
@@ -138,8 +140,9 @@ def run():
                     p_und = model_u.predict(r1_X)
                     
                     # Apply Variation (Randomness)
-                    if v > 0:
-                        p_fav += np.random.randint(-v, v + 1, size=len(p_fav))
+                    current_v = v
+                    if current_v > 0:
+                        p_fav += np.random.randint(-current_v, current_v + 1, size=len(p_fav))
                     
                     # Determine Winners
                     winner_mask = (p_fav >= p_und)
@@ -204,8 +207,9 @@ def run():
                         p_f = model_f.predict(r_X)
                         p_u = model_u.predict(r_X)
                         
-                        if v > 0:
-                            p_f += np.random.randint(-v, v + 1, size=len(p_f))
+                        current_v = v + (r - 1) if progressive_var else v
+                        if current_v > 0:
+                            p_f += np.random.randint(-current_v, current_v + 1, size=len(p_f))
                         
                         w_mask = (p_f >= p_u)
                         next_df['PWSeed'] = np.where(w_mask, next_df['PFSeed'], next_df['PUSeed'])
@@ -217,6 +221,11 @@ def run():
                     # --- Calculate Score ---
                     total_score = 0
                     all_preds = pd.concat(full_bracket_preds)
+                    
+                    # Create signature for uniqueness check
+                    sig = tuple(all_preds.sort_values('Game')['PWTeam'])
+                    bracket_signatures.append(sig)
+                    
                     for _, row in all_preds.iterrows():
                         gid = row['Game']
                         pred_winner = row['PWTeam']
@@ -230,7 +239,17 @@ def run():
                 
                 # Average score for this variation/year
                 avg_score = sum(scores) / len(scores)
-                results.append({'Year': year, 'Variation': v, 'AvgScore': avg_score})
+                max_score = max(scores)
+                min_score = min(scores)
+                unique_count = len(set(bracket_signatures))
+                results.append({
+                    'Year': year, 
+                    'Variation': v, 
+                    'AvgScore': avg_score, 
+                    'MaxScore': max_score, 
+                    'MinScore': min_score, 
+                    'UniqueBrackets': unique_count
+                })
                 
                 current_step += 1
                 progress_bar.progress(current_step / total_steps)
@@ -244,26 +263,126 @@ def run():
         st.subheader("Results Analysis")
         
         # Aggregate by Variation across all selected years
-        agg_res = res_df.groupby('Variation')['AvgScore'].mean().reset_index()
+        agg_res = res_df.groupby('Variation')[['AvgScore', 'MaxScore', 'MinScore', 'UniqueBrackets']].mean().reset_index()
         
         # Find optimal
         best_row = agg_res.loc[agg_res['AvgScore'].idxmax()]
         best_v = int(best_row['Variation'])
         best_score = best_row['AvgScore']
+        best_unique = best_row['UniqueBrackets']
         
-        st.success(f"**Optimal Variation:** {best_v} points (Avg Score: {best_score:.1f})")
+        st.success(f"**Optimal Variation:** {best_v} points (Avg Score: {best_score:.1f} | Avg Unique Brackets: {best_unique:.1f})")
+        
+        st.dataframe(agg_res.style.format("{:.1f}"), use_container_width=True)
         
         # Plot
+        title_suffix = " (Progressive)" if progressive_var else ""
         fig = px.line(agg_res, x='Variation', y='AvgScore', 
-                      title=f"Average Bracket Score vs. Randomness (Years: {', '.join(map(str, selected_years))})",
-                      markers=True, labels={'AvgScore': 'Average ESPN Score', 'Variation': 'Randomness (+/- Points)'})
+                      title=f"Average Bracket Score vs. Randomness{title_suffix} (Years: {', '.join(map(str, selected_years))})",
+                      markers=True, labels={'AvgScore': 'Average Score', 'Variation': 'Base Randomness (Round 1)'})
         
         # Add a vertical line for the optimal
         fig.add_vline(x=best_v, line_dash="dash", line_color="green", annotation_text="Optimal")
         
         st.plotly_chart(fig, use_container_width=True)
         
+        st.subheader("Bracket Diversity")
+        fig_unique = px.line(agg_res, x='Variation', y='UniqueBrackets',
+                             title=f"Average Unique Brackets Generated (per {sims_per_setting} simulations)",
+                             markers=True, labels={'UniqueBrackets': 'Unique Brackets Count', 'Variation': 'Randomness (+/- Points)'})
+        st.plotly_chart(fig_unique, use_container_width=True)
+
+        st.subheader("Performance by Year")
+        # Ensure Year is treated as discrete for coloring
+        res_df_plot = res_df.copy()
+        res_df_plot['Year'] = res_df_plot['Year'].astype(str)
+        
+        fig_years = px.line(res_df_plot, x='Variation', y='AvgScore', color='Year',
+                            title="Average Score vs. Randomness (By Year)",
+                            markers=True,
+                            labels={'AvgScore': 'Average ESPN Score', 'Variation': 'Randomness (+/- Points)'})
+        st.plotly_chart(fig_years, use_container_width=True)
+
         with st.expander("View Detailed Data"):
             st.dataframe(res_df)
+
+    st.divider()
+    st.header("Historical Variation Analysis")
+    st.markdown("Run this analysis to see the average prediction error (MAE) and standard deviation for each round across all available years. This helps calibrate the 'Variation' setting based on historical reality.")
+    
+    if st.button("Analyze Model Errors by Round"):
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+        
+        # Use all available years for this analysis to be robust
+        analysis_years = years_available
+        total_steps = len(analysis_years)
+        all_residuals = []
+
+        for i, year in enumerate(analysis_years):
+            status_text.text(f"Analyzing {year}...")
+            
+            # Train (Leave-One-Out)
+            train_df = fup[(fup['Year'] != year) & (fup['PFScore'] + fup['PUScore'] > 0)].select_dtypes(exclude=['object'])
+            
+            # Setup columns (same as optimization loop)
+            drop_list = ['PFScore', 'PUScore', 'Year', 'Round', 'Game', 'AWTeam', 'Fti', 'Uti', 'Actual_Winner', 'ESPN_Score']
+            garbage_cols = [c for c in train_df.columns if 'Unnamed' in c or 'Record' in c or 'Team.1' in c]
+            
+            X_train = train_df.drop(columns=[c for c in drop_list + garbage_cols if c in train_df.columns])
+            features = X_train.columns
+            y_fav_train = train_df['PFScore']
+            y_und_train = train_df['PUScore']
+            
+            model_f = VotingRegressor([('lr', LinearRegression()), ('gbm', GradientBoostingRegressor(n_estimators=50, random_state=42))])
+            model_f.fit(X_train, y_fav_train)
+            
+            model_u = VotingRegressor([('lr', LinearRegression()), ('gbm', GradientBoostingRegressor(n_estimators=50, random_state=42))])
+            model_u.fit(X_train, y_und_train)
+            
+            # Predict on current year
+            test_df = fup[(fup['Year'] == year) & (fup['PFScore'] + fup['PUScore'] > 0)].copy()
+            if test_df.empty: continue
+            
+            X_test = test_df.drop(columns=[c for c in drop_list + garbage_cols if c in test_df.columns], errors='ignore')
+            
+            # Ensure columns match training
+            for c in features:
+                if c not in X_test.columns: X_test[c] = 0
+            X_test = X_test[features]
+            
+            p_fav = model_f.predict(X_test)
+            p_und = model_u.predict(X_test)
+            
+            test_df['Pred_Margin'] = p_fav - p_und
+            test_df['Actual_Margin'] = test_df['PFScore'] - test_df['PUScore']
+            test_df['Error'] = abs(test_df['Actual_Margin'] - test_df['Pred_Margin'])
+            test_df['Raw_Error'] = test_df['Actual_Margin'] - test_df['Pred_Margin']
+            
+            all_residuals.append(test_df[['Year', 'Round', 'Error', 'Raw_Error']])
+            
+            progress_bar.progress((i + 1) / total_steps)
+            
+        status_text.text("Analysis Complete!")
+        
+        if all_residuals:
+            full_res_df = pd.concat(all_residuals)
+            
+            # Group by Round
+            round_stats = full_res_df.groupby('Round').agg(
+                MAE=('Error', 'mean'),
+                StdDev=('Raw_Error', 'std'),
+                Count=('Error', 'count')
+            ).reset_index()
+            
+            st.subheader("Prediction Error by Round")
+            st.dataframe(round_stats.style.format("{:.2f}"))
+            
+            st.info("Tip: The 'StdDev' is a good proxy for the 'Variation' setting. If StdDev increases in later rounds, a Progressive Variation strategy is justified.")
+            
+            # Plot
+            fig = px.bar(round_stats, x='Round', y=['MAE', 'StdDev'], barmode='group',
+                         title="Model Error (MAE) and Variability (StdDev) per Round")
+            st.plotly_chart(fig, use_container_width=True)
 
 run()
