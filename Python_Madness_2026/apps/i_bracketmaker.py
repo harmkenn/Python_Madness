@@ -21,7 +21,7 @@ fup['PFScore']=fup['AFScore']
 fup['PUSeed']=fup['AUSeed']
 fup['PUTeam']=fup['AUTeam']
 fup['PUScore']=fup['AUScore']
-fup = fup.drop(['AFSeed','AFTeam','AFScore','AUSeed','AUTeam','AUScore','Fti','Uti'],axis=1)
+fup = fup.drop(['AFSeed','AFTeam','AFScore','AUSeed','AUTeam','AUScore'],axis=1)
 
 
 # Build the linear model
