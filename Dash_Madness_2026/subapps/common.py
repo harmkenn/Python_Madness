@@ -23,11 +23,22 @@ def table(df, page_size=25, height="620px", sort_by=None):
         dtype = shown[col].dtype
         if pd.api.types.is_object_dtype(dtype) or isinstance(dtype, pd.StringDtype):
             shown[col] = shown[col].astype(str)
+    column_widths = []
+    for col in shown.columns:
+        longest = max(len(col), int(shown[col].astype(str).str.len().max() or 0))
+        width = max(70, longest * 8 + 24)
+        column_widths.append({
+            "if": {"column_id": col},
+            "minWidth": f"{width}px",
+            "width": f"{width}px",
+            "maxWidth": f"{width}px",
+        })
     return dash_table.DataTable(
         data=shown.to_dict("records"), columns=[{"name": c, "id": c} for c in shown.columns],
         page_size=page_size, sort_action="native", sort_by=sort_by or [], filter_action="native",
         style_table={"overflowX": "auto", "maxHeight": height, "overflowY": "auto"},
-        style_cell={"fontFamily": "Arial", "fontSize": 13, "padding": "6px", "textAlign": "left", "minWidth": "70px", "maxWidth": "260px", "whiteSpace": "normal"},
+        style_cell={"fontFamily": "Arial", "fontSize": 13, "padding": "6px", "textAlign": "left", "whiteSpace": "nowrap"},
+        style_cell_conditional=column_widths,
         style_header={"fontWeight": "bold", "backgroundColor": "#edf2f7"},
         virtualization=len(shown) > 500,
     )

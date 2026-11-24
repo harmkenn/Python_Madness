@@ -12,4 +12,4 @@ py app.py
 
 Open the local address printed by Dash (normally `http://127.0.0.1:8050`).
 
-The navigation includes the 13 sections from the Streamlit app. Historical tables, per-game predictions, bracket predictions, ensemble simulations, and variation scoring use the copied CSV files. The Streamlit `Update Data` workflow is intentionally not wired into this app: it scrapes external sites and rewrites source data, so refreshes should currently be run from the original Streamlit application.
+The navigation includes the 13 sections from the Streamlit app, each implemented in its own module under `subapps/`. Historical tables, predictions, bracket simulations, and variation scoring use the copied CSV files. The Dash `Update Data` page standardizes those local source files and rebuilds derived tables; it does not scrape sites or write into the Streamlit project.
