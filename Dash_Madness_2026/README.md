@@ -1,6 +1,6 @@
 # Python Madness 2026 · Dash edition
 
-This folder contains a separate Dash application and a copy of the CSV data. It does not write to `Python_Madness_2026/data`.
+This folder contains a separate Dash application and a copy of the CSV data. Each navigation item is implemented as a page module in `subapps/`; `app.py` contains only the shared shell and URL router. The Dash app does not write to `Python_Madness_2026/data`.
 
 ## Run
 
