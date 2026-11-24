@@ -1,0 +1,81 @@
+ESPN TOURNAMENT CHALLENGE OFFICIAL TEAM NAMES
+==============================================
+
+This is the authoritative list of team names used in ESPN's Tournament Challenge bracket system.
+These names are used for auto-filling brackets and must match EXACTLY.
+
+A:
+Abilene Christian, Air Force, Akron, Alabama, Alabama A&M, Alabama St., Albany, Alcorn St., American, Appalachian St., Arizona, Arizona St., Arkansas, Arkansas Pine Bluff, Arkansas St., Army, Auburn, Austin Peay
+
+B:
+Ball St., Baylor, Bellarmine, Belmont, Bethune Cookman, Binghamton, Boise St., Boston College, Boston University, Bowling Green, Bradley, Brown, Bryant, Bucknell, Buffalo, Butler, BYU
+
+C:
+Cal Baptist, Cal Poly, Cal St. Bakersfield, Cal St. Fullerton, California, Campbell, Canisius, Central Arkansas, Central Connecticut, Central Michigan, Charleston, Charleston Southern, Charlotte, Chattanooga, Chicago St., Cincinnati, Clemson, Cleveland St., Coastal Carolina, Colgate, Colorado, Colorado St., Columbia, Connecticut, Coppin St., Cornell, Creighton, CSUN
+
+D:
+Dartmouth, Davidson, Dayton, Delaware, Delaware St., Denver, DePaul, Detroit Mercy, Drake, Drexel, Duke, Duquesne
+
+E:
+East Carolina, East Tennessee St., East Texas A&M, Eastern Illinois, Eastern Kentucky, Eastern Michigan, Eastern Washington, Elon, Emory & Henry, Emporia St., Evansville
+
+F:
+Fairfield, Fairleigh Dickinson, Farleigh Dickinson, Florida, Florida A&M, Florida Atlantic, Florida Gulf Coast, Florida International, Florida St., Fordham, Furman
+
+G:
+George Mason, George Washington, Georgetown, Georgia, Georgia Southern, Georgia St., Georgia Tech, Gonzaga
+
+H:
+Hartford, Harvard, Hawaii, High Point, Hofstra, Holy Cross, Houston, Howard, Huntington
+
+I:
+Idaho, Idaho St., Illinois, Illinois St., Incarnate Word, Indiana, Indiana State, Iowa, Iowa St., Iona, IPFW, Irvine
+
+J:
+Jackson St., Jacksonville, Jacksonville St., James Madison, Kansas, Kansas City, Kansas St., Kennesaw St., Kent St., Kentucky, Kenyon
+
+L:
+Lafayette, Lamar, Lander, La Salle, La Tech, Lehigh, Liberty, Lipscomb, Long Beach St., Long Island, Longwood, Louisiana, Louisiana-Lafayette, Louisiana-Monroe, Louisiana St., Louisville, Lowell, Loyola Chicago, Loyola Marymount, Loyola (Maryland), LSU
+
+M:
+Maine, Manhattan, Marquette, Marshall, Maryland, Massachusetts, McNeese St., Memphis, Mercer, Merrimack, Miami (FL), Miami (Ohio), Michigan, Michigan St., Middle Tennessee St., Midwestern St., Minnesota, Mississippi, Mississippi St., Missouri, Missouri St., Monmouth, Montana, Montana St., Morehead St., Morgan St., Mount St. Mary's, Muhlenberg
+
+N:
+Navy, NC A&T, NC Central, New Hampshire, New Mexico, New Mexico St., New Orleans, New York Tech, Niagara, Nicholls St., NJIT, North Carolina, North Carolina A&T, North Carolina Central, North Carolina St., North Dakota, North Dakota St., Northeastern, Northern Arizona, Northern Colorado, Northern Illinois, Northern Kentucky, Northern State, Northwestern, Northwestern St., Notre Dame
+
+O:
+Oakland, Ohio, Ohio St., Oklahoma, Oklahoma City, Oklahoma St., Old Dominion, Oral Roberts, Oregon, Oregon St.
+
+P:
+Pacific, Pacific Lutheran, Pace, Penn, Penn State, Pennsylvania, Pepperdine, Philadelphia University, Phoenix, Pittsburgh, Portland, Portland St., Prairie View, Presbyterian, Princeton, Providence, Purdue, Purdue Fort Wayne
+
+Q:
+Quincy, Quinnipiac
+
+R:
+Radford, Rhode Island, Rice, Richmond, RIMAC, Robert Morris, Rockford, Rollins, Rosmont, Rowan, Royal Military College, Rutgers, Ryerson
+
+S:
+Sacred Heart, Saginaw Valley St., Saint Joseph's, Saint Louis, Saint Mary's, Saint Peter's, Salem, Samford, San Diego, San Diego St., San Francisco, San Jose St., Santa Clara, SAU, Savannah St., Seattle, Seattle Pacific, Shanghai, Shenandoah, Shippensburg, Siena, SMU, South Alabama, South Carolina, South Carolina Upstate, South Dakota, South Dakota St., Southeastern Louisiana, Southeast Missouri St., Southern, Southern Arkansas, Southern Connecticut, Southern Illinois, Southern Methodist, Southern Mississippi, Southern Utah, Southwest Minnesota St., Southwestern, Spalding, Spring Hill, St. Ambrose, St. Andrews, St. Augustine's, St. Bonaventure, St. Cloud St., St. Francis, St. John's, St. Joseph's, St. Leo, St. Mary's, St. Mary's (MD), St. Mary's (TX), St. Peter's, Stanford, Stephen F. Austin, Stetson, Stevens, Stony Brook, Su, SUU, Syracuse
+
+T:
+Tarleton St., Temple, Tennessee, Tennessee-Martin, Tennessee St., Texas, Texas A&M, Texas A&M-Corpus Christi, Texas-Arlington, Texas-San Antonio, Texas Southern, Texas St., Texas Tech, The Citadel, Toledo, Towson, Troy, Tulane, Tulsa, Tuskegee
+
+U:
+UMBC, UMass, UMASS Lowell, UNC Greensboro, UNC Wilmington, UNCG, Union, UNLV, UNI, USC, Utah, Utah St., Utah Valley, UTEP, UTSA
+
+V:
+Valparaiso, Vanderbilt, Villanova, Virginia, Virginia Military Institute, Virginia Tech
+
+W:
+Wagner, Wake Forest, Warner Pacific, Washington, Washington St., Wayne St., Weber St., Wellesley, West Alabama, West Carolina, West Florida, West Virginia, West Virginia Wesleyan, Western Carolina, Western Illinois, Western Kentucky, Western Michigan, Western Washington, Westmont, Wichita St., William & Mary, Williams, Winthrop, Wisconsin, Wisconsin-Green Bay, Wisconsin-Milwaukee, Wittenberg, Wofford, Womens Military Academy, Womens Military College, Wright St.
+
+X/Y/Z:
+Xavier, Yale, Youngstown St.
+
+NOTE: Common variations to map:
+- "St." not "State" or "St" (with period)
+- "UNC" becomes state name (e.g., "North Carolina")
+- No apostrophes in contradictions
+- No "The" at beginning
+- Hyphenated names standardized (check ESPN directly for each)
