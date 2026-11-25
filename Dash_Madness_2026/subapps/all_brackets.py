@@ -21,14 +21,17 @@ def layout():
     ])
 
 
-def team_line(seed, team, score, won):
+def team_line(seed, team, score, won, compact=False):
+    font_size = "10px" if compact else "11px"
+    padding = "2px 4px" if compact else "4px 6px"
+    seed_width, score_width = ("16px", "20px") if compact else ("18px", "24px")
     return html.Div([
         html.Span(str(int(seed)) if seed else "", style={"color": "#64748b", "textAlign": "center"}),
         html.Span(str(team)),
         html.Span(str(int(score)) if score != "" else "", style={"textAlign": "right", "fontVariantNumeric": "tabular-nums"}),
     ], style={
-        "display": "grid", "gridTemplateColumns": "18px minmax(0, 1fr) 24px", "gap": "4px",
-        "alignItems": "center", "padding": "4px 6px", "fontSize": "11px",
+        "display": "grid", "gridTemplateColumns": f"{seed_width} minmax(0, 1fr) {score_width}", "gap": "3px",
+        "alignItems": "center", "padding": padding, "fontSize": font_size,
         "fontWeight": "700" if won else "400",
         "background": "#e8f5e9" if won else "#fff",
         "color": "#173b24" if won else "#263445",
@@ -36,13 +39,13 @@ def team_line(seed, team, score, won):
     })
 
 
-def game_card(game):
+def game_card(game, compact=False):
     af_won = float(game.AFScore) > float(game.AUScore)
     au_won = float(game.AUScore) > float(game.AFScore)
     return html.Div([
-        team_line(game.AFSeed, game.AFTeam, game.AFScore, af_won),
+        team_line(game.AFSeed, game.AFTeam, game.AFScore, af_won, compact),
         html.Div(style={"height": "1px", "background": "#d9e0e8"}),
-        team_line(game.AUSeed, game.AUTeam, game.AUScore, au_won),
+        team_line(game.AUSeed, game.AUTeam, game.AUScore, au_won, compact),
     ], style={
         "border": "1px solid #cbd5e1", "borderRadius": "5px", "overflow": "hidden",
         "background": "white", "boxShadow": "0 1px 2px #0f172a12",
@@ -50,16 +53,17 @@ def game_card(game):
 
 
 def round_column(label, games):
+    row_count = max(1, len(games))
     return html.Div([
         html.Div(label, style={"fontSize": "11px", "fontWeight": "700", "color": "#475569", "height": "26px", "display": "flex", "alignItems": "center"}),
-        html.Div([game_card(g) for g in games], style={
-            "height": "560px", "minWidth": "155px", "display": "flex", "flexDirection": "column",
-            "justifyContent": "space-around", "gap": "5px",
+        html.Div([game_card(g, compact=True) for g in games], style={
+            "height": "440px" if games else "0px", "minWidth": "155px", "display": "grid",
+            "gridTemplateRows": f"repeat({row_count}, minmax(0, 1fr))", "alignItems": "center", "gap": "0",
         }),
     ], style={"flex": "0 0 155px"})
 
 
-def region_bracket(df, region_code, region_name, first_game):
+def region_bracket(df, region_code, region_name, first_game, mirrored=False):
     by_game = {int(row.Game): row for row in df.itertuples(index=False)}
     region_index = [code for code, _, _ in REGIONS].index(region_code)
     rounds = [
@@ -73,9 +77,9 @@ def region_bracket(df, region_code, region_name, first_game):
         games = [by_game[g] for g in game_ids if g in by_game]
         columns.append(round_column(ROUND_NAMES[round_no], games))
     return html.Section([
-        html.H2(region_name, style={"fontSize": "16px", "margin": "0 0 6px", "color": "#15243a"}),
-        html.Div(columns, style={"display": "flex", "gap": "9px", "overflowX": "auto", "paddingBottom": "6px"}),
-    ], style={"marginBottom": "16px", "padding": "10px", "background": "#f5f7fa", "borderRadius": "8px", "border": "1px solid #e2e8f0"})
+        html.H2(region_name, style={"fontSize": "16px", "margin": "0 0 6px", "color": "#15243a", "textAlign": "right" if mirrored else "left"}),
+        html.Div(columns, style={"display": "flex", "flexDirection": "row-reverse" if mirrored else "row", "gap": "9px", "overflowX": "auto", "paddingBottom": "6px"}),
+    ], style={"marginBottom": "12px", "padding": "10px", "background": "#f5f7fa", "borderRadius": "8px", "border": "1px solid #e2e8f0"})
 
 
 def national_bracket(df):
@@ -102,7 +106,18 @@ def register_callbacks(app):
         df = df[(df.Year == year) & (df.Game >= 1)]
         if df.empty:
             return html.P(f"No bracket data is available for {year}.")
-        children = [html.H2(str(year), style={"marginTop": "0"})]
-        children.extend(region_bracket(df, *region) for region in REGIONS)
-        children.append(national_bracket(df))
-        return html.Div(children)
+        nw, sw, ne, se = REGIONS
+        return html.Div([
+            html.H2(str(year), style={"marginTop": "0"}),
+            html.Div(national_bracket(df), style={"display": "flex", "justifyContent": "center", "marginBottom": "18px"}),
+            html.Div([
+                html.Div([
+                    region_bracket(df, *nw),
+                    region_bracket(df, *sw),
+                ], style={"flex": "0 0 680px", "width": "680px"}),
+                html.Div([
+                    region_bracket(df, *ne, mirrored=True),
+                    region_bracket(df, *se, mirrored=True),
+                ], style={"flex": "0 0 680px", "width": "680px"}),
+            ], style={"display": "flex", "alignItems": "flex-start", "gap": "18px", "overflowX": "auto", "paddingBottom": "12px"}),
+        ])

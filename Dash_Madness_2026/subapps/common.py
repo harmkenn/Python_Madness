@@ -5,7 +5,9 @@ import pandas as pd
 import plotly.express as px
 from dash import dash_table, dcc, html
 from sklearn.ensemble import GradientBoostingRegressor, VotingRegressor
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -66,7 +68,7 @@ def stats_pair(all_stats, year, favored, underdog):
     return result
 
 
-def simulate_ensemble(year, variation=0, progressive=False, seed=42, ensemble=True):
+def simulate_ensemble(year, variation=0, progressive=False, seed=42, ensemble=True, ridge_alpha=None):
     games = csv("step05g_FUStats.csv")
     stats = csv("step05f_AllStats.csv")
     games = games[(games.Year <= 2025) & (games.Game >= 1)].drop_duplicates(["Year", "Game"]).copy()
@@ -83,7 +85,10 @@ def simulate_ensemble(year, variation=0, progressive=False, seed=42, ensemble=Tr
     if X.empty or len(train) < 10:
         raise ValueError("Not enough historical games are available to train the prediction model.")
     # The original model predicts both team scores with an LR/GBM voting ensemble.
-    if ensemble:
+    if ridge_alpha is not None:
+        model_f = make_pipeline(StandardScaler(), Ridge(alpha=float(ridge_alpha))).fit(X, train.PFScore)
+        model_u = make_pipeline(StandardScaler(), Ridge(alpha=float(ridge_alpha))).fit(X, train.PUScore)
+    elif ensemble:
         model_f = VotingRegressor([("lr", LinearRegression()), ("gbm", GradientBoostingRegressor(n_estimators=100, random_state=42))]).fit(X, train.PFScore)
         model_u = VotingRegressor([("lr", LinearRegression()), ("gbm", GradientBoostingRegressor(n_estimators=100, random_state=42))]).fit(X, train.PUScore)
     else:
